@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+<html ng-app="WebAPI">
+<head>
+    <title>Taxi Service</title>
+    <link rel="stylesheet" href="../../Content/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../MyCSSs/StyleSheet1.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" ng-controller="MainController">
+            <div class="container-fluid">
+              
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+               
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ng-show="loggedin" ng-class="checkActive('/MyHome')"><a href="#!/MyHome"><i class="ion ion-android-home"></i> Home</a></li>
+                      
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="!loggedin"  ng-class="checkActive('/Login')"><a href="#!/Login">Login</a></li>
+                        <li ng-show="!loggedin"  ng-class="checkActive('/Register')"><a href="#!/Register">Register</a></li>
+                        <li ng-show="loggedin"><a href="#!/Profile/{{user.username}}"><i class="ion ion-person"></i> {{user.nameSurname}}</a></li>
+                        <li ng-show="loggedin"><a href ng-click="Logout()"><i class="ion ion-log-out"></i> Logout</a></li>
+    
+                    </ul>
+                </div><!-- /.navbar-collapse    class="glyphicon glyphicon-user"   class="glyphicon glyphicon-log-in" -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div ng-view></div>
+    </div>
+
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-route.min.js"></script>
+
+
+    <script src="../../MyCont/pagehelp.js"></script>
+    <script src="../../MyControllers/MyHomeController.js"></script>
+    <script src="../../MyControllers/LoginController.js"></script>
+    <script src="../../MyControllers/MainController.js"></script>
+    <script src="../../MyControllers/ProfileController.js"></script>
+    <script src="../../MyControllers/RegisterController.js"></script>
+    <script src="../../MyCont/LogCont.js"></script>
+    <script src="../../MyCont/ProfCont.js"></script>
+    <script src="../../MyCont/MyDirective.js"></script>
+
+</body>
+</html>
