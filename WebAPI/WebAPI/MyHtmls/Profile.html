@@ -1,16 +1,16 @@
 ﻿<div class="container-fluid" ng-show="loggedin">
         <div class="userProfileDetails">
-            
-            <h1> {{userProfile.Name}} {{userProfile.Surname}}</h1> <h1>({{userProfile.UserName}})</h1>
+            <br/>
+            <br/>
+            <h1> {{userProfile.Name}} {{userProfile.Surname}} - ({{userProfile.UserName}})</h1>
             
             <h4 ng-show="userProfile.Role==0">Role: Customer</h4>
             <h4 ng-show="userProfile.Role==1">Role: Dispatcher</h4>
             <h4 ng-show="userProfile.Role==2">Role: Driver</h4>
 
             <h4 ng-show="userProfile.Gender==0">Gender: Male</h4>
-            <h4 ng-show="userProfile.Gender==0">Gender: Female</h4>
+            <h4 ng-show="userProfile.Gender==1">Gender: Female</h4>
             <h4>E-mail: {{userProfile.Email}}</h4>
             <h4>Phone number: {{userProfile.ContactPhoneNumber}}</h4>
-              </div>
-   
+         </div>
 </div>

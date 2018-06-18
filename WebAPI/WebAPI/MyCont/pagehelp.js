@@ -26,13 +26,22 @@ WebAPI.config(function ($routeProvider) {
         {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Profile.html',
-            activeTab: 'nijedan'
+            activeTab: 'Profile'
         }).when('/Profile/:username', {
 
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Profile.html',
-            activetab: 'nijedan'
+            activetab: 'Profile'
 
+        }).when('/DriveGet/:username',
+        {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/DriveGet.html',
+            activetab: 'none'
+        }).when('/AddDrivers/:username', {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/AddDrivers.html',
+            activetab: 'AddDrivers'
         })
 
 });

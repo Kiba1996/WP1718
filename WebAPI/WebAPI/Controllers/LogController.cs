@@ -20,9 +20,16 @@ namespace WebAPI.Controllers
         public bool Register([FromBody]UserR k)
         {
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
-            List<User> users = xml.ReadUsers(ss);
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Dispatcher> admins = xml.ReadDispatcher(adm);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
             bool g = true;
-            foreach (User u in users)
+            
+            foreach (Customer u in users)
             {
                 if (u.UserName == k.Username)
                 {
@@ -31,9 +38,25 @@ namespace WebAPI.Controllers
                 }
              }
 
+            foreach (Dispatcher ad in admins)
+            {
+                if (ad.UserName == k.Username)
+                {
+                    g = false;
+                }
+            }
+
+            foreach (Driver dr in drivers)
+            {
+                if (dr.UserName == k.Username)
+                {
+                    g = false;
+                }
+            }
+
             if (g)
             {
-                User user = new Customer();
+                Customer user = new Customer();
                 user.UserName = k.Username;
                 user.Password = k.Password;
                 user.Name = k.Ime;
@@ -50,7 +73,7 @@ namespace WebAPI.Controllers
                 user.ContactPhoneNumber = k.Telefon;
                 user.Email = k.Email;
                 user.Role = Enums.RoleType.Customer;
-                user.Drives = new List<Drive>();
+               // user.Drives = new List<Drive>();
                
                 users.Add(user);
                 xml.WriteUsers(users, ss);
@@ -70,21 +93,57 @@ namespace WebAPI.Controllers
         public User Login([FromBody]UserR1 k)
         {
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
-            List<User> users = xml.ReadUsers(ss);
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
 
-            foreach(var v in users)
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Dispatcher> admins = xml.ReadDispatcher(adm);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            foreach (var v in users)
             {
                 if(v.UserName == k.Username && v.Password == k.Password)
                 {
                      return v;   
                 }
             }
+            foreach (var v in admins)
+            {
+                if (v.UserName == k.Username && v.Password == k.Password)
+                {
+                    return v;
+                }
+            }
+
+            foreach (var v in drivers)
+            {
+                if (v.UserName == k.Username && v.Password == k.Password)
+                {
+                    return v;
+                }
+            }
 
             return null;
         }
 
-        
+       
+        [HttpGet]
+        [ActionName("GetDrives")]
+        public List<Drive> GetDrives(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
+            List<Drive> listaDrives = xml.ReadDrives(ss);
+            List<Drive> listaDrives1 = new List<Drive>();
+            foreach (Drive d in listaDrives)
+            {
+                if (d.Customer.UserName == username || d.Dispatcher.UserName == username)
+                {
+                    listaDrives1.Add(d);
+                }
+            }
+            return listaDrives1;
+        }
 
 
     }

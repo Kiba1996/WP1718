@@ -21,6 +21,9 @@
         });
     }
 
+    factory.getDrives = function(username) {
+        return $http.get('/api/Log/GetDrives?username=' + username);
+    }
 
     return factory;
 });

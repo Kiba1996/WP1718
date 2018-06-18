@@ -9,18 +9,18 @@ namespace project.Models
     {
         public String Description { get; set; }
         public DateTime Date { get; set; }
-        public User User { get; set; }
-        public Drive Drive { get; set; }
+        public String user { get; set; }//User User { get; set; }
+        public String Drive { get; set; }//Drive Drive { get; set; }
         public int Rating { get; set; }
 
         public Comment() { }
-        public Comment(String d, DateTime dt,User u, Drive dr, int r)
-        {
-            Description = d;
-            Date = dt;
-            User = u;
-            Drive = dr;
-            Rating = r;
-        }
+        //public Comment(String d, DateTime dt,String u, String dr, int r)
+        //{
+        //    Description = d;
+        //    Date = dt;
+        //    User = u;
+        //    Drive = dr;
+        //    Rating = r;
+        //}
     }
 }

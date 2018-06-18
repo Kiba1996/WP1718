@@ -188,7 +188,6 @@
     <Content Include="MyControllers\MainController.js" />
     <Content Include="MyControllers\MyHomeController.js" />
     <Content Include="MyControllers\ProfileController.js" />
-    <Content Include="MyControllers\RegisterController.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="MyCont\LogCont.js" />
@@ -196,6 +195,9 @@
     <Content Include="MyCont\pagehelp.js" />
     <Content Include="MyCont\ProfCont.js" />
     <Content Include="MyCSSs\StyleSheet1.css" />
+    <Content Include="MyHtmls\AddDrivers.html" />
+    <Content Include="MyHtmls\DriveGet.html" />
+    <Content Include="MyHtmls\Edit.html" />
     <Content Include="MyHtmls\Login.html" />
     <Content Include="MyHtmls\MyHome.html" />
     <Content Include="MyHtmls\Profile.html" />

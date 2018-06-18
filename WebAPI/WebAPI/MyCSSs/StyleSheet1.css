@@ -10,13 +10,46 @@
     padding: 40px;
 }
 
+.map {
+    height: 400px;
+    width: 100%;
+}
 
+.Dugmad {
+    background: #0b213f;
+    font-family: Source Code Pro Medium;
+    color: #12aae9;
+    border: 1;
+    border-color: #12aae9;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    /*color: #555555;*/
+    /*vertical-align: middle;*/
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 
-    .loginWindow .header {
-        width: 100%;
-        border-radius: 4px 4px 0 0;
-        text-align: center;
-    }
+.containerClass {
+    position: relative;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+.loginWindow .header {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+}
 
         .loginWindow .header h2 {
             font-weight: 300;
@@ -199,7 +232,12 @@ textarea {
     color: #12aae9;
 }
 
-.userProfileDetails h4 h1{
+.userProfileDetails h4{
+    font-weight: 200;
+    color: #12aae9;
+}
+
+.userProfileDetails h1 {
     font-weight: 200;
     color: #12aae9;
 }
@@ -210,8 +248,42 @@ textarea {
         background: #0060FF;
     }
 
-    
 
+.praceneTeme {
+    background: #fff;
+    border: 2px solid #0060FF;
+    width: 100%;
+    margin: auto;
+    min-height: 200px;
+    max-height: auto;
+    border-radius: 8px;
+    margin-top: 100px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+    .praceneTeme .teme-repeat a {
+        color: #0060FF;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .praceneTeme .teme-repeat .tema {
+        width: 90%;
+        height: auto;
+        background: #fff;
+        box-shadow: 1px 2px 60px -18px rgba(0, 0, 0, 0.6);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: 0.2s ease;
+        margin-top: 20px;
+    }
+
+        .praceneTeme .teme-repeat .tema:hover {
+            color: #fff;
+            background: #0060FF;
+        }
 
 
 

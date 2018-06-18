@@ -1,87 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <User xsi:type="Customer">
-    <UserName>barbi</UserName>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <UserName>beba</UserName>
     <Password>aa</Password>
-    <Name>Barbara</Name>
-    <Surname>Segrt</Surname>
-    <Gender>Male</Gender>
-    <JMBG>13323</JMBG>
-    <ContactPhoneNumber>2323</ContactPhoneNumber>
-    <Email>ssasa</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>Gica</UserName>
-    <Password>dddd</Password>
-    <Name>Tamra</Name>
-    <Surname>Gengo</Surname>
+    <Name>aaaaaa</Name>
+    <Surname>sasas</Surname>
     <Gender>Female</Gender>
-    <JMBG>12342</JMBG>
-    <ContactPhoneNumber>3333</ContactPhoneNumber>
-    <Email>dadada</Email>
+    <JMBG>2222222222222</JMBG>
+    <ContactPhoneNumber>11111</ContactPhoneNumber>
+    <Email>ss@</Email>
     <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>Hoola</UserName>
-    <Password>pass</Password>
-    <Name>Zdravko</Name>
-    <Surname>Pajic</Surname>
-    <Gender>Female</Gender>
-    <JMBG>2376894036524</JMBG>
-    <ContactPhoneNumber>062-1224453</ContactPhoneNumber>
-    <Email>haha@gmail.com</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>doomsday23</UserName>
-    <Password>jedandva</Password>
-    <Name>Goran</Name>
-    <Surname>Stojic</Surname>
-    <Gender>Male</Gender>
-    <JMBG>2347653902341</JMBG>
-    <ContactPhoneNumber>053-333-212</ContactPhoneNumber>
-    <Email>omg@gmail.com</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>gica</UserName>
-    <Password>gg</Password>
-    <Name>Tamara</Name>
-    <Surname>Gengo</Surname>
-    <Gender>Female</Gender>
-    <JMBG>3452347865906</JMBG>
-    <ContactPhoneNumber>06755443</ContactPhoneNumber>
-    <Email>gengo@gmail.com</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>Gica123</UserName>
-    <Password>sss</Password>
-    <Name>Tamara</Name>
-    <Surname>Gengo</Surname>
-    <Gender>Male</Gender>
-    <JMBG>3322323421456</JMBG>
-    <ContactPhoneNumber>942323</ContactPhoneNumber>
-    <Email>dd@</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-  <User xsi:type="Customer">
-    <UserName>Suzana123</UserName>
-    <Password>123</Password>
-    <Name>Suzana</Name>
-    <Surname>Jovic</Surname>
-    <Gender>Female</Gender>
-    <JMBG>1237865430392</JMBG>
-    <ContactPhoneNumber>23232</ContactPhoneNumber>
-    <Email>hshs@</Email>
-    <Role>Customer</Role>
-    <Drives />
-  </User>
-</ArrayOfUser>
+  </Customer>
+</ArrayOfCustomer>

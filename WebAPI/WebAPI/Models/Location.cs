@@ -7,12 +7,12 @@ namespace project.Models
 {
     public class Location
     {
-        public Double X { get; set; }
-        public Double Y { get; set; }
+        public String X { get; set; }
+        public String Y { get; set; }
         public Address Address { get; set; }
 
         public Location() { }
-        public Location(Double x, Double y, Address a)
+        public Location(String x, String y, Address a)
         {
             X = x;
             Y = y;

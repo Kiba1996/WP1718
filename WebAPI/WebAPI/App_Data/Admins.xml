@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDispatcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Dispatcher>
+    <UserName>barbi</UserName>
+    <Password>aa</Password>
+    <Name>aaaaaa</Name>
+    <Surname>sasas</Surname>
+    <Gender>Female</Gender>
+    <JMBG>2222222222222</JMBG>
+    <ContactPhoneNumber>11111</ContactPhoneNumber>
+    <Email>ss@</Email>
+    <Role>Dispatcher</Role>
+  </Dispatcher>
+</ArrayOfDispatcher>

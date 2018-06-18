@@ -21,7 +21,7 @@ namespace project.Models
 
         public Drive()
         {
-            CarType = CarType.NoType;
+            //CarType = CarType.NoType;
         }
 
     }
