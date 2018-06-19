@@ -4,11 +4,53 @@
 <div class="container-fluid">
     <div class=""> <!--class="podforumi-header">-->
         <h1>Welcome <span ng-show="loggedin">{{user.username}}</span> <!--<span ng-show="korisnik.uloga.includes('Administrator')">(Admin)</span>--></h1>
-        <h4 ng-show="loggedin">Your drives</h4>
+        <h4 ng-show="loggedin">
+            {{filtriranje}}
+        </h4>
         <h4 ng-show="!loggedin">Please login if you want to use our services.</h4>
     </div>
 </div>
+<div ng-show="user.role == 1">
+    <<a href="#!/Home2/{{user.username}}">Show all drives</a>
+</div>
+<div ng-show="user.role == 2">
+    <<a href="#!/Home3/{{user.username}}">Show all drives with a status Waiting</a>
+</div>
+<div class="body">
+    <div class="form-group">
+        <select class="t" id="fil" ng-model="fu.Stat"><!--placeholder="Gender">-->
+            <option value="0">Created-waiting</option>
+            <option value="1"> Canceled</option>
+            <option value="2">Formed</option>  
+            <option value="3">Processed</option>
+            <option value="4">Accepted</option>
+            <option value="5">Successful</option>
+            <option value="6">Unsuccessful</option>
+         </select>
+    </div>
+    <br>
+    <!--<button type="submit" class="btn button-success" ng-click="Filter(fu)">Filter</button>-->
+    <a ng-href="#!/Filter/{{fu.Stat}}">Filter</a>
+ </div>
 
+
+
+<div class="container-fluid">
+    <h4  ng-show="FilterRez">Drives koji zadovoljavaju kriterijume</h4>
+    <div class="rezultati" ng-repeat="drive in FilterRez">
+        <!--ng repeat-->
+        <div class="tema">
+            <p>  {{drive.DataAndTime}} </p>
+            <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+            <p> {{drive.Arrival.Address.Town}}</p>
+            <p> {{drive.Arrival.Address.PostalCode}}</p>
+        </div>
+    </div>
+</div>
+
+
+
+<h4 ng-show="Drives.length == 0">{{filtriranje}}</h4>
 <div class="container">
     <div class="col-md-12">
         <div class="praceneTeme">   <!--ng-show="Drives"-->
@@ -37,7 +79,7 @@
 <br/>
 <br/>
 <div class="containerClass">
-    <div class="topright"><!--</div> ng-show="user.role == 0" class="topright">-->
+    <div class="topright" ng-show="user.role != 2"> 
         <a href="#!/DriveGet/{{user.username}}">Add Drive</a>
     </div>
 </div>

@@ -1,38 +1,38 @@
 ﻿<div class="registerWindow">
     <div class="header">
-        <h2>Edit Form: </h2>
+        <h1>Edit Form: </h1>
     </div>
-    <div class="body">
+    <!-->div-- class="body">
         <div class="form-group">
-            <input type="text" class="t" id="username" ng-model="user.username" placeholder="Username">
+           <label>User name: {{userProfile.UserName}}. New username</label> <input type="text" class="t" id="username" ng-model="user.username"/>
         </div>
         <div class="form-group">
-            <input type="text" class="t" id="ime" ng-model="user.ime" placeholder="Name">
+            <label>Name: {{userProfile.Name}}. New name</label> <input type="text" class="t" id="ime" ng-model="user.ime" />
         </div>
         <div class="form-group">
-            <input type="text" class="t" id="prezime" ng-model="user.prezime" placeholder="Surname">
+            <label>Surname: {{userProfile.Surname}}. New surname</label><input type="text" class="t" id="prezime" />
         </div>
-        <div class="form-group">
-            <select class="t" id="pol" ng-model="user.pol" placeholder="Gender">
+        <label>Gender: {{userProfile.Gender}}. New gender</label><div class="form-group">
+            <select class="t" id="pol" ng-model="user.pol" >
                 <option value="" disabled>Choose gender</option>
                 <option value="Male"> Male</option>
                 <option value="Female">Female</option>
             </select>
             <!--<input type="text" class="t" id="pol" ng-model="user.pol" placeholder="Pol">-->
+        <!-->/div>
+        <div class="form-group">
+            <label>JMBG: {{userProfile.Jmbg}}. New jmbg</label><input type="text" class="t" id="jmbg" ng-model="user.jmbg"/>
         </div>
         <div class="form-group">
-            <input type="text" class="t" id="jmbg" ng-model="user.jmbg" placeholder="JMBG">
+            <label>Phone: {{userProfile.ContactPhoneNumber}}. New phone number</label><input type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon"/>
         </div>
         <div class="form-group">
-            <input type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon" placeholder="Phone Number">
+            <label>Email: {{userProfile.Email}}. New Email: </label><input type="text" class="t" id="email" ng-model="user.email"/>
         </div>
         <div class="form-group">
-            <input type="text" class="t" id="email" ng-model="user.email" placeholder="Email">
-        </div>
-        <div class="form-group">
-            <input type="password" class="t" id="pwd" ng-model="user.pwd" placeholder="Password">
+            <label>Password: </label><input type="password" class="t" id="pwd" ng-model="user.pwd" placeholder="Password">
         </div>
         <br>
-        <button type="submit" class="btn button-success" ng-click="RegisterUser(user)">Register</button>
-    </div>
+        <button type="submit" class="btn button-success" ng-click="EditUser(user)">Edit</button>
+    </!--div-->
 </div>

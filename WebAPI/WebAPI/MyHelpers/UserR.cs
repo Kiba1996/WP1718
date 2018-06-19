@@ -18,6 +18,20 @@ namespace WebAPI.MyHelpers
         
     }
 
+    public class UserEDit
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Pol { get; set; }
+        public string Jmbg { get; set; }
+        public string Telefon { get; set; }
+        public string Email { get; set; }
+        public string OldUsername { get; set; }
+
+    }
+
     public class DriverR
     {
         public string Username { get; set; }
@@ -28,6 +42,9 @@ namespace WebAPI.MyHelpers
         public string Jmbg { get; set; }
         public string Telefon { get; set; }
         public string Email { get; set; }
+        public int Year { get; set; }
+        public string Reg { get; set; }
+        public string tipVoz { get; set; }
         //public string Car { get; set; }
 
 
@@ -37,6 +54,13 @@ namespace WebAPI.MyHelpers
     {
         public string Username { get; set; }
         public string Password { get; set; }
+    }
+
+    public class UserFilter
+    {
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public string Stat { get; set; }
     }
 
     public class DriveR

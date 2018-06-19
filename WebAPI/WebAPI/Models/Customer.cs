@@ -7,6 +7,8 @@ namespace project.Models
 {
     public class Customer : User
     {
-        public Customer() { }
+        public Customer() {
+            Role = Enums.RoleType.Customer;
+        }
     }
 }

@@ -7,6 +7,8 @@ namespace project.Models
 {
     public class Dispatcher : User
     {
-        public Dispatcher() { }
+        public Dispatcher() {
+            Role = Enums.RoleType.Dispatcher;
+        }
     }
 }

@@ -87,7 +87,111 @@ namespace WebAPI.Controllers
       
         }
 
-      
+
+
+        [HttpPost]
+        [ActionName("RegisterDriver")]
+        public bool RegisterDriver([FromBody]DriverR k)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+            string ca = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Cars.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Dispatcher> admins = xml.ReadDispatcher(adm);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+            List<Car> cars = xml.ReadCars(ca);
+
+            Car auto = new Car();
+
+            bool b = true;
+            bool g = true;
+
+            foreach (Customer u in users)
+            {
+                if (u.UserName == k.Username)
+                {
+
+                    g = false;
+                }
+            }
+
+            foreach (Dispatcher ad in admins)
+            {
+                if (ad.UserName == k.Username)
+                {
+                    g = false;
+                }
+            }
+
+            foreach (Driver dr in drivers)
+            {
+                if (dr.UserName == k.Username)
+                {
+                    g = false;
+                }
+            }
+
+            if (g)
+            {
+                Driver user = new Driver();
+                user.UserName = k.Username;
+                user.Password = k.Password;
+                user.Name = k.Ime;
+                user.Surname = k.Prezime;
+                if (k.Pol == "Female")
+                {
+                    user.Gender = Enums.GenederType.Female;
+                }
+                else
+                {
+                    user.Gender = Enums.GenederType.Male;
+                }
+                user.JMBG = Int64.Parse(k.Jmbg);
+                user.ContactPhoneNumber = k.Telefon;
+                user.Email = k.Email;
+                user.Role = Enums.RoleType.Driver;
+                user.Location = new Location();
+                user.Zauzet = false;
+                int brojAuta = cars.Count() +1;
+                
+                foreach(Car car in cars) {
+
+                    if(car.RegistrationNumber == k.Reg)
+                    {
+                        return false;
+                        //car.Driver = k.Username;
+                        //user.Car = car;
+                        //b = false;
+                        //break;
+                    }
+                }
+
+                user.Car = new Car(k.Username, k.Year, k.Reg, brojAuta, (Enums.CarType)int.Parse(k.tipVoz));
+
+                //if (b)
+                //{
+                //    user.Car = new Car();
+                //}
+                // user.Drives = new List<Drive>();
+                cars.Add(user.Car);
+                drivers.Add(user);
+                xml.WriteCars(cars, ca);
+                xml.WriteDrivers(drivers, drv);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
+
         [HttpPost]
         [ActionName("Login")]
         public User Login([FromBody]UserR1 k)
@@ -137,7 +241,7 @@ namespace WebAPI.Controllers
             List<Drive> listaDrives1 = new List<Drive>();
             foreach (Drive d in listaDrives)
             {
-                if (d.Customer.UserName == username || d.Dispatcher.UserName == username)
+                if (d.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
                 {
                     listaDrives1.Add(d);
                 }
@@ -145,6 +249,45 @@ namespace WebAPI.Controllers
             return listaDrives1;
         }
 
+      
+        [HttpGet]
+        [ActionName("GetDrivesAdmin")]
+        public List<Drive> GetDrivesAdmin(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
+            List<Drive> listaDrives = xml.ReadDrives(ss);
+            //List<Drive> listaDrives1 = new List<Drive>();
+            //foreach (Drive d in listaDrives)
+            //{
+            //    //if (d.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+            //    //{
+            //        listaDrives1.Add(d);
+            //    //}
+            //}
+            return listaDrives;
+        }
+
+        [HttpGet]
+        [ActionName("GetDrivesDriver")]
+        public List<Drive> GetDrivesDriver(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+
+            List<Drive> listaDrives = xml.ReadDrives(ss);
+            List<Drive> listaDrives1 = new List<Drive>();
+            foreach (Drive d in listaDrives)
+            {
+                if (d.Status == Enums.DriveStatus.Created_Waiting)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+                {
+                listaDrives1.Add(d);
+                }
+            }
+            return listaDrives1;
+        }
+
+
+        
+        
     }
 }

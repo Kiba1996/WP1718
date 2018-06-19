@@ -9,9 +9,11 @@ namespace project.Models
     {
         public Location Location { get; set; }
         public Car Car {get; set;}
+        public bool Zauzet { get; set; }
 
-
-        public Driver() { }
+        public Driver() {
+            Role = Enums.RoleType.Driver;
+        }
         
     }
 }

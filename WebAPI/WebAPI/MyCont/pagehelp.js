@@ -1,6 +1,5 @@
 ﻿var WebAPI = angular.module('WebAPI', ['ngRoute']);
-
-WebAPI.config(function ($routeProvider) {
+var pr;WebAPI.config(function ($routeProvider) {
     $routeProvider.when('/',
         {
             redirectTo: '/MyHome'
@@ -39,9 +38,25 @@ WebAPI.config(function ($routeProvider) {
             templateUrl: 'MyHtmls/DriveGet.html',
             activetab: 'none'
         }).when('/AddDrivers/:username', {
-            controller: 'ProfileController',
+            controller: 'LoginController',
             templateUrl: 'MyHtmls/AddDrivers.html',
             activetab: 'AddDrivers'
+        }).when('/Edit/:username', {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/Edit.html',
+            activeTab: 'Edit'
+        }).when('/Home2/:username', {
+            controller: 'Home2Controller',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
+        }).when('/Home3/:username', {
+            controller: 'Home3Controller',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
+        }).when('/Filter/:Stat', {
+            controller: 'FilterController',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
         })
 
 });

@@ -1,6 +1,6 @@
 ﻿WebAPI.controller('ProfileController', function ($scope, ProfCont, $routeParams, $window) {
 
-
+   
     function init() {
         console.log('Profile controller initialized');
      
@@ -9,7 +9,7 @@
             console.log(response.data);
 
             $scope.userProfile = response.data;
-          
+           
 
             });
  
@@ -60,6 +60,57 @@
 
     }
 
+    //$scope.EditUser = function (user) {
+
+        
+    //    //// $scope.userProfile.Surname;
+    //    //if (user.username == null || user.username == "") {
+    //    //    user.username = $scope.userProfile.UserName;
+    //    //}
+    //    //else if (user.ime == null || user.ime == "") {
+    //    //    user.ime = $scope.userProfile.Name;
+    //    //}
+    //    //else if (user.prezime == null || user.prezime == "") {
+    //    //    user.prezime = $scope.userProfile.Surname;
+    //    //}
+    //    //else if (user.pol == null || user.pol == "") {
+    //    //    user.pol = $scope.userProfile.Gender;
+    //    //}
+    //    //else
+    //    if (user.jmbg == null || user.jmbg == "") {
+    //        user.jmbg = $scope.userProfile.Jmbg;
+    //        return;
+    //    }
+       
+    //    else if (user.kontaktTelefon == null || user.kontaktTelefon == "") {
+    //        user.kontaktTelefon = $scope.userProfile.ContactPhoneNumber;
+    //        return;
+    //    }
+    //    // else if (user.email == null || user.email == "") {
+    //    //    user.email = $scope.userProfile.Email;
+    //    //}
+       
+    //    //else if (user.pwd == null || user.pwd == "") {
+    //    //    user.pwd = $scope.userProfile.Password
+    //    //}
+
+
+    //    ProfCont.EditUser(user).then(function (response) {
+    //        if (response.data == true) {
+    //            console.log(response.data);
+    //            //$scope.newDrive = response.data;
+    //            //$rootScope.RegisterSuccess = "Editing was successful.";
+    //            $window.location.href = "#!/MyHome";
+    //        }
+    //        else {
+    //            alert("Username already exists.");
+    //        }
+    //    });
+
+
+
+
+    //}
 
     $scope.AddDriveDispatcher = function (drive) {
 

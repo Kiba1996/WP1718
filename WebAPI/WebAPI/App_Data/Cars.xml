@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Car>
+    <Driver>gica</Driver>
+    <CarYear>1999</CarYear>
+    <RegistrationNumber>235z</RegistrationNumber>
+    <TaxiNumber>1</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+  <Car>
+    <Driver>suza</Driver>
+    <CarYear>2001</CarYear>
+    <RegistrationNumber>23g4</RegistrationNumber>
+    <TaxiNumber>2</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
+  <Car>
+    <Driver>Joca</Driver>
+    <CarYear>1998</CarYear>
+    <RegistrationNumber>423k1</RegistrationNumber>
+    <TaxiNumber>3</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+</ArrayOfCar>

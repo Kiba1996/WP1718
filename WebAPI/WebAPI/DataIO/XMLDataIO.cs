@@ -98,6 +98,33 @@ namespace WebAPI.DataIO
             return retVal;
         }
 
+        public List<Car> ReadCars(string fileName)
+        {
+            XmlSerializer desrializer = new XmlSerializer(typeof(List<Car>));
+            List<Car> retVal = new List<Car>();
+            if (File.Exists(fileName))
+            {
+                using (TextReader reader = new StreamReader(fileName))
+                {
+                    object obj = desrializer.Deserialize(reader);
+                    retVal = (List<Car>)obj;
+                }
+            }
+            return retVal;
+        }
+
+
+
+        public void WriteCars(List<Car> users, string fileName)
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<Car>));
+            using (TextWriter write = new StreamWriter(fileName))
+            {
+                xml.Serialize(write, users);
+            }
+        }
+
+
         public void WriteDrivers(List<Driver> users, string fileName)
         {
             XmlSerializer xml = new XmlSerializer(typeof(List<Driver>));

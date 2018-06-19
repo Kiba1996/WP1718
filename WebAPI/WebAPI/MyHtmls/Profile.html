@@ -1,4 +1,5 @@
 ﻿<div class="container-fluid" ng-show="loggedin">
+    <h4 class="success">{{RegisterSuccess}}</h4>
         <div class="userProfileDetails">
             <br/>
             <br/>
@@ -12,5 +13,6 @@
             <h4 ng-show="userProfile.Gender==1">Gender: Female</h4>
             <h4>E-mail: {{userProfile.Email}}</h4>
             <h4>Phone number: {{userProfile.ContactPhoneNumber}}</h4>
+            <h4>JMBG: {{userProfile.JMBG}}</h4>
          </div>
 </div>
