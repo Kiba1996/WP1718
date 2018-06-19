@@ -57,6 +57,15 @@ var pr;WebAPI.config(function ($routeProvider) {
             controller: 'FilterController',
             templateUrl: 'MyHtmls/MyHome.html',
             activeTab: 'none'
+        }).when('/Filter2/:Stat', {
+            controller: 'Filter2Controller',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
+        }).when('/Sort/', {
+            controller: 'FilterController',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
         })
+
 
 });

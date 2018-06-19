@@ -2,8 +2,8 @@
 <br />
 <br/><!--VOZNJE-->
 <div class="container-fluid">
-    <div class=""> <!--class="podforumi-header">-->
-        <h1>Welcome <span ng-show="loggedin">{{user.username}}</span> <!--<span ng-show="korisnik.uloga.includes('Administrator')">(Admin)</span>--></h1>
+    <div class="">
+        <h1>Welcome <span ng-show="loggedin">{{user.username}}</span> </h1>
         <h4 ng-show="loggedin">
             {{filtriranje}}
         </h4>
@@ -18,7 +18,7 @@
 </div>
 <div class="body">
     <div class="form-group">
-        <select class="t" id="fil" ng-model="fu.Stat"><!--placeholder="Gender">-->
+        <select class="t" id="fil" ng-model="fu.Stat">
             <option value="0">Created-waiting</option>
             <option value="1"> Canceled</option>
             <option value="2">Formed</option>  
@@ -29,15 +29,29 @@
          </select>
     </div>
     <br>
-    <!--<button type="submit" class="btn button-success" ng-click="Filter(fu)">Filter</button>-->
-    <a ng-href="#!/Filter/{{fu.Stat}}">Filter</a>
+    <a ng-show="S"   ng-href="#!/Filter2/{{fu.Stat}}">Filtering</a>
+    <a ng-show="!S" ng-href="#!/Filter/{{fu.Stat}}">Filter</a>
  </div>
 
-
+<!--<a ng-show="!S"  ng-href="#!/Sort">Sort</a>-->
+<button type="submit" class="btn button-success" ng-click="Sorting()">Sort</button>
 
 <div class="container-fluid">
     <h4  ng-show="FilterRez">Drives koji zadovoljavaju kriterijume</h4>
     <div class="rezultati" ng-repeat="drive in FilterRez">
+        <!--ng repeat-->
+        <div class="tema">
+            <p>  {{drive.DataAndTime}} </p>
+            <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+            <p> {{drive.Arrival.Address.Town}}</p>
+            <p> {{drive.Arrival.Address.PostalCode}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h4 ng-show="FilterRez2">Drives koji zadovoljavaju kriterijume</h4>
+    <div class="rezultati" ng-repeat="drive in FilterRez2">
         <!--ng repeat-->
         <div class="tema">
             <p>  {{drive.DataAndTime}} </p>
@@ -54,12 +68,8 @@
 <div class="container">
     <div class="col-md-12">
         <div class="praceneTeme">   <!--ng-show="Drives"-->
-            <div class="teme-repeat"  ng-repeat="drive in Drives">  <!--| orderBy:'-'">-->
-                <!--<a href="#!/podforumi/{{tema.PodforumKomePripada}}/{{tema.Naslov}}">
-                    <div class="tema">
-                        {{tema.PodforumKomePripada}} - {{tema.Naslov}}
-                    </div>
-                </a>-->
+            <div class="teme-repeat"  ng-repeat="drive in Drives"> 
+                
                 <div class="tema">
                     <p>  {{drive.DataAndTime}} </p>
                     <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
@@ -83,16 +93,5 @@
         <a href="#!/DriveGet/{{user.username}}">Add Drive</a>
     </div>
 </div>
-<!--<div class="containerClass">
-    <div class="topright">
-        <div ng-show="user.role == 1" class="topright">
-            <a href="#!/DriverGet/{{user.username}}">Add Driver</a>
-        </div>
-    </div>
-</div>-->
-<!--<div class="containerClass">
-     <div ng-show="user.role == 1" class="topright">
-         <a href="#!/DriveGetAdm/{{user.username}}">Add Drive</a>
-     </div>
-</div>-->  
+
    

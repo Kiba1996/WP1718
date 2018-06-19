@@ -7,7 +7,8 @@
     function init() {
         LogCont.getDrives2(sessionStorage.getItem("username")).then(function (response) {
             $scope.Drives = response.data;
-            $rootScope.filtriranje= "Drives with created-waiting status"
+            $rootScope.filtriranje = "Drives with created-waiting status"
+            $scope.S = false;
             console.log(response.data);
         });
     }

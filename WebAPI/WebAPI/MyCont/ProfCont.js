@@ -28,6 +28,24 @@
         });
     }
 
+    factory.Filter2 = function (fu) {
+        return $http.post('api/Prof/GetFilterUserAdm', {
+            Username: sessionStorage.getItem("username"),
+            Role: sessionStorage.getItem("role"),
+            Stat: fu
+
+        });
+    }
+
+    factory.Sorting = function () {
+        return $http.post('api/Prof/SortingUser', {
+            Username: sessionStorage.getItem("username"),
+           
+           
+
+        });
+    }
+
     factory.AddDriveDispatcher = function (drive) {
         return $http.post('/api/Prof/AddDriveDispatcher', {
             XCoord: drive.XCoord,

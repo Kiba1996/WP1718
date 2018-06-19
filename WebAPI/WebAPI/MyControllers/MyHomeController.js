@@ -9,12 +9,26 @@
         LogCont.getDrives(sessionStorage.getItem("username")).then(function (response) {
             $scope.Drives = response.data;
             $rootScope.filtriranje = "Your drives"
+            $scope.S = false;
             console.log(response.data);
         });
     }
 
     init();
 
+
+
+    $scope.Sorting = function () {
+        ProfCont.Sorting().then(function (response) {
+
+            console.log(response.data);
+            $scope.FilterRez = response.data;
+            $scope.S = false;
+
+
+
+        });
+    }
 
     //$scope.Filter = function (fu) {
 
