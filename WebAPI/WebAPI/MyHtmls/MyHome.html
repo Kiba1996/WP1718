@@ -11,10 +11,10 @@
     </div>
 </div>
 <div ng-show="user.role == 1">
-    <<a href="#!/Home2/{{user.username}}">Show all drives</a>
+    <button type="submit" class="btn button-success" ng-click="getDrives1()">Show All Drives</button>
 </div>
 <div ng-show="user.role == 2">
-    <<a href="#!/Home3/{{user.username}}">Show all drives with a status Waiting</a>
+    <button type="submit" class="btn button-success" ng-click="getDrives2()"> Show all drives with a status Waiting</button>
 </div>
 <div class="body">
     <div class="form-group">
@@ -29,64 +29,111 @@
          </select>
     </div>
     <br>
-    <a ng-show="S"   ng-href="#!/Filter2/{{fu.Stat}}">Filtering</a>
-    <a ng-show="!S" ng-href="#!/Filter/{{fu.Stat}}">Filter</a>
+   
  </div>
 
-<!--<a ng-show="!S"  ng-href="#!/Sort">Sort</a>-->
-<button type="submit" class="btn button-success" ng-click="Sorting()">Sort</button>
-
-<div class="container-fluid">
-    <h4  ng-show="FilterRez">Drives koji zadovoljavaju kriterijume</h4>
-    <div class="rezultati" ng-repeat="drive in FilterRez">
-        <!--ng repeat-->
-        <div class="tema">
-            <p>  {{drive.DataAndTime}} </p>
-            <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-            <p> {{drive.Arrival.Address.Town}}</p>
-            <p> {{drive.Arrival.Address.PostalCode}}</p>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <h4 ng-show="FilterRez2">Drives koji zadovoljavaju kriterijume</h4>
-    <div class="rezultati" ng-repeat="drive in FilterRez2">
-        <!--ng repeat-->
-        <div class="tema">
-            <p>  {{drive.DataAndTime}} </p>
-            <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-            <p> {{drive.Arrival.Address.Town}}</p>
-            <p> {{drive.Arrival.Address.PostalCode}}</p>
-        </div>
-    </div>
-</div>
+<button ng-show="!CD && !SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(MyDrives)">Sort</button>
+<button ng-show="SVE && FILT1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
+<button ng-show="!SVE && FILT2" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
+<button ng-show="SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(AllDrives)">Sort</button>
+<button ng-show="CD && !SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(CreatedDrives)">Sort</button>
 
 
 
-<h4 ng-show="Drives.length == 0">{{filtriranje}}</h4>
-<div class="container">
-    <div class="col-md-12">
-        <div class="praceneTeme">   <!--ng-show="Drives"-->
-            <div class="teme-repeat"  ng-repeat="drive in Drives"> 
-                
-                <div class="tema">
-                    <p>  {{drive.DataAndTime}} </p>
-                    <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                    <p> {{drive.Arrival.Address.Town}}</p>
-                    <p> {{drive.Arrival.Address.PostalCode}}</p>
+<h4 >{{filtriranje}}</h4> <!--ng-show="Drives && !F"-->
+<div    class="container">
+    <div   class="col-md-12">
+        <div   class="praceneTeme">  
+            <div  ng-show="MD">
+                <button type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+
+                <div  ng-show="MD" class="teme-repeat" ng-repeat="drive in MyDrives">
+                   
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Comment.Rating}}</p>
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
                 </div>
-            <div class="nemaTema" ng-show="Drives.length == 0">
-                <h4>No drives.</h4>
             </div>
-        </div>
+            <div ng-show="CD">
+                <div ng-show="CD" class="teme-repeat" ng-repeat="drive in CreatedDrives">
+
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Comment.Rating}}</p>
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="AD">
+                <button type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+
+                <div ng-show="AD" class="teme-repeat" ng-repeat="drive in AllDrives">
+                    
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Comment.Rating}}</p>
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
+                </div>
+            </div>
+            <div  ng-show="SD">
+                <button ng-show="SVE" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                <button ng-show="!SVE" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+
+                <div ng-show="SD" class="teme-repeat" ng-repeat="drive in SortedDrives">
+
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Comment.Rating}}</p>
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="FD">
+                <button ng-show="SVE" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                <button ng-show="!SVE" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+
+                <div ng-show="FD" class="teme-repeat" ng-repeat="drive in FilteredDrives">
+                   
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Comment.Rating}}</p>
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
-    </div>
+</div>
 
-<br/>
-<br/>
-<br/>
+
 <br/>
 <div class="containerClass">
     <div class="topright" ng-show="user.role != 2"> 

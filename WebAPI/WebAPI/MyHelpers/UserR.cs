@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -61,6 +62,7 @@ namespace WebAPI.MyHelpers
         public string Username { get; set; }
         public string Role { get; set; }
         public string Stat { get; set; }
+        public List<Drive> Driv { get; set; }
     }
 
     public class DriveR

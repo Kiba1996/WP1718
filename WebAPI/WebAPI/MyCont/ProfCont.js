@@ -19,12 +19,13 @@
         });
     }
 
-    factory.Filter = function (fu) {
+    factory.Filter = function (Drives, fu) {
+       
         return $http.post('api/Prof/GetFilterUser', {
             Username: sessionStorage.getItem("username"),
             Role: sessionStorage.getItem("role"),
-            Stat: fu
-
+            Stat: fu,
+            Driv: Drives
         });
     }
 
@@ -37,11 +38,16 @@
         });
     }
 
-    factory.Sorting = function () {
+    //factory.Sorting = function (username) {
+    //    return $http.get('api/Prof/SortingUser?k=' + username);
+    //}
+
+    factory.Sorting = function (Drives) {
         return $http.post('api/Prof/SortingUser', {
             Username: sessionStorage.getItem("username"),
-           
-           
+            Role: sessionStorage.getItem("role"),
+            Stat: "none",
+            Driv: Drives
 
         });
     }

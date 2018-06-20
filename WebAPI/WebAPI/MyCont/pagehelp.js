@@ -1,5 +1,5 @@
 ﻿var WebAPI = angular.module('WebAPI', ['ngRoute']);
-var pr;WebAPI.config(function ($routeProvider) {
+WebAPI.config(function ($routeProvider) {
     $routeProvider.when('/',
         {
             redirectTo: '/MyHome'
@@ -45,14 +45,6 @@ var pr;WebAPI.config(function ($routeProvider) {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Edit.html',
             activeTab: 'Edit'
-        }).when('/Home2/:username', {
-            controller: 'Home2Controller',
-            templateUrl: 'MyHtmls/MyHome.html',
-            activeTab: 'none'
-        }).when('/Home3/:username', {
-            controller: 'Home3Controller',
-            templateUrl: 'MyHtmls/MyHome.html',
-            activeTab: 'none'
         }).when('/Filter/:Stat', {
             controller: 'FilterController',
             templateUrl: 'MyHtmls/MyHome.html',
@@ -61,8 +53,12 @@ var pr;WebAPI.config(function ($routeProvider) {
             controller: 'Filter2Controller',
             templateUrl: 'MyHtmls/MyHome.html',
             activeTab: 'none'
-        }).when('/Sort/', {
-            controller: 'FilterController',
+        }).when('/Filter', {
+            controller: 'MyHomeController',
+            templateUrl: 'MyHtmls/MyHome.html',
+            activeTab: 'none'
+        }).when('/Filter2', {
+            controller: 'Home2Controller',
             templateUrl: 'MyHtmls/MyHome.html',
             activeTab: 'none'
         })

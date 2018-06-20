@@ -211,40 +211,56 @@ namespace WebAPI.Controllers
         [ActionName("GetFilterUser")]
         public List<Drive> GetFilterUser([FromBody]UserFilter k)
         {
-            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
-
-            List<Drive> listaDrives = xml.ReadDrives(ss);
+           if(k.Driv == null || k.Stat == null)
+            {
+                return new List<Drive>();
+            }
+            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
             List<Drive> listaDrives1 = new List<Drive>();
-            if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Customer)
+            foreach (Drive d in k.Driv)
             {
-                foreach (Drive d in listaDrives)
+                if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat))// && d.Customer.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
                 {
-                    if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Customer.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-                    {
-                        listaDrives1.Add(d);
-                    }
+                    listaDrives1.Add(d);
                 }
             }
-            else if((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Driver)
-            {
-                foreach (Drive d in listaDrives)
-                {
-                    if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Driver.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-                    {
-                        listaDrives1.Add(d);
-                    }
-                }
-            }
-            else if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Dispatcher)
-            {
-                foreach (Drive d in listaDrives)
-                {
-                    if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Dispatcher.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-                    {
-                        listaDrives1.Add(d);
-                    }
-                }
-            }
+            //List<Drive> listaDrives = xml.ReadDrives(ss);
+            //if (k.Stat == null)
+            //{
+            //    return listaDrives;
+            //}
+            //List<Drive> listaDrives1 = new List<Drive>();
+            //if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Customer)
+            //{
+            //    foreach (Drive d in listaDrives)
+            //    {
+            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Customer.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+            //        {
+            //            listaDrives1.Add(d);
+            //        }
+            //    }
+            //}
+            //else if((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Driver)
+            //{
+            //    foreach (Drive d in listaDrives)
+            //    {
+            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Driver.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+            //        {
+            //            listaDrives1.Add(d);
+            //        }
+            //    }
+            //}
+            //else if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Dispatcher)
+            //{
+
+            //    foreach (Drive d in listaDrives)
+            //    {
+            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Dispatcher.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+            //        {
+            //            listaDrives1.Add(d);
+            //        }
+            //    }
+            //}
             return listaDrives1;
         }
 
@@ -271,99 +287,50 @@ namespace WebAPI.Controllers
             }
             return listaDrives1;
         }
-        
-         [HttpPost]
-        [ActionName("SortingUser")]
-        public List<Drive> SortingUser([FromBody]string k)
-        {
-            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
-            List<Drive> listaDrives = xml.ReadDrives(ss);
+        //[HttpGet]
+        //[ActionName("SortingUser")]
+        //public List<Drive> SortingUser(string k)
+        //{
+        //    string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+
+        //    List<Drive> listaDrives = xml.ReadDrives(ss);
+        //    List<Drive> listaDrives2 = new List<Drive>();
+        //    foreach (Drive d in listaDrives)
+        //    {
+        //        if (d.Customer.UserName == k ||d.Dispatcher.UserName == k || d.Driver.UserName == k)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+        //        {
+        //            listaDrives2.Add(d);
+        //        }
+        //    }
+        //    List<Drive> listaDrives1 = listaDrives2.OrderByDescending(o=> o.Comment.Rating).ToList();
+
+
+        //    return listaDrives1;
+        //}
+
+
+        [HttpPost]
+        [ActionName("SortingUser")]
+        public List<Drive> SortingUser([FromBody] UserFilter k)
+        {
+            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+
+            List<Drive> listaDrives = k.Driv;//xml.ReadDrives(ss);
             List<Drive> listaDrives2 = new List<Drive>();
-            foreach (Drive d in listaDrives)
-            {
-                if (d.Customer.UserName == k ||d.Dispatcher.UserName == k || d.Driver.UserName == k)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-                {
-                    listaDrives2.Add(d);
-                }
-            }
-            List<Drive> listaDrives1 = listaDrives2.OrderBy(o=> o.Comment.Rating).ToList();
-           
-              
+            //foreach (Drive d in listaDrives)
+            //{
+            //    if (d.Customer.UserName == k || d.Dispatcher.UserName == k || d.Driver.UserName == k)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+            //    {
+            //        listaDrives2.Add(d);
+            //    }
+            //}
+            List<Drive> listaDrives1 = listaDrives.OrderByDescending(o => o.Comment.Rating).ToList();
+
+
             return listaDrives1;
         }
-        //[HttpPost]
-        //[ActionName("EditUser")]
-        //public bool EditUser([FromBody]UserEDit k)
-        //{
-        //    string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
-        //    string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
-        //    string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
 
-        //    List<Customer> users = xml.ReadUsers(ss);
-        //    List<Dispatcher> admins = xml.ReadDispatcher(adm);
-        //    List<Driver> drivers = xml.ReadDrivers(drv);
-
-        //    bool g = true;
-
-        //    foreach (Customer u in users)
-        //    {
-        //        if (u.UserName == k.Username) //&& u.UserName!=k.OldUsername)
-        //        {
-
-        //            g = false;
-        //        }
-        //    }
-
-        //    foreach (Dispatcher ad in admins)
-        //    {
-        //        if (ad.UserName == k.Username )//&& ad.UserName != k.OldUsername)
-        //        {
-        //            g = false;
-        //        }
-        //    }
-
-        //    foreach (Driver dr in drivers)
-        //    {
-        //        if (dr.UserName == k.Username )//&& dr.UserName != k.OldUsername)
-        //        {
-        //            g = false;
-        //        }
-        //    }
-
-        //    if (g)
-        //    {
-        //        Customer user = new Customer();
-        //       // if(k.Username)
-        //        user.UserName = k.Username;
-        //        user.Password = k.Password;
-        //        user.Name = k.Ime;
-        //        user.Surname = k.Prezime;
-        //        if (k.Pol == "Female")
-        //        {
-        //            user.Gender = Enums.GenederType.Female;
-        //        }
-        //        else
-        //        {
-        //            user.Gender = Enums.GenederType.Male;
-        //        }
-        //        //user.JMBG = Int64.Parse(k.Jmbg);
-        //        //user.ContactPhoneNumber = k.Telefon;
-        //        user.Email = k.Email;
-        //        user.Role = Enums.RoleType.Customer;
-        //        // user.Drives = new List<Drive>();
-
-        //        users.Add(user);
-        //        xml.WriteUsers(users, ss);
-
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-
-        //}
 
     }
 }

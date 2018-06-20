@@ -18,7 +18,7 @@
     init();
 
     $scope.Sorting = function () {
-        ProfCont.Sorting().then(function (response) {
+        ProfCont.Sorting(sessionStorage.getItem("username")).then(function (response) {
 
             console.log(response.data);
             $scope.FilterRez = response.data;

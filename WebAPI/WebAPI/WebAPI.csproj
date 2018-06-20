@@ -186,8 +186,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="MyControllers\Filter2Controller.js" />
     <Content Include="MyControllers\FilterController.js" />
-    <Content Include="MyControllers\Home2Controller.js" />
-    <Content Include="MyControllers\Home3Controllert.js" />
     <Content Include="MyControllers\LoginController.js" />
     <Content Include="MyControllers\MainController.js" />
     <Content Include="MyControllers\MyHomeController.js" />
