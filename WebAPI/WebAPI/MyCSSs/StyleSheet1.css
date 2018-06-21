@@ -15,6 +15,9 @@
     width: 100%;
 }
 
+.zaBojuSlova {
+    color: aqua !important;
+}
 .Dugmad {
     background: #0b213f;
     font-family: Source Code Pro Medium;

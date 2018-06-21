@@ -10,5 +10,6 @@
     <ContactPhoneNumber>11111</ContactPhoneNumber>
     <Email>ss@</Email>
     <Role>Customer</Role>
+	<Drives/>
   </Customer>
 </ArrayOfCustomer>

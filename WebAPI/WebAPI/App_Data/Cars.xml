@@ -21,4 +21,11 @@
     <TaxiNumber>3</TaxiNumber>
     <CarType>Van</CarType>
   </Car>
+  <Car>
+    <Driver>crni</Driver>
+    <CarYear>2005</CarYear>
+    <RegistrationNumber>050684</RegistrationNumber>
+    <TaxiNumber>4</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
 </ArrayOfCar>

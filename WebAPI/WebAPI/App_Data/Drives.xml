@@ -23,25 +23,32 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
       <Zauzet>false</Zauzet>
     </Driver>
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
-      <Rating>5</Rating>
+      <Rating>0</Rating>
     </Comment>
-    <Status>Created_Waiting</Status>
+    <Status>Canceled</Status>
   </Drive>
   <Drive>
     <DataAndTime>2018-06-18T22:33:44.7427448+02:00</DataAndTime>
@@ -57,9 +64,12 @@
     </Arrival>
     <CarType>PassengerCar</CarType>
     <Customer>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
@@ -72,17 +82,21 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
       <Zauzet>false</Zauzet>
     </Driver>
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
-      <Rating>8</Rating>
+      <Rating>0</Rating>
     </Comment>
     <Status>Created_Waiting</Status>
   </Drive>
@@ -100,9 +114,12 @@
     </Arrival>
     <CarType>PassengerCar</CarType>
     <Customer>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
@@ -115,6 +132,7 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
       <UserName>suza</UserName>
@@ -126,6 +144,7 @@
       <ContactPhoneNumber>34343</ContactPhoneNumber>
       <Email>suza@gmail.com</Email>
       <Role>Driver</Role>
+      <Drives />
       <Location />
       <Car>
         <Driver>suza</Driver>
@@ -139,7 +158,7 @@
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
-      <Rating>2</Rating>
+      <Rating>0</Rating>
     </Comment>
     <Status>Formed</Status>
   </Drive>
@@ -157,9 +176,12 @@
     </Arrival>
     <CarType>Van</CarType>
     <Customer>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
@@ -172,11 +194,15 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
       <Zauzet>false</Zauzet>
     </Driver>
     <Amount>0</Amount>
@@ -200,9 +226,12 @@
     </Arrival>
     <CarType>PassengerCar</CarType>
     <Customer>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
@@ -215,11 +244,15 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Driver</Role>
+      <Drives />
       <Zauzet>false</Zauzet>
     </Driver>
     <Amount>0</Amount>
@@ -243,9 +276,12 @@
     </Arrival>
     <CarType>Van</CarType>
     <Customer>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
@@ -258,6 +294,7 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
       <UserName>Joca</UserName>
@@ -269,6 +306,7 @@
       <ContactPhoneNumber>87643</ContactPhoneNumber>
       <Email>joca@gmail.com</Email>
       <Role>Driver</Role>
+      <Drives />
       <Location />
       <Car>
         <Driver>Joca</Driver>
@@ -282,7 +320,7 @@
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
-      <Rating>6</Rating>
+      <Rating>0</Rating>
     </Comment>
     <Status>Formed</Status>
   </Drive>
@@ -309,17 +347,240 @@
       <ContactPhoneNumber>11111</ContactPhoneNumber>
       <Email>ss@</Email>
       <Role>Customer</Role>
+      <Drives />
     </Customer>
     <Destination />
     <Dispatcher>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Dispatcher</Role>
+      <Drives />
     </Dispatcher>
     <Driver>
+      <Name />
+      <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
       <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Description>Nema komentara na voznju. Katastrofa.</Description>
+      <Date>2018-06-21T23:19:59</Date>
+      <user>beba</user>
+      <Rating>1</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>2018-06-21T00:56:13</DataAndTime>
+    <Arrival>
+      <X>45</X>
+      <Y>21</Y>
+      <Address>
+        <Street>Ulicica</Street>
+        <Number>34</Number>
+        <Town>Gradic</Town>
+        <PostalCode>34343</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination />
+    <Dispatcher>
+      <UserName>barbi</UserName>
+      <Password>aa</Password>
+      <Name>aaaaaa</Name>
+      <Surname>sasas</Surname>
+      <Gender>Female</Gender>
+      <JMBG>2222222222222</JMBG>
+      <ContactPhoneNumber>11111</ContactPhoneNumber>
+      <Email>ss@</Email>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>crni</UserName>
+      <Password>ss</Password>
+      <Name>Luka</Name>
+      <Surname>Crnomarkovic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>8345903219884</JMBG>
+      <ContactPhoneNumber>8373373</ContactPhoneNumber>
+      <Email>luka@gmail.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location />
+      <Car>
+        <Driver>crni</Driver>
+        <CarYear>2005</CarYear>
+        <RegistrationNumber>050684</RegistrationNumber>
+        <TaxiNumber>4</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>true</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Formed</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Thursday, 21 June 2018 11:35:16</DataAndTime>
+    <Arrival>
+      <X>56</X>
+      <Y>83</Y>
+      <Address>
+        <Street>Gengusa</Street>
+        <Number>34</Number>
+        <Town>Gegngo Grad</Town>
+        <PostalCode>34531</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>beba</UserName>
+      <Password>aa</Password>
+      <Name>aaaaaa</Name>
+      <Surname>sasas</Surname>
+      <Gender>Female</Gender>
+      <JMBG>2222222222222</JMBG>
+      <ContactPhoneNumber>11111</ContactPhoneNumber>
+      <Email>ss@</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination />
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Description>Moj Komentar na voznju,</Description>
+      <Date>2018-06-21T22:59:01</Date>
+      <user>beba</user>
+      <Rating>2</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Thursday, 21 June 2018 18:45:36</DataAndTime>
+    <Arrival>
+      <X>45</X>
+      <Y>29</Y>
+      <Address>
+        <Street>HAShahhashd</Street>
+        <Number>23</Number>
+        <Town>NSASDSD</Town>
+        <PostalCode>3421</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination />
+    <Dispatcher>
+      <UserName>barbi</UserName>
+      <Password>aa</Password>
+      <Name>aaaaaa</Name>
+      <Surname>sasas</Surname>
+      <Gender>Female</Gender>
+      <JMBG>2222222222222</JMBG>
+      <ContactPhoneNumber>11111</ContactPhoneNumber>
+      <Email>ss@</Email>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Created_Waiting</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Thursday, 21 June 2018 23:20:55</DataAndTime>
+    <Arrival>
+      <X>78</X>
+      <Y>29</Y>
+      <Address>
+        <Street>Stabilo</Street>
+        <Number>3</Number>
+        <Town>Original</Town>
+        <PostalCode>23423</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>beba</UserName>
+      <Password>aa</Password>
+      <Name>aaaaaa</Name>
+      <Surname>sasas</Surname>
+      <Gender>Female</Gender>
+      <JMBG>2222222222222</JMBG>
+      <ContactPhoneNumber>11111</ContactPhoneNumber>
+      <Email>ss@</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination />
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
       <Zauzet>false</Zauzet>
     </Driver>
     <Amount>0</Amount>

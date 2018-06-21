@@ -8,7 +8,7 @@ namespace project.Models
 {
     public class Drive
     {
-        public DateTime DataAndTime { get; set; }
+        public string DataAndTime { get; set; }
         public Location Arrival { get; set; }
         public CarType CarType { get; set; }
         public Customer Customer { get; set; }
@@ -21,7 +21,8 @@ namespace project.Models
 
         public Drive()
         {
-            //CarType = CarType.NoType;
+            Amount = -1;
+           //CarType = CarType.NoType;
         }
 
     }

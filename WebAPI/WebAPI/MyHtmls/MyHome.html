@@ -16,7 +16,7 @@
 <div ng-show="user.role == 2">
     <button type="submit" class="btn button-success" ng-click="getDrives2()"> Show all drives with a status Waiting</button>
 </div>
-<div class="body">
+<div ng-show="listaFlag!=3 && posebanFlag!=3" class="body">
     <div class="form-group">
         <select class="t" id="fil" ng-model="fu.Stat">
             <option value="0">Created-waiting</option>
@@ -31,12 +31,76 @@
     <br>
    
  </div>
+<!--!CD && !SVE && !FILT1 && !FILT2-->
+<!--SVE && FILT1-->
+<!--!SVE && FILT2-->
+<!--SVE && !FILT1 && !FILT2-->
+<!--CD && !SVE && !FILT1 && !FILT2-->
+<input type="radio" name="group" value="0" ng-model="fu.PoCemu" ng-checked="true"/> By Rating <br />
+<input type="radio" name="group" value="1" ng-model="fu.PoCemu" /> By Date <br />
 
-<button ng-show="!CD && !SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(MyDrives)">Sort</button>
-<button ng-show="SVE && FILT1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
-<button ng-show="!SVE && FILT2" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
-<button ng-show="SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(AllDrives)">Sort</button>
-<button ng-show="CD && !SVE && !FILT1 && !FILT2" type="submit" class="btn button-success" ng-click="Sorting(CreatedDrives)">Sort</button>
+<button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag==0" type="submit" class="btn button-success" ng-click="Sorting(MyDrives, fu.PoCemu)">Sort</button>
+<!--<button ng-show="posebanFlag==1 && filtFlag==1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
+<button ng-show="posebanFlag==3 && filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>-->
+<button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives,fu.PoCemu)">Sort</button>
+<button ng-show="posebanFlag==1 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(AllDrives,fu.PoCemu)">Sort</button>
+<button ng-show="posebanFlag==3 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(CreatedDrives,fu.PoCemu)">Sort</button>
+<button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Sorting(SearchedDrives,fu.PoCemu)">Sort</button>
+<!--<span class="input-group-addon">
+   <span class="glyphicon glyphicon-calendar"></span>
+</span>-->
+<div class="zaBojuSlova">
+    <div class="form-group">
+        <table  class="zaBojuSlova">
+            <tr  class="zaBojuSlova">
+                <td>  </td>
+                <td>Od: </td>
+                <td>Do: </td>
+            </tr>
+            <tr class="zaBojuSlova">
+                <td>Datum: </td>
+                <td><input type="date" id="DatumOd" class="form-control" ng-model="su.DatumOd" /></td>
+                <td><input type="date" id="DatumDo" class="form-control"  ng-model="su.DatumDo" /></td>
+            </tr>
+            <tr  class="zaBojuSlova">
+                <td>Ocena: </td>
+                <td><input type='text'  id="OcenaOd" class="form-control" ng-model="su.OcenaOd"/></td>
+                <td><input type='text' id="OcenaDo" class="form-control" ng-model="su.OcenaDo"/></td>
+            </tr>
+            <tr  class="zaBojuSlova">
+                <td>Cena: </td>
+                <td><input type='text' id="CenaOd" class="form-control" ng-model="su.CenaOd"/></td>
+                <td><input type='text' id="CenaDo" class="form-control"ng-model="su.CenaDo" /></td>
+            </tr>
+            <tr  class="zaBojuSlova" ng-show="user.role == 1">
+                <td> </td>
+                <td>Ime:</td>
+                <td>Prezime: </td>
+            </tr>
+            <tr  class="zaBojuSlova" ng-show="user.role == 1">
+                <td>Vozac: </td>
+                <td><input type='text' id="VozIme" class="form-control" ng-model="su.VozIme" /></td>
+                <td><input type='text' id="VozPre" class="form-control" ng-model="su.VozPre" /></td>
+            </tr>
+            <tr  class="zaBojuSlova" ng-show="user.role == 1">
+                <td>Musterija: </td>
+                <td><input type='text' id="MusIme" class="form-control" ng-model="su.MusIme" /></td>
+                <td><input type='text' id="MusPre" class="form-control" ng-model="su.MusPre" /></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right">
+                    <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag!=1" type="submit" class="btn button-success" ng-click="Search(MyDrives,su)">Search</button>
+                    <button ng-show="posebanFlag==1 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(AllDrives,su)">Search</button>
+                    <button ng-show="posebanFlag==3 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(CreatedDrives,su)">Search</button>
+                    <button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Search(FilteredDrives,su)">Search</button>
+                    <!--<button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Search(Sorted,su)">Search</button>-->
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>       
+
 
 
 
@@ -44,85 +108,153 @@
 <div    class="container">
     <div   class="col-md-12">
         <div   class="praceneTeme">  
-            <div  ng-show="MD">
+            <div  ng-show="listaFlag == 1">
                 <button type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
 
-                <div  ng-show="MD" class="teme-repeat" ng-repeat="drive in MyDrives">
+                <div  ng-show="listaFlag==1" class="teme-repeat" ng-repeat="drive in MyDrives">
                    
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
                         <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
                         <p> {{drive.Arrival.Address.Town}}</p>
                         <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        <p> {{drive.Comment.Rating}}</p>
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p  ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p  ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p  ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+                        <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
+
                     </div>
                     <div class="nemaTema" ng-show="Drives.length == 0">
                         <h4>No drives.</h4>
                     </div>
                 </div>
             </div>
-            <div ng-show="CD">
-                <div ng-show="CD" class="teme-repeat" ng-repeat="drive in CreatedDrives">
+            <div ng-show="listaFlag==3">
+                <div ng-show="listaFlag==3" class="teme-repeat" ng-repeat="drive in CreatedDrives">
 
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
                         <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
                         <p> {{drive.Arrival.Address.Town}}</p>
                         <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        <p> {{drive.Comment.Rating}}</p>
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+
+                        
                     </div>
                     <div class="nemaTema" ng-show="Drives.length == 0">
                         <h4>No drives.</h4>
                     </div>
                 </div>
             </div>
-            <div ng-show="AD">
+            <div ng-show="listaFlag==2">
                 <button type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
 
-                <div ng-show="AD" class="teme-repeat" ng-repeat="drive in AllDrives">
+                <div ng-show="listaFlag==2" class="teme-repeat" ng-repeat="drive in AllDrives">
                     
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
                         <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
                         <p> {{drive.Arrival.Address.Town}}</p>
                         <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        <p> {{drive.Comment.Rating}}</p>
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+
                     </div>
                     <div class="nemaTema" ng-show="Drives.length == 0">
                         <h4>No drives.</h4>
                     </div>
                 </div>
             </div>
-            <div  ng-show="SD">
-                <button ng-show="SVE" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
-                <button ng-show="!SVE" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+            <div  ng-show="listaFlag==4">
+                <button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
 
-                <div ng-show="SD" class="teme-repeat" ng-repeat="drive in SortedDrives">
+                <div ng-show="listaFlag==4" class="teme-repeat" ng-repeat="drive in SortedDrives">
 
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
                         <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
                         <p> {{drive.Arrival.Address.Town}}</p>
                         <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        <p> {{drive.Comment.Rating}}</p>
+                       
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+
+                        <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
+
                     </div>
                     <div class="nemaTema" ng-show="Drives.length == 0">
                         <h4>No drives.</h4>
                     </div>
                 </div>
             </div>
-            <div ng-show="FD">
-                <button ng-show="SVE" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
-                <button ng-show="!SVE" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+            <div ng-show="listaFlag==5">
+                <button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
 
-                <div ng-show="FD" class="teme-repeat" ng-repeat="drive in FilteredDrives">
+                <div ng-show="listaFlag==5" class="teme-repeat" ng-repeat="drive in FilteredDrives">
                    
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
                         <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
                         <p> {{drive.Arrival.Address.Town}}</p>
                         <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        <p> {{drive.Comment.Rating}}</p>
+                       
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+
+                        <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
+
+                    </div>
+                    <div class="nemaTema" ng-show="Drives.length == 0">
+                        <h4>No drives.</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="listaFlag==6">
+                <!--<button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>-->
+                <button ng-show="listaFlag==6" type="submit" class="btn button-success" ng-click="Filter(SearchedDrives,fu.Stat)">Filtering</button>
+
+
+                <div ng-show="listaFlag==6" class="teme-repeat" ng-repeat="drive in SearchedDrives">
+
+                    <div class="tema">
+                        <p>  {{drive.DataAndTime}} </p>
+                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
+                        <p> {{drive.Arrival.Address.Town}}</p>
+                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        
+                        <p> {{drive.Status}}</p>
+                        <p> Comment: </p>
+                        <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
+                        <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
+                        <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+
+                        <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
+
                     </div>
                     <div class="nemaTema" ng-show="Drives.length == 0">
                         <h4>No drives.</h4>

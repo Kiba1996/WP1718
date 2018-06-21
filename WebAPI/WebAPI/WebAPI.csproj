@@ -184,8 +184,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="MyControllers\Filter2Controller.js" />
-    <Content Include="MyControllers\FilterController.js" />
+    <Content Include="MyControllers\CommentController.js" />
     <Content Include="MyControllers\LoginController.js" />
     <Content Include="MyControllers\MainController.js" />
     <Content Include="MyControllers\MyHomeController.js" />
@@ -198,6 +197,7 @@
     <Content Include="MyCont\ProfCont.js" />
     <Content Include="MyCSSs\StyleSheet1.css" />
     <Content Include="MyHtmls\AddDrivers.html" />
+    <Content Include="MyHtmls\Comment.html" />
     <Content Include="MyHtmls\DriveGet.html" />
     <Content Include="MyHtmls\Edit.html" />
     <Content Include="MyHtmls\HelpHome.html" />

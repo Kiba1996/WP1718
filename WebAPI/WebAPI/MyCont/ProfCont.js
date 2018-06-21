@@ -42,13 +42,32 @@
     //    return $http.get('api/Prof/SortingUser?k=' + username);
     //}
 
-    factory.Sorting = function (Drives) {
+    factory.Sorting = function (Drives,fu) {
         return $http.post('api/Prof/SortingUser', {
             Username: sessionStorage.getItem("username"),
             Role: sessionStorage.getItem("role"),
             Stat: "none",
-            Driv: Drives
+            Driv: Drives,
+            PoCemu: fu
 
+        });
+    }
+
+    factory.Search = function (Drives, su) {
+        return $http.post('api/Prof/SearchUser', {
+            Username: sessionStorage.getItem("username"),
+            Role: sessionStorage.getItem("role"),
+            Driv: Drives,
+            DatumOd: su.DatumOd,
+            DatumDo: su.DatumDo,
+            OcenaOd: su.OcenaOd,
+            OcenaDo: su.OcenaDo,
+            CenaOd: su.CenaOd,
+            CenaDo: su.CenaDo,
+            VozIme: su.VozIme,
+            VozPre: su.VozPre,
+            MusIme: su.MusIme,
+            MusPre: su.MusPre
         });
     }
 
@@ -80,6 +99,20 @@
     //    });
 
     //}
+
+    factory.CancelDrive = function (drive) {
+        return $http.post('/api/Prof/CancelDrive', {
+            dr: drive
+        });
+    }
+
+    factory.Commenting = function (ko, voz) {
+        return $http.post('/api/Prof/Commenting', {
+            KommOpis: ko.Opis,
+            KommOcena: ko.Ocena,
+            Voz: voz
+        });
+    }
 
     return factory;
 });

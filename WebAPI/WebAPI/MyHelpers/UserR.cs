@@ -64,6 +64,34 @@ namespace WebAPI.MyHelpers
         public string Stat { get; set; }
         public List<Drive> Driv { get; set; }
     }
+    public class UserSort
+    {
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public string Stat { get; set; }
+        public List<Drive> Driv { get; set; }
+        public int PoCemu { get; set; }
+    }
+
+    public class UserSearch
+    {
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public List<Drive> Driv { get; set; }
+        //public DateTime DatumOd { get; set; }
+        //public DateTime DatumDo { get; set; }
+        public string DatumOd { get; set; }
+        public string DatumDo { get; set; }
+        public string OcenaOd { get; set; }
+        public string OcenaDo { get; set; }
+        public string CenaOd { get; set; }
+        public string CenaDo { get; set; } 
+        public string VozIme { get; set; }
+        public string VozPre { get; set; }
+        public string MusIme { get; set; }
+        public string MusPre { get; set; }
+
+    }
 
     public class DriveR
     {
@@ -76,4 +104,16 @@ namespace WebAPI.MyHelpers
         public string tipAuta { get; set; }
         public string korisnicko { get; set; }
     }
+
+    public class VoznjaPrenos
+    {
+        public Drive dr { get; set; }
     }
+
+    public class KomentarPrenos
+    {
+        public String KommOpis { get; set; }
+        public String KommOcena { get; set; }
+        public Drive voz { get; set; }
+    }
+}

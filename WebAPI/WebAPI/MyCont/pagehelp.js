@@ -45,21 +45,9 @@ WebAPI.config(function ($routeProvider) {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Edit.html',
             activeTab: 'Edit'
-        }).when('/Filter/:Stat', {
-            controller: 'FilterController',
-            templateUrl: 'MyHtmls/MyHome.html',
-            activeTab: 'none'
-        }).when('/Filter2/:Stat', {
-            controller: 'Filter2Controller',
-            templateUrl: 'MyHtmls/MyHome.html',
-            activeTab: 'none'
-        }).when('/Filter', {
-            controller: 'MyHomeController',
-            templateUrl: 'MyHtmls/MyHome.html',
-            activeTab: 'none'
-        }).when('/Filter2', {
-            controller: 'Home2Controller',
-            templateUrl: 'MyHtmls/MyHome.html',
+        }).when('/Comment', {
+            controller: 'CommentController',
+            templateUrl: 'MyHtmls/Comment.html',
             activeTab: 'none'
         })
 

@@ -17,9 +17,7 @@ namespace project.Models
         public String ContactPhoneNumber { get; set; }
         public String Email { get; set; }
         public RoleType Role { get; set; }
-       // public List<Drive> Drives { get; set; } 
-
-
+        public List<Drive> Drives { get; set; } 
     }
 
    

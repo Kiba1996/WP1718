@@ -13,7 +13,9 @@ namespace project.Models
         public String Drive { get; set; }//Drive Drive { get; set; }
         public int Rating { get; set; }
 
-        public Comment() { }
+        public Comment() {
+            Rating = 0;
+        }
         //public Comment(String d, DateTime dt,String u, String dr, int r)
         //{
         //    Description = d;

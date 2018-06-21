@@ -10,6 +10,7 @@
     <ContactPhoneNumber>948372</ContactPhoneNumber>
     <Email>gica@gmail.com</Email>
     <Role>Driver</Role>
+    <Drives />
     <Location />
     <Car>
       <Driver>gica</Driver>
@@ -30,6 +31,7 @@
     <ContactPhoneNumber>34343</ContactPhoneNumber>
     <Email>suza@gmail.com</Email>
     <Role>Driver</Role>
+    <Drives />
     <Location />
     <Car>
       <Driver>suza</Driver>
@@ -50,6 +52,7 @@
     <ContactPhoneNumber>87643</ContactPhoneNumber>
     <Email>joca@gmail.com</Email>
     <Role>Driver</Role>
+    <Drives />
     <Location />
     <Car>
       <Driver>Joca</Driver>
@@ -57,6 +60,27 @@
       <RegistrationNumber>423k1</RegistrationNumber>
       <TaxiNumber>3</TaxiNumber>
       <CarType>Van</CarType>
+    </Car>
+    <Zauzet>true</Zauzet>
+  </Driver>
+  <Driver>
+    <UserName>crni</UserName>
+    <Password>ss</Password>
+    <Name>Luka</Name>
+    <Surname>Crnomarkovic</Surname>
+    <Gender>Male</Gender>
+    <JMBG>8345903219884</JMBG>
+    <ContactPhoneNumber>8373373</ContactPhoneNumber>
+    <Email>luka@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location />
+    <Car>
+      <Driver>crni</Driver>
+      <CarYear>2005</CarYear>
+      <RegistrationNumber>050684</RegistrationNumber>
+      <TaxiNumber>4</TaxiNumber>
+      <CarType>PassengerCar</CarType>
     </Car>
     <Zauzet>true</Zauzet>
   </Driver>

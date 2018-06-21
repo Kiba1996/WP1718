@@ -8,7 +8,10 @@ namespace project.Models
     public class Dispatcher : User
     {
         public Dispatcher() {
+            Name = "";
+            Surname = "";
             Role = Enums.RoleType.Dispatcher;
+            Drives = new List<Drive>();
         }
     }
 }
