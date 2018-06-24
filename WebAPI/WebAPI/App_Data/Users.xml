@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Customer>
-    <UserName>beba</UserName>
-    <Password>aa</Password>
-    <Name>aaaaaa</Name>
-    <Surname>sasas</Surname>
-    <Gender>Female</Gender>
-    <JMBG>2222222222222</JMBG>
-    <ContactPhoneNumber>11111</ContactPhoneNumber>
-    <Email>ss@</Email>
+    <UserName>deki</UserName>
+    <Password>deki</Password>
+    <Name>Dejan</Name>
+    <Surname>Stajic</Surname>
+    <Gender>Male</Gender>
+    <JMBG>510994234876</JMBG>
+    <ContactPhoneNumber>9388323</ContactPhoneNumber>
+    <Email>deki@gmail.com</Email>
     <Role>Customer</Role>
-	<Drives/>
+    <Drives />
+  </Customer>
+  <Customer>
+    <UserName>suza</UserName>
+    <Password>suza</Password>
+    <Name>Suzana</Name>
+    <Surname>Jovic</Surname>
+    <Gender>Female</Gender>
+    <JMBG>1309996232132</JMBG>
+    <ContactPhoneNumber>097313</ContactPhoneNumber>
+    <Email>suza@gmail.com</Email>
+    <Role>Customer</Role>
+    <Drives />
   </Customer>
 </ArrayOfCustomer>

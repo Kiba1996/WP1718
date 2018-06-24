@@ -1,87 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfDriver xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Driver>
-    <UserName>gica</UserName>
-    <Password>gg</Password>
-    <Name>Tamara</Name>
-    <Surname>Gengo</Surname>
+    <UserName>ta</UserName>
+    <Password>123</Password>
+    <Name>Tam</Name>
+    <Surname>gengusa</Surname>
     <Gender>Male</Gender>
-    <JMBG>1234567890456</JMBG>
-    <ContactPhoneNumber>948372</ContactPhoneNumber>
-    <Email>gica@gmail.com</Email>
+    <JMBG>501997188925</JMBG>
+    <ContactPhoneNumber>99999999</ContactPhoneNumber>
+    <Email>gica@yahoo.com</Email>
     <Role>Driver</Role>
     <Drives />
-    <Location />
+    <Location>
+      <X />
+      <Y />
+      <Address>
+        <Street />
+        <Number />
+        <Town />
+        <PostalCode>0</PostalCode>
+      </Address>
+    </Location>
     <Car>
       <Driver>gica</Driver>
-      <CarYear>1999</CarYear>
-      <RegistrationNumber>235z</RegistrationNumber>
+      <CarYear>2004</CarYear>
+      <RegistrationNumber>23jf4</RegistrationNumber>
       <TaxiNumber>1</TaxiNumber>
       <CarType>Van</CarType>
     </Car>
-    <Zauzet>true</Zauzet>
+    <Zauzet>false</Zauzet>
   </Driver>
   <Driver>
-    <UserName>suza</UserName>
-    <Password>ss</Password>
-    <Name>Suzana</Name>
-    <Surname>Jovic</Surname>
-    <Gender>Female</Gender>
-    <JMBG>3456734567890</JMBG>
-    <ContactPhoneNumber>34343</ContactPhoneNumber>
-    <Email>suza@gmail.com</Email>
-    <Role>Driver</Role>
-    <Drives />
-    <Location />
-    <Car>
-      <Driver>suza</Driver>
-      <CarYear>2001</CarYear>
-      <RegistrationNumber>23g4</RegistrationNumber>
-      <TaxiNumber>2</TaxiNumber>
-      <CarType>PassengerCar</CarType>
-    </Car>
-    <Zauzet>true</Zauzet>
-  </Driver>
-  <Driver>
-    <UserName>Joca</UserName>
-    <Password>374672</Password>
-    <Name>Jovan</Name>
-    <Surname>Gajin</Surname>
+    <UserName>gica</UserName>
+    <Password>maca</Password>
+    <Name>Nevena</Name>
+    <Surname>Djur</Surname>
     <Gender>Male</Gender>
-    <JMBG>1298765438291</JMBG>
-    <ContactPhoneNumber>87643</ContactPhoneNumber>
-    <Email>joca@gmail.com</Email>
+    <JMBG>1234567890123</JMBG>
+    <ContactPhoneNumber>333333</ContactPhoneNumber>
+    <Email>maca123@gmail.com</Email>
     <Role>Driver</Role>
     <Drives />
-    <Location />
+    <Location>
+      <X />
+      <Y />
+      <Address>
+        <Street />
+        <Number />
+        <Town />
+        <PostalCode>0</PostalCode>
+      </Address>
+    </Location>
     <Car>
-      <Driver>Joca</Driver>
-      <CarYear>1998</CarYear>
-      <RegistrationNumber>423k1</RegistrationNumber>
+      <Driver>maca</Driver>
+      <CarYear>2000</CarYear>
+      <RegistrationNumber>64hd</RegistrationNumber>
       <TaxiNumber>3</TaxiNumber>
-      <CarType>Van</CarType>
-    </Car>
-    <Zauzet>true</Zauzet>
-  </Driver>
-  <Driver>
-    <UserName>crni</UserName>
-    <Password>ss</Password>
-    <Name>Luka</Name>
-    <Surname>Crnomarkovic</Surname>
-    <Gender>Male</Gender>
-    <JMBG>8345903219884</JMBG>
-    <ContactPhoneNumber>8373373</ContactPhoneNumber>
-    <Email>luka@gmail.com</Email>
-    <Role>Driver</Role>
-    <Drives />
-    <Location />
-    <Car>
-      <Driver>crni</Driver>
-      <CarYear>2005</CarYear>
-      <RegistrationNumber>050684</RegistrationNumber>
-      <TaxiNumber>4</TaxiNumber>
       <CarType>PassengerCar</CarType>
     </Car>
-    <Zauzet>true</Zauzet>
+    <Zauzet>false</Zauzet>
   </Driver>
 </ArrayOfDriver>

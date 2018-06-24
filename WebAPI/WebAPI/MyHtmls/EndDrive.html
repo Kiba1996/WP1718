@@ -1,0 +1,79 @@
+﻿<br/>
+<br/>
+<br />
+<br />
+
+    <button type="submit" class="btn button-success" ng-click="VozUsp()">Voznja je uspesna.</button>
+    <button type="submit" class="btn button-success" ng-click="VozNeusp()">Voznja je neuspesna.</button>
+
+
+    <div ng-show="PokaziUspesna" class="container-fluid">
+    <div class="registerWindow">
+        <div class="header">
+            <h2>Location</h2>
+        </div>
+        <div class="body">
+            <label>Add your location: </label>
+            <div>
+                <div id="map" class="map"></div>
+                <script type="text/javascript">
+                      var map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                          new ol.layer.Tile({
+                            source: new ol.source.OSM()
+                          })
+                        ],
+                        view: new ol.View({
+                          center: ol.proj.fromLonLat([37.41, 8.82]),
+                          zoom: 4
+                        })
+                      });
+                </script>
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="X coordinate">
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="Y coordinate">
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="street" ng-model="drive.Street" placeholder="Street">
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="number" ng-model="drive.Number" placeholder="Number">
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="town" ng-model="drive.Town" placeholder="Town">
+            </div>
+            <div class="form-group">
+                <input required type="text" class="t" id="postalCode" ng-model="drive.PostalCode" placeholder="Postal code">
+            </div>
+            <div class="form-group">
+                <input required type="number" class="t" id="postalCode" ng-model="drive.Cena" placeholder="Postal code">
+            </div> 
+            <br>
+            <button type="submit" ng-show="user.role==2"  class="btn button-success" ng-click="SuccessDrive(drive)">Send</button>
+        </div>
+    </div>
+
+    </div>
+
+    <div ng-show="PokaziNeuspesna"class="form-group">
+
+    <table class="zaBojuSlova">
+        <tr>
+            <th colspan="2">Unesite komentar:</th>
+        </tr>
+        <tr class="zaBojuSlova">
+            <td>Opis: </td>
+            <td><textarea required class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
+         </tr>
+        <tr>
+            <td colspan="2">
+                <button  type="submit" class="btn button-success" ng-click="Comment(ko)">Comment</button>
+            </td>
+        </tr>
+      </table>
+    </div>
+

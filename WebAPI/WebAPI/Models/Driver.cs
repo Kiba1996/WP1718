@@ -12,6 +12,7 @@ namespace project.Models
         public bool Zauzet { get; set; }
 
         public Driver() {
+           
             Name = "";
             Surname = "";
             Role = Enums.RoleType.Driver;

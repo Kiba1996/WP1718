@@ -2,30 +2,23 @@
 <ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Car>
     <Driver>gica</Driver>
-    <CarYear>1999</CarYear>
-    <RegistrationNumber>235z</RegistrationNumber>
+    <CarYear>2004</CarYear>
+    <RegistrationNumber>23jf4</RegistrationNumber>
     <TaxiNumber>1</TaxiNumber>
     <CarType>Van</CarType>
   </Car>
   <Car>
-    <Driver>suza</Driver>
-    <CarYear>2001</CarYear>
-    <RegistrationNumber>23g4</RegistrationNumber>
+    <Driver>maca</Driver>
+    <CarYear>2000</CarYear>
+    <RegistrationNumber>dak63</RegistrationNumber>
     <TaxiNumber>2</TaxiNumber>
     <CarType>PassengerCar</CarType>
   </Car>
   <Car>
-    <Driver>Joca</Driver>
-    <CarYear>1998</CarYear>
-    <RegistrationNumber>423k1</RegistrationNumber>
+    <Driver>maca</Driver>
+    <CarYear>2000</CarYear>
+    <RegistrationNumber>64hd</RegistrationNumber>
     <TaxiNumber>3</TaxiNumber>
-    <CarType>Van</CarType>
-  </Car>
-  <Car>
-    <Driver>crni</Driver>
-    <CarYear>2005</CarYear>
-    <RegistrationNumber>050684</RegistrationNumber>
-    <TaxiNumber>4</TaxiNumber>
     <CarType>PassengerCar</CarType>
   </Car>
 </ArrayOfCar>

@@ -1,11 +1,11 @@
-﻿WebAPI.controller('MyHomeController', function ($scope, $rootScope, LogCont, ProfCont, $window) {
+﻿WebAPI.controller('MyHomeController', function ($scope, $rootScope, $route, LogCont, ProfCont, $window) {
 
     if (!$rootScope.loggedin) {
         $window.location.href = "#!/Login";
     }
 
     function init() {
-       
+
         LogCont.getDrives(sessionStorage.getItem("username")).then(function (response) {
             $scope.MyDrives = response.data;
             $rootScope.filtriranje = "Your drives"
@@ -23,6 +23,13 @@
             //$scope.FILT2 = false;
             console.log(response.data);
         });
+
+        ProfCont.getDriverData(sessionStorage.getItem("username")).then(function (response) {
+
+            $scope.DriverData = response.data;
+
+        });
+
     }
 
     init();
@@ -43,7 +50,7 @@
             //$scope.SVE = true;
             //$scope.FILT1 = false;
             //$scope.FILT2 = false;
-           
+            
             console.log(response.data);
         });
     }
@@ -214,6 +221,106 @@
 
         });
     }
+    $scope.ProcessDrive = function (drive,f) {
 
+        ProfCont.ProcessDrive(drive,f).then(function (response) {
+            console.log(response.data);
+
+            if ($scope.listaFlag == 1) {
+                $scope.MyDrives = response.data;
+                $scope.$evalAsync;//$scope.$apply();
+            }
+
+
+            if ($scope.listaFlag == 2) {
+                $scope.AllDrives = response.data;
+                $scope.$evalAsync;//$scope.$apply();
+            }
+
+            if ($scope.listaFlag == 4) {
+                $scope.SortedDrives = response.data;
+                $scope.$evalAsync;//$scope.$apply();
+            }
+
+            if ($scope.listaFlag == 5) {
+                $scope.FilteredDrives = response.data;
+                $scope.$evalAsync;//$scope.$apply();
+            }
+
+            if ($scope.listaFlag == 6) {
+                $scope.SearchedDrives = response.data;
+                $scope.$evalAsync;//$scope.$apply();
+            }
+
+
+            //$rootScope.VoznjaZaKomentar = response.data;
+            //$window.location.href = "#!/MyHome";
+            //$window.location.refresh();
+            //if (response.data) {
+            //    $route.reload();
+            //}
+            //if (f == 1) {
+            //    $scope.MyDrives = response.data;
+            //}
+            //if (f == 2) {
+            //    $scope.AllDrives = response.data;
+            //}
+            //if (f == 4) {
+            //    $scope.AllDrives = response.data;
+            //}
+           
+        });
+    }
+
+    
+    $scope.AcceptDrive = function (drive, f) {
+
+        ProfCont.AcceptDrive(drive, f).then(function (response) {
+            console.log(response.data);
+
+            $scope.DriverData.zauzet = true;
+  
+            if ($scope.listaFlag == 4) {
+                $scope.SortedDrives = response.data;
+                //$scope.$apply();
+                $scope.$evalAsync;
+            }
+
+
+            if ($scope.listaFlag == 6) {
+                $scope.SearchedDrives = response.data;
+                //$scope.$apply();
+                $scope.$evalAsync;
+            }
+
+            if ($scope.listaFlag == 3) {
+                $scope.CreatedDrives = response.data;
+                //$scope.$apply();
+                $scope.$evalAsync;
+            }
+            $scope.$evalAsync;//$apply();
+
+        });
+    }
+
+
+    
+    $scope.EndDrive = function (drive) {
+        
+        $rootScope.VoznjaZaKomentarVozac = drive;
+        $window.location.href = "#!/EndDrive";
+
+        
+    }
+    $scope.Komentarisi = function (drive) {
+
+        if (drive == null) {
+            return;
+        }
+
+        $rootScope.VoznjaZaKomentar = drive;
+
+        $window.location.href = "#!/Comment";
+    }
 
 });

@@ -11,7 +11,11 @@ namespace project.Models
         public String Y { get; set; }
         public Address Address { get; set; }
 
-        public Location() { }
+        public Location() {
+            X = "";
+            Y = "";
+            Address = new Address();
+        }
         public Location(String x, String y, Address a)
         {
             X = x;

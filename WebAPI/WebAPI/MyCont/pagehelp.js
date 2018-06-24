@@ -49,7 +49,10 @@ WebAPI.config(function ($routeProvider) {
             controller: 'CommentController',
             templateUrl: 'MyHtmls/Comment.html',
             activeTab: 'none'
+        }).when('/EndDrive', {
+            controller: 'CommentController',
+            templateUrl: 'MyHtmls/EndDrive.html',
+            activeTab: 'none'
         })
-
 
 });

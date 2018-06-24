@@ -2,14 +2,14 @@
 <ArrayOfDispatcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Dispatcher>
     <UserName>barbi</UserName>
-    <Password>aa</Password>
-    <Name>aaaaaa</Name>
-    <Surname>sasas</Surname>
-    <Gender>Female</Gender>
-    <JMBG>2222222222222</JMBG>
-    <ContactPhoneNumber>11111</ContactPhoneNumber>
-    <Email>ss@</Email>
+	<Password>aa</Password>
+	<Name>Barbara</Name>
+	<Surname>Segrt</Surname>
+	<Gender>Female</Gender>
+	<JMBG>504996815119</JMBG>
+	<ContactPhoneNumber>06243259</ContactPhoneNumber>
+	<Email>barbi@gmail.com</Email>
     <Role>Dispatcher</Role>
-	<Drives/>
+    <Drives />
   </Dispatcher>
 </ArrayOfDispatcher>

@@ -12,7 +12,12 @@ namespace project.Models
         public String Town { get; set; }
         public int PostalCode { get; set; }
 
-        public Address() { }
+        public Address() {
+            Street = "";
+            Number = "";
+            Town = "";
+            PostalCode = 0;
+        }
         public Address(String street, String number, String town, int postalCode)
         {
             Street = street;

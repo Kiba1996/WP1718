@@ -109,6 +109,24 @@ namespace WebAPI.MyHelpers
     {
         public Drive dr { get; set; }
     }
+    public class ObradaPrenos
+    {
+        public Drive dr { get; set; }
+        public List<Drive> voznje { get; set; }
+        public string korisnicko { get; set; }
+    }
+
+    public class DriverPrenos
+    {
+        public bool zauzet { get; set; }
+        public Enums.CarType tipAuta { get; set; }
+
+        
+       
+    }
+
+
+
 
     public class KomentarPrenos
     {
@@ -116,4 +134,26 @@ namespace WebAPI.MyHelpers
         public String KommOcena { get; set; }
         public Drive voz { get; set; }
     }
+
+    public class KomentarVozacPrenos
+    {
+        public String KommOpis { get; set; }
+       // public String KommOcena { get; set; }
+        public Drive voz { get; set; }
+    }
+    
+   
+
+    public class SuccessDrivePrenos
+    {
+        public string XCoord { get; set; }
+        public string YCoord { get; set; }
+        public string Street { get; set; }
+        public string Number { get; set; }
+        public string Town { get; set; }
+        public string PostalCode { get; set; }
+        public Drive voznja { get; set; }
+        public int Cena { get; set; }
+    }
+
 }

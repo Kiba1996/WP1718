@@ -8,7 +8,7 @@ namespace project.Models
     public static class Enums
     {
         public enum DriveStatus{ Created_Waiting, Canceled, Formed, Processed, Accepted, Successful, Unsuccessful }
-        public enum CarType{ PassengerCar, Van }
+        public enum CarType{ PassengerCar, Van, NoType}
         public enum GenederType { Male, Female }
         public enum RoleType { Customer, Dispatcher, Driver }
 

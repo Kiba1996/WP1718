@@ -85,20 +85,20 @@
         });
     }
 
-    //factory.EditUser = function (user) {
-    //    return $http.post('/api/Prof/EditUser', {
-    //        Username: user.username,
-    //        Password: user.pwd,
-    //        Ime: user.ime,
-    //        Prezime: user.prezime,
-    //        Pol: user.pol,
-    //        Jmbg: user.jmbg,
-    //        Telefon: user.kontaktTelefon,
-    //        Email: user.email,
-    //        korisnicko: sessionStorage.getItem("username")
-    //    });
+    factory.EditUser = function (user) {
+        return $http.post('/api/Prof/EditUser', {
+            Username: user.username,
+            Password: user.pwd,
+            Ime: user.ime,
+            Prezime: user.prezime,
+            Pol: user.pol,
+            Jmbg: user.jmbg,
+            Telefon: user.kontaktTelefon,
+            Email: user.email,
+            OldUsername: sessionStorage.getItem("username")
+        });
 
-    //}
+    }
 
     factory.CancelDrive = function (drive) {
         return $http.post('/api/Prof/CancelDrive', {
@@ -112,6 +112,47 @@
             KommOcena: ko.Ocena,
             Voz: voz
         });
+    }
+    factory.ProcessDrive = function (drive,drives) {
+        return $http.post('/api/Prof/ProcessDrive', {
+            dr: drive,
+            voznje: drives,
+            korisnicko: sessionStorage.getItem("username")
+        });
+    }
+
+   
+    factory.AcceptDrive = function (drive, drives) {
+        return $http.post('/api/Prof/AcceptDrive', {
+            dr: drive,
+            voznje: drives,
+            korisnicko: sessionStorage.getItem("username")
+        });
+    }
+
+    factory.getDriverData = function (username) {
+        return $http.get('/api/Prof/getDriverData?username=' + username);
+    }
+
+    factory.Comment = function (ko, voz) {
+        return $http.post('/api/Prof/Comment', {
+            KommOpis: ko.Opis,
+           // KommOcena: ko.Ocena,
+            Voz: voz
+        });
+    }
+
+    factory.SuccessDrive = function (drive, dri) {
+        return $http.post('/api/Prof/SuccessDrive', {
+            XCoord: drive.XCoord,
+            YCoord: drive.YCoord,
+            Street: drive.Street,
+            Number: drive.Number,
+            Town: drive.Town,
+            PostalCode: drive.PostalCode,
+            voznja: dri,
+            Cena: drive.Cena
+        })
     }
 
     return factory;

@@ -2,37 +2,131 @@
     <div class="header">
         <h1>Edit Form: </h1>
     </div>
-    <!-->div-- class="body">
+    <div >
         <div class="form-group">
-           <label>User name: {{userProfile.UserName}}. New username</label> <input type="text" class="t" id="username" ng-model="user.username"/>
+            <table border="1">
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">User name: {{userProfile.UserName}}.</label>
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriUN()">Input new username</button>
+                    </td>
+                </tr>
+                <tr ng-show="EditUN">
+                    <td colspan="2">
+                        <input type="text" class="t" id="Username" ng-model="user.username" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">Name: {{userProfile.Name}}.</label>
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriN()">Input new name</button>
+                    </td>
+                </tr>
+                <tr  ng-show="EditN">
+                    <td colspan="2">
+                        <input ng-show="EditN" type="text" class="t" id="ime" ng-model="user.ime" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">Surname: {{userProfile.Surname}}.</label>
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriSN()">Input new surname</button>
+                    </td>
+                </tr>
+                <tr ng-show="EditSN">
+                    <td colspan="2">
+                        <input  type="text" class="t" id="prezime" ng-model="user.prezime"/>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        <label ng-show="userProfile.Gender==0" class="zaBojuSlova">Gender: Male.</label>
+                        <label ng-show="userProfile.Gender==1" class="zaBojuSlova">Gender: Female.</label>
+
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriG()">Input new gender</button>
+
+                    </td>
+                </tr>
+                <tr ng-show="EditG">
+                    <td colspan="2">
+                         <select class="t" id="pol" ng-model="user.pol">
+                                <option value="" disabled>Choose gender</option>
+                                <option value="Male"> Male</option>
+                                <option value="Female">Female</option>
+                         </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">JMBG: {{userProfile.JMBG}}.</label>
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriJmbg()">Input new jmbg</button>
+                    </td>
+                </tr>        
+                <tr ng-show="EditJmbg">
+                    <td colspan="2">
+                        <input  type="text" class="t" id="jmbg" ng-model="user.jmbg" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">Phone: {{userProfile.ContactPhoneNumber}}.</label>
+
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriPhone()">Input new phone</button>
+
+                    </td>
+                </tr>
+                <tr ng-show="EditPhone">
+                    <td colspan="2">
+                        <input  type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="zaBojuSlova">Email: {{userProfile.Email}}.</label>
+
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriE()">Input new email</button>
+
+                    </td>
+                </tr>
+                <tr ng-show="EditE">
+                    <td colspan="2">
+                        <input  type="text" class="t" id="email" ng-model="user.email" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <button type="submit" ng-click="OtovriPas()">Input new password</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input ng-show="EditPas" type="password" class="t" id="pwd" ng-model="user.pwd" />
+                    </td>
+                </tr>         
+                
+          </table>
+            <button type="submit" class="btn button-success" ng-click="EditUser(user)">Edit</button>
         </div>
-        <div class="form-group">
-            <label>Name: {{userProfile.Name}}. New name</label> <input type="text" class="t" id="ime" ng-model="user.ime" />
-        </div>
-        <div class="form-group">
-            <label>Surname: {{userProfile.Surname}}. New surname</label><input type="text" class="t" id="prezime" />
-        </div>
-        <label>Gender: {{userProfile.Gender}}. New gender</label><div class="form-group">
-            <select class="t" id="pol" ng-model="user.pol" >
-                <option value="" disabled>Choose gender</option>
-                <option value="Male"> Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <!--<input type="text" class="t" id="pol" ng-model="user.pol" placeholder="Pol">-->
-        <!-->/div>
-        <div class="form-group">
-            <label>JMBG: {{userProfile.Jmbg}}. New jmbg</label><input type="text" class="t" id="jmbg" ng-model="user.jmbg"/>
-        </div>
-        <div class="form-group">
-            <label>Phone: {{userProfile.ContactPhoneNumber}}. New phone number</label><input type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon"/>
-        </div>
-        <div class="form-group">
-            <label>Email: {{userProfile.Email}}. New Email: </label><input type="text" class="t" id="email" ng-model="user.email"/>
-        </div>
-        <div class="form-group">
-            <label>Password: </label><input type="password" class="t" id="pwd" ng-model="user.pwd" placeholder="Password">
-        </div>
-        <br>
-        <button type="submit" class="btn button-success" ng-click="EditUser(user)">Edit</button>
-    </!--div-->
-</div>
+    </div>
+    </div>

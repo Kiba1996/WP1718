@@ -92,6 +92,36 @@ namespace WebAPI.Controllers
             return null;
         }
 
+
+
+        [HttpGet]
+        [ActionName("getDriverData")]
+        public DriverPrenos getDriverData(string username)
+        {
+
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            bool x = false;
+            List<Driver> drivers = xml.ReadDrivers(drv);
+            DriverPrenos ret = new DriverPrenos();
+            foreach (Driver us in drivers)
+            {
+                if (us.UserName == username)
+                {
+                    ret.tipAuta = us.Car.CarType;
+                    ret.zauzet = us.Zauzet;
+                    x = true;
+                }
+            }
+            if (!x)
+            {
+                ret.tipAuta = Enums.CarType.NoType;
+                ret.zauzet = true;
+            }
+
+            return ret;
+        }
+
         [HttpPost]
         [ActionName("AddDriveCustomer")]
         public bool AddDriveCustomer([FromBody]DriveR k)
@@ -125,6 +155,7 @@ namespace WebAPI.Controllers
                     drive.Dispatcher = new Dispatcher();
                     drive.Driver = new Driver();
                     drive.Status = Enums.DriveStatus.Created_Waiting;
+                    
                     // u.Drives.Add(drive);
 
                     //  g = false;
@@ -452,6 +483,435 @@ namespace WebAPI.Controllers
             xml.WriteDrives(drives, ss1);
             return por;
         }
+
+        [HttpPost]
+        [ActionName("Comment")]
+        public bool Comment([FromBody]KomentarVozacPrenos k)
+        {
+            bool por = false;
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            //foreach(Driver kp in drivers)
+            //{
+            //    if(kp.UserName == k.voz.Driver.UserName)
+            //    {
+            //        kp.Zauzet = false;
+            //        por = true;
+            //    }
+            //}
+
+            //if (por)
+            //{
+                foreach (Drive dri in drives)
+                {
+                    if (dri.Driver.UserName == k.voz.Driver.UserName && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.voz.DataAndTime))
+                    {
+                        dri.Comment.Date = DateTime.Parse(String.Format("{0:F}", DateTime.Now));
+                        dri.Comment.Description = k.KommOpis;
+                        dri.Comment.Rating = 0;//int.Parse(k.KommOcena);
+                        dri.Comment.user = k.voz.Driver.UserName;
+                        dri.Driver.Zauzet = false;
+                        dri.Status = Enums.DriveStatus.Unsuccessful;
+                        //dri.Status = Enums.DriveStatus.Canceled;
+                        por = true;
+                        break;
+                    }
+              //  }
+            }
+            if (por)
+            {
+                foreach (Driver kp in drivers)
+                {
+                    if (kp.UserName == k.voz.Driver.UserName)
+                    {
+                        kp.Zauzet = false;
+                        break;
+                    }
+                }
+            }
+            xml.WriteDrives(drives, ss1);
+            xml.WriteDrivers(drivers, drv);
+            return por;
+        }
+
+
+        [HttpPost]
+        [ActionName("ProcessDrive")]
+        public List<Drive> ProcessDrive([FromBody]ObradaPrenos k)
+        {
+            Drive por = new Drive();
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            List<Dispatcher> dispatchers = xml.ReadDispatcher(adm);
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            bool p = false;
+          //  Drive promenjena = new Drive(); 
+            Driver driver = new Driver();
+            Dispatcher dispacer = new Dispatcher();
+           // List<Drive> li = new List<Drive>();
+            //li = k.voznje;
+            foreach (Driver d in drivers)
+            {
+                if (!d.Zauzet && (d.Car.CarType ==k.dr.CarType))
+                {
+                    d.Zauzet = true;
+                    driver = d;
+                    p = true;
+                    break;
+                }
+            }
+
+            foreach(Dispatcher disp in dispatchers)
+            {
+                if(disp.UserName == k.korisnicko)
+                {
+                    dispacer = disp;
+                }
+            }
+            //if (!p)
+            //{
+            //    drive.Status = Enums.DriveStatus.Created_Waiting;
+            //    drive.Driver = new Driver();
+            //}
+
+            if (p)
+            {
+                foreach (Drive dri in drives)
+                {
+                    if ((dri.Customer.UserName == k.dr.Customer.UserName || dri.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
+                    {
+                      
+                        dri.Status = Enums.DriveStatus.Processed;
+                        //dri.Driver.Zauzet = true;
+                        dri.Driver = driver;
+                        dri.Dispatcher = dispacer;
+                        //por = dri;
+                       // promenjena = dri;
+                        break;
+                    }
+                }
+
+                foreach (Drive w in k.voznje)
+                {
+                    if ((w.Customer.UserName == k.dr.Customer.UserName || w.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(w.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
+                    {
+                        w.Status = Enums.DriveStatus.Processed; ;
+                        w.Driver = driver;
+                        w.Dispatcher = dispacer;
+                    }
+                }
+
+                
+
+                xml.WriteDrives(drives, ss1);
+                xml.WriteDrivers(drivers, drv);
+            }
+           
+
+            return k.voznje;//por;
+        }
+
+
+        [HttpPost]
+        [ActionName("AcceptDrive")]
+        public List<Drive> AcceptDrive([FromBody]ObradaPrenos k)
+        {
+            Drive por = new Drive();
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+            //string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            //List<Dispatcher> dispatchers = xml.ReadDispatcher(adm);
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            bool p = false;
+            //  Drive promenjena = new Drive(); 
+            Driver driver = new Driver();
+            //Dispatcher dispacer = new Dispatcher();
+            // List<Drive> li = new List<Drive>();
+            //li = k.voznje;
+            foreach (Driver d in drivers)
+            {
+                if (d.UserName == k.korisnicko)
+                {
+                    d.Zauzet = true;
+                    driver = d;
+                    p = true;
+                    break;
+                }
+            }
+
+           
+            //if (!p)
+            //{
+            //    drive.Status = Enums.DriveStatus.Created_Waiting;
+            //    drive.Driver = new Driver();
+            //}
+
+            if (p)
+            {
+                foreach (Drive dri in drives)
+                {
+                    if ((dri.Customer.UserName == k.dr.Customer.UserName || dri.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
+                    {
+
+                        dri.Status = Enums.DriveStatus.Accepted;
+                        //dri.Driver.Zauzet = true;
+                        dri.Driver = driver;
+                       
+                        //por = dri;
+                        // promenjena = dri;
+                        break;
+                    }
+                }
+
+                int i = 0;
+                foreach (Drive w in k.voznje)
+                { 
+                    if ((w.Customer.UserName == k.dr.Customer.UserName || w.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(w.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
+                    {
+                        break;
+                        
+                    }
+                    i++;
+                }
+
+
+                k.voznje.RemoveAt(i);
+
+                xml.WriteDrives(drives, ss1);
+                xml.WriteDrivers(drivers, drv);
+            }
+
+
+            return k.voznje;//por;
+        }
+        
+
+
+        [ActionName("SuccessDrive")]
+        public bool SuccessDrive([FromBody]SuccessDrivePrenos k)
+        {
+            bool por = false;
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            //foreach(Driver kp in drivers)
+            //{
+            //    if(kp.UserName == k.voz.Driver.UserName)
+            //    {
+            //        kp.Zauzet = false;
+            //        por = true;
+            //    }
+            //}
+
+            //if (por)
+            //{
+            foreach (Drive dri in drives)
+            {
+                if (dri.Driver.UserName == k.voznja.Driver.UserName && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.voznja.DataAndTime))
+                {
+                    dri.Amount = k.Cena;
+                    dri.Destination.X = k.XCoord;
+                    dri.Destination.Y = k.YCoord;
+                    dri.Destination.Address.Street = k.Street;
+                    dri.Destination.Address.Number = k.Number;
+                    dri.Destination.Address.Town = k.Town;
+                    dri.Destination.Address.PostalCode = int.Parse(k.PostalCode);
+
+                  
+                    dri.Driver.Zauzet = false;
+                    dri.Status = Enums.DriveStatus.Successful;
+                    //dri.Status = Enums.DriveStatus.Canceled;
+                    por = true;
+                    break;
+                }
+                //  }
+            }
+            if (por)
+            {
+                foreach (Driver kp in drivers)
+                {
+                    if (kp.UserName == k.voznja.Driver.UserName)
+                    {
+                        kp.Zauzet = false;
+                        break;
+                    }
+                }
+            }
+            xml.WriteDrives(drives, ss1);
+            xml.WriteDrivers(drivers, drv);
+            return por;
+        }
+
+
+
+        [HttpPost]
+        [ActionName("EditUser")]
+        public int EditUser([FromBody]UserEDit k)
+        {
+           
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Dispatcher> admins = xml.ReadDispatcher(adm);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            bool g = true;
+            int q = 3;
+            if (k.OldUsername != k.Username)
+            {
+                foreach (Customer u in users)
+                {
+                    if (u.UserName == k.Username)
+                    {
+
+                        g = false;
+                    }
+                }
+
+                foreach (Dispatcher ad in admins)
+                {
+                    if (ad.UserName == k.Username)
+                    {
+                        g = false;
+                    }
+                }
+
+                foreach (Driver dr in drivers)
+                {
+                    if (dr.UserName == k.Username)
+                    {
+                        g = false;
+                    }
+                }
+            }
+            if (g)
+            {
+                //int cCounter = 0;
+                //int aCounter = 0;
+                //int dCounter = 0;
+                foreach (Customer u in users)
+                {
+                    if (u.UserName == k.OldUsername)
+                    {
+                        
+                        u.UserName = k.Username;
+                        u.Password = k.Password;
+                        u.Name = k.Ime;
+                        u.Surname = k.Prezime;
+                        if (k.Pol == "Female")
+                        {
+                            u.Gender = Enums.GenederType.Female;
+                        }
+                        else
+                        {
+                            u.Gender = Enums.GenederType.Male;
+                        }
+                        u.JMBG = Int64.Parse(k.Jmbg);
+                        u.ContactPhoneNumber = k.Telefon;
+                        u.Email = k.Email;
+
+                       // users.ad(user);
+                        
+                        q = 0;
+                        
+
+                    }
+                    
+                }
+
+                foreach (Dispatcher u in admins)
+                {
+                    if (u.UserName == k.OldUsername)
+                    {
+                        u.UserName = k.Username;
+                        u.Password = k.Password;
+                        u.Name = k.Ime;
+                        u.Surname = k.Prezime;
+                        if (k.Pol == "Female" || k.Pol=="1")
+                        {
+                            u.Gender = Enums.GenederType.Female;
+                        }
+                        else
+                        {
+                            u.Gender = Enums.GenederType.Male;
+                        }
+                        u.JMBG = Int64.Parse(k.Jmbg);
+                        u.ContactPhoneNumber = k.Telefon;
+                        u.Email = k.Email;
+
+
+                        q = 1;
+                    }
+                }
+                foreach(Driver u in drivers)
+                {
+                    if (u.UserName == k.OldUsername)
+                    {
+                        u.UserName = k.Username;
+                        if (k.Password != null)
+                        {
+                            u.Password = k.Password;
+                        }
+                        u.Name = k.Ime;
+                        u.Surname = k.Prezime;
+                        if (k.Pol == "Female")
+                        {
+                            u.Gender = Enums.GenederType.Female;
+                        }
+                        else
+                        {
+                            u.Gender = Enums.GenederType.Male;
+                        }
+                        u.JMBG = Int64.Parse(k.Jmbg);
+                        u.ContactPhoneNumber = k.Telefon;
+                        u.Email = k.Email;
+
+                        u.Car.Driver = k.Username;
+
+                        q = 2;
+                    }
+                }
+                if (q == 0)
+                {
+                    xml.WriteUsers(users, ss);
+                    //return 1;
+                }
+                if (q == 1)
+                {
+                    xml.WriteDispatchers(admins, adm);
+                   // return 2;
+                }
+                if (q == 2)
+                {
+                    xml.WriteDrivers(drivers, drv);
+                    //return 3;
+                }
+                
+                return q;
+
+            }
+            else
+            {
+               
+                return q;
+            }
+
+        }
+
 
 
     }

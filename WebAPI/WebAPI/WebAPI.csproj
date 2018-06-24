@@ -200,6 +200,7 @@
     <Content Include="MyHtmls\Comment.html" />
     <Content Include="MyHtmls\DriveGet.html" />
     <Content Include="MyHtmls\Edit.html" />
+    <Content Include="MyHtmls\EndDrive.html" />
     <Content Include="MyHtmls\HelpHome.html" />
     <Content Include="MyHtmls\Login.html" />
     <Content Include="MyHtmls\MyHome.html" />
