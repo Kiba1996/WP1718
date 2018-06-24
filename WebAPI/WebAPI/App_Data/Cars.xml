@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Car>
-    <Driver>gica</Driver>
+    <Driver>gengusa</Driver>
     <CarYear>2004</CarYear>
     <RegistrationNumber>23jf4</RegistrationNumber>
     <TaxiNumber>1</TaxiNumber>
@@ -10,15 +10,8 @@
   <Car>
     <Driver>maca</Driver>
     <CarYear>2000</CarYear>
-    <RegistrationNumber>dak63</RegistrationNumber>
-    <TaxiNumber>2</TaxiNumber>
-    <CarType>PassengerCar</CarType>
-  </Car>
-  <Car>
-    <Driver>maca</Driver>
-    <CarYear>2000</CarYear>
     <RegistrationNumber>64hd</RegistrationNumber>
-    <TaxiNumber>3</TaxiNumber>
+    <TaxiNumber>2</TaxiNumber>
     <CarType>PassengerCar</CarType>
   </Car>
 </ArrayOfCar>

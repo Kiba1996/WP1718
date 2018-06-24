@@ -764,10 +764,19 @@ namespace WebAPI.Controllers
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
             string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
             string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+            string drv1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string auto = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Cars.xml");
 
             List<Customer> users = xml.ReadUsers(ss);
             List<Dispatcher> admins = xml.ReadDispatcher(adm);
             List<Driver> drivers = xml.ReadDrivers(drv);
+            List<Drive> drives = xml.ReadDrives(drv1);
+            List<Car> cars = xml.ReadCars(auto);
+
+            Customer c = new Customer();
+            Dispatcher a = new Dispatcher();
+            Driver d = new Driver();
+                
 
             bool g = true;
             int q = 3;
@@ -827,7 +836,7 @@ namespace WebAPI.Controllers
                        // users.ad(user);
                         
                         q = 0;
-                        
+                        c = u;
 
                     }
                     
@@ -855,6 +864,7 @@ namespace WebAPI.Controllers
 
 
                         q = 1;
+                        a = u;
                     }
                 }
                 foreach(Driver u in drivers)
@@ -883,21 +893,108 @@ namespace WebAPI.Controllers
                         u.Car.Driver = k.Username;
 
                         q = 2;
+                        d = u;
                     }
                 }
                 if (q == 0)
                 {
+
+                    foreach(Drive dri in drives)
+                    {
+                        if (dri.Customer.UserName == k.OldUsername)
+                        {
+                            dri.Customer.UserName = k.Username;
+                            dri.Customer.Surname = k.Prezime;
+                            //dri.Customer.Role = c.Role;
+                            dri.Customer.Password = k.Password;
+                            dri.Customer.Name = k.Ime;
+                            dri.Customer.JMBG = Int64.Parse(k.Jmbg);
+                            if (k.Pol == "Female")
+                            {
+                                dri.Customer.Gender = Enums.GenederType.Female;
+                            }
+                            else
+                            {
+                                dri.Customer.Gender = Enums.GenederType.Male;
+                            }
+                           
+                            dri.Customer.Email = k.Email;
+                           // dri.Customer.Drives = c.Drives;
+                            dri.Customer.ContactPhoneNumber = k.Telefon;
+                        }
+                    }
+
+
                     xml.WriteUsers(users, ss);
+                    xml.WriteDrives(drives, drv1);
                     //return 1;
                 }
                 if (q == 1)
                 {
+                    foreach (Drive dri in drives)
+                    {
+                        if (dri.Dispatcher.UserName == k.OldUsername)
+                        {
+                            dri.Dispatcher.UserName = k.Username;
+                            dri.Dispatcher.Surname = k.Prezime;
+                            //dri.Customer.Role = c.Role;
+                            dri.Dispatcher.Password = k.Password;
+                            dri.Dispatcher.Name = k.Ime;
+                            dri.Dispatcher.JMBG = Int64.Parse(k.Jmbg);
+                            if (k.Pol == "Female")
+                            {
+                                dri.Dispatcher.Gender = Enums.GenederType.Female;
+                            }
+                            else
+                            {
+                                dri.Dispatcher.Gender = Enums.GenederType.Male;
+                            }
+
+                            dri.Dispatcher.Email = k.Email;
+                            // dri.Customer.Drives = c.Drives;
+                            dri.Dispatcher.ContactPhoneNumber = k.Telefon;
+                        }
+                    }
                     xml.WriteDispatchers(admins, adm);
-                   // return 2;
+                    xml.WriteDrives(drives, drv1);
+                    // return 2;
                 }
                 if (q == 2)
                 {
+                    foreach (Drive dri in drives)
+                    {
+                        if (dri.Driver.UserName == k.OldUsername)
+                        {
+                            dri.Driver.UserName = k.Username;
+                            dri.Driver.Surname = k.Prezime;
+                            //dri.Customer.Role = c.Role;
+                            dri.Driver.Password = k.Password;
+                            dri.Driver.Name = k.Ime;
+                            dri.Driver.JMBG = Int64.Parse(k.Jmbg);
+                            if (k.Pol == "Female")
+                            {
+                                dri.Driver.Gender = Enums.GenederType.Female;
+                            }
+                            else
+                            {
+                                dri.Driver.Gender = Enums.GenederType.Male;
+                            }
+
+                            dri.Driver.Email = k.Email;
+                            // dri.Customer.Drives = c.Drives;
+                            dri.Driver.ContactPhoneNumber = k.Telefon;
+                        }
+                    }
+                    foreach(Car ca in cars){
+                        if(ca.Driver == k.OldUsername)
+                        {
+                            ca.Driver = k.Username;
+                        }
+                    }
+
                     xml.WriteDrivers(drivers, drv);
+                    xml.WriteDrives(drives, drv1);
+                    xml.WriteCars(cars, auto);
                     //return 3;
                 }
                 

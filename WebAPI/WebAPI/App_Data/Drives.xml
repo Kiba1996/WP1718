@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDrive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Drive>
+    <DataAndTime>Sunday, 24 June 2018 19:04:46</DataAndTime>
+    <Arrival>
+      <X>98.982</X>
+      <Y>23.091</Y>
+      <Address>
+        <Street>Intel</Street>
+        <Number>34</Number>
+        <Town>Energy</Town>
+        <PostalCode>23461</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>suza123</UserName>
+      <Name>Suzana</Name>
+      <Surname>Djurkovic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>1309996232132</JMBG>
+      <ContactPhoneNumber>097313</ContactPhoneNumber>
+      <Email>suza@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address>
+        <Street />
+        <Number />
+        <Town />
+        <PostalCode>0</PostalCode>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>maca</UserName>
+      <Name>Nevena</Name>
+      <Surname>Djurkovic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>5678903412567</JMBG>
+      <ContactPhoneNumber>333333</ContactPhoneNumber>
+      <Email>maca123@gmail.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X />
+        <Y />
+        <Address>
+          <Street />
+          <Number />
+          <Town />
+          <PostalCode>0</PostalCode>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>maca</Driver>
+        <CarYear>2000</CarYear>
+        <RegistrationNumber>64hd</RegistrationNumber>
+        <TaxiNumber>2</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>true</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Accepted</Status>
+  </Drive>
+</ArrayOfDrive>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfDriver xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Driver>
-    <UserName>ta</UserName>
+    <UserName>gengusa</UserName>
     <Password>123</Password>
     <Name>Tam</Name>
     <Surname>gengusa</Surname>
@@ -22,7 +22,7 @@
       </Address>
     </Location>
     <Car>
-      <Driver>gica</Driver>
+      <Driver>gengusa</Driver>
       <CarYear>2004</CarYear>
       <RegistrationNumber>23jf4</RegistrationNumber>
       <TaxiNumber>1</TaxiNumber>
@@ -31,12 +31,12 @@
     <Zauzet>false</Zauzet>
   </Driver>
   <Driver>
-    <UserName>gica</UserName>
+    <UserName>maca</UserName>
     <Password>maca</Password>
     <Name>Nevena</Name>
-    <Surname>Djur</Surname>
+    <Surname>Djurkovic</Surname>
     <Gender>Male</Gender>
-    <JMBG>1234567890123</JMBG>
+    <JMBG>5678903412567</JMBG>
     <ContactPhoneNumber>333333</ContactPhoneNumber>
     <Email>maca123@gmail.com</Email>
     <Role>Driver</Role>
@@ -55,9 +55,9 @@
       <Driver>maca</Driver>
       <CarYear>2000</CarYear>
       <RegistrationNumber>64hd</RegistrationNumber>
-      <TaxiNumber>3</TaxiNumber>
+      <TaxiNumber>2</TaxiNumber>
       <CarType>PassengerCar</CarType>
     </Car>
-    <Zauzet>false</Zauzet>
+    <Zauzet>true</Zauzet>
   </Driver>
 </ArrayOfDriver>
