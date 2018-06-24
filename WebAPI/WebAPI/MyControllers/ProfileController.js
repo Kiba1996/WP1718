@@ -12,6 +12,8 @@
         $scope.EditPhone = false;
         $scope.EditE = false;
         $scope.EditPas = false;
+        //$scope.XCoord1 = "";
+        //$scope.YCoord1 = "";
         ProfCont.getUserByUsername($routeParams.username).then(function (response) {
             console.log(response.data);
 
@@ -69,11 +71,13 @@
 
     $scope.AddDriveCustomer = function (drive) {
 
-        if (drive.XCoord == null || drive.XCoord == "") {
+        //var p = $scope.XCoord1;
+
+        if (document.getElementById("xCoord").value == null || document.getElementById("xCoord").value ==""){//drive.XCoord == null || drive.XCoord == "") {
             alert('X coordinate cant be empty!');
             return;
         }
-        else if (drive.YCoord == null || drive.YCoord == "") {
+        else if (document.getElementById("yCoord").value == null || document.getElementById("yCoord").value == "") {
             alert('Y coordinate cant be empty!');
             return;
         }
@@ -91,7 +95,8 @@
             alert('Postal code cant be empty!');
             return;
         }
-
+        drive.XCoord = document.getElementById("xCoord").value;
+        drive.YCoord = document.getElementById("yCoord").value
 
         ProfCont.AddDriveCustomer(drive).then(function (response) {
             if (response.data == true) {

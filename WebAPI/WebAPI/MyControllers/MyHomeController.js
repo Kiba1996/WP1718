@@ -50,7 +50,7 @@
             //$scope.SVE = true;
             //$scope.FILT1 = false;
             //$scope.FILT2 = false;
-            
+
             console.log(response.data);
         });
     }
@@ -74,8 +74,8 @@
             console.log(response.data);
         });
     }
-    $scope.Sorting = function (Drives,broj) {
-        ProfCont.Sorting(Drives,broj).then(function (response) {
+    $scope.Sorting = function (Drives, broj) {
+        ProfCont.Sorting(Drives, broj).then(function (response) {
 
             console.log(response.data);
             //$scope.FilterRez = response.data;
@@ -97,7 +97,7 @@
             alert('If you want to filter then choose an option!');
             return;
         }
-        ProfCont.Filter(Drives,Status).then(function (response) {
+        ProfCont.Filter(Drives, Status).then(function (response) {
             console.log(response.data);
             //$scope.FilterRez = response.data;
             $scope.FilteredDrives = response.data;
@@ -111,13 +111,13 @@
             //$scope.FD = true;
             //$scope.FILT1 = true;
             //$scope.FILT2 = true;
-           
+
         });
     }
 
     $scope.Search = function (Drives, su) {
         if (su == null) {
-           // alert('You cant search!Fill in the search fields.');
+            // alert('You cant search!Fill in the search fields.');
             return;
         }
         //if (su.DatumOd > su.DatumDo || su.CenaOd> su.CenaDo || su.OcenaOd > su.OcenaDo) {
@@ -160,27 +160,27 @@
             }
         }
         if (su.OcenaOd != null) {
-        //    su.OcenaOd = null;
-        //}
-        //else {
+            //    su.OcenaOd = null;
+            //}
+            //else {
             if (!/^\d+$/.test(su.OcenaOd)) {
                 alert("Uneta ocena mora biti broj");
                 return;
             }
         }
         if (su.CenaDo != null) {
-        //    su.CenaDo = null;
-        //}
-        //else {
+            //    su.CenaDo = null;
+            //}
+            //else {
             if (!/^\d+$/.test(su.CenaDo)) {
                 alert("Uneta cena mora biti broj");
                 return;
             }
         }
         if (su.CenaOd != null) {
-        //    su.CenaOd = null;
-        //}
-        //else {
+            //    su.CenaOd = null;
+            //}
+            //else {
             if (!/^\d+$/.test(su.CenaOd)) {
                 alert("Uneta cena mora biti broj");
                 return;
@@ -213,7 +213,7 @@
     }
 
     $scope.CancelDrive = function (drive) {
-       
+
         ProfCont.CancelDrive(drive).then(function (response) {
             console.log(response.data);
             $rootScope.VoznjaZaKomentar = response.data;
@@ -221,9 +221,9 @@
 
         });
     }
-    $scope.ProcessDrive = function (drive,f) {
+    $scope.ProcessDrive = function (drive, f) {
 
-        ProfCont.ProcessDrive(drive,f).then(function (response) {
+        ProfCont.ProcessDrive(drive, f).then(function (response) {
             console.log(response.data);
 
             if ($scope.listaFlag == 1) {
@@ -268,18 +268,18 @@
             //if (f == 4) {
             //    $scope.AllDrives = response.data;
             //}
-           
+
         });
     }
 
-    
+
     $scope.AcceptDrive = function (drive, f) {
 
         ProfCont.AcceptDrive(drive, f).then(function (response) {
             console.log(response.data);
 
             $scope.DriverData.zauzet = true;
-  
+
             if ($scope.listaFlag == 4) {
                 $scope.SortedDrives = response.data;
                 //$scope.$apply();
@@ -304,13 +304,13 @@
     }
 
 
-    
+
     $scope.EndDrive = function (drive) {
-        
+
         $rootScope.VoznjaZaKomentarVozac = drive;
         $window.location.href = "#!/EndDrive";
 
-        
+
     }
     $scope.Komentarisi = function (drive) {
 
@@ -321,6 +321,17 @@
         $rootScope.VoznjaZaKomentar = drive;
 
         $window.location.href = "#!/Comment";
+    }
+
+
+    $scope.EditDrive = function (drive) {
+        if (drive == null) {
+            return;
+        }
+
+        $rootScope.VoznjaZaIzmenu = drive;
+
+        $window.location.href = "#!/EditDrive";
     }
 
 });

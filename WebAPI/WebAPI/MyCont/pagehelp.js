@@ -15,9 +15,9 @@ WebAPI.config(function ($routeProvider) {
             controller: 'LoginController',
             templateUrl: 'MyHtmls/Register.html',
             activeTab: 'Register'
-  
+
         }).when('/Login',
-         {
+        {
             controller: 'LoginController',
             templateUrl: 'MyHtmls/Login.html',
             activeTab: 'Login'
@@ -53,6 +53,10 @@ WebAPI.config(function ($routeProvider) {
             controller: 'CommentController',
             templateUrl: 'MyHtmls/EndDrive.html',
             activeTab: 'none'
+        }).when('/EditDrive', {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/EditDrive.html',
+            activeTab: 'Edit'
         })
 
 });

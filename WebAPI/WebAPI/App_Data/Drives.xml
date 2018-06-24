@@ -78,4 +78,63 @@
     </Comment>
     <Status>Accepted</Status>
   </Drive>
+  <Drive>
+    <DataAndTime>Sunday, 24 June 2018 21:48:28</DataAndTime>
+    <Arrival>
+      <X>60.4103</X>
+      <Y>99.343</Y>
+      <Address>
+        <Street>sadsa</Street>
+        <Number>34</Number>
+        <Town>dhshds</Town>
+        <PostalCode>3243</PostalCode>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address>
+        <Street />
+        <Number />
+        <Town />
+        <PostalCode>0</PostalCode>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Created_Waiting</Status>
+  </Drive>
 </ArrayOfDrive>
