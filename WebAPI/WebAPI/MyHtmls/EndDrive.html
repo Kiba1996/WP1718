@@ -14,41 +14,67 @@
         </div>
         <div class="body">
             <label>Add your location: </label>
+            <div id="map" class="map"></div>
             <div>
-                <div id="map" class="map"></div>
-                <script type="text/javascript">
-                      var map = new ol.Map({
-                        target: 'map',
-                        layers: [
-                          new ol.layer.Tile({
+                <!--<input id="lon" type="number" step="0.000001">
+                <input id="lat" type="number" step="0.000001">
+                <button id="reversegeocoding" type=button name="button">Reverse geocode manually</button>
+                <span id="address">
+
+                </span>-->
+            </div>>
+            <
+            <script>
+                var map = new ol.Map({
+                    layers: [
+                        new ol.layer.Tile({
                             source: new ol.source.OSM()
-                          })
-                        ],
-                        view: new ol.View({
-                          center: ol.proj.fromLonLat([37.41, 8.82]),
-                          zoom: 4
                         })
-                      });
-                </script>
+                    ],
+                    target: 'map',
+                    view: new ol.View({
+                        center: [0, 0],
+                        zoom: 2
+                    })
+                });
+                function simpleReverseGeocoding(lon, lat) {
+                    fetch('https://cors.io/?http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function (response) {
+                        return response.json();
+                    }).then(function (json) {
+                        document.getElementById('address').innerHTML = json.display_name;
+                    })
+                }
+                map.on('click', function (e) {
+                    var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
+                        return val.toFixed(6);
+                    });
+                    var lon = document.getElementById('lon').value = coordinate[0];
+                    var lat = document.getElementById('lat').value = coordinate[1];
+                    simpleReverseGeocoding(lon, lat);
+                });
+                //document.getElementById('reversegeocoding').addEventListener('click', function (e) {
+                //    if (document.getElementById('lon').value && document.getElementById('lat').value) {
+                //        simpleReverseGeocoding(document.getElementById('lon').value, document.getElementById('lat').value);
+                //    }
+                //});
+            </script>
+
+            <div class="form-group">
+                <!--<input type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="">-->
+                <input id="lon" type="number" step="0.000001" class="t">
             </div>
             <div class="form-group">
-                <input required type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="X coordinate">
+                <!--<input type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="">-->
+                <input id="lat" type="number" step="0.000001" class="t">
+
             </div>
             <div class="form-group">
-                <input required type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="Y coordinate">
+                <!--<input type="text" class="t" id="address" ng-model="drive.Street" placeholder="Street">-->
+                <span class="t" id="address">
+
+                </span>
             </div>
-            <div class="form-group">
-                <input required type="text" class="t" id="street" ng-model="drive.Street" placeholder="Street">
-            </div>
-            <div class="form-group">
-                <input required type="text" class="t" id="number" ng-model="drive.Number" placeholder="Number">
-            </div>
-            <div class="form-group">
-                <input required type="text" class="t" id="town" ng-model="drive.Town" placeholder="Town">
-            </div>
-            <div class="form-group">
-                <input required type="text" class="t" id="postalCode" ng-model="drive.PostalCode" placeholder="Postal code">
-            </div>
+            
             <div class="form-group">
                 <input required type="number" class="t" id="postalCode" ng-model="drive.Cena" placeholder="Postal code">
             </div> 

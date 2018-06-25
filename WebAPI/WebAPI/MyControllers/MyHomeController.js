@@ -6,6 +6,8 @@
 
     function init() {
 
+        
+
         LogCont.getDrives(sessionStorage.getItem("username")).then(function (response) {
             $scope.MyDrives = response.data;
             $rootScope.filtriranje = "Your drives"
@@ -332,6 +334,12 @@
         $rootScope.VoznjaZaIzmenu = drive;
 
         $window.location.href = "#!/EditDrive";
+    }
+
+    $scope.PromeniLokaciju = function () {
+
+        $rootScope.driverpodaci = $scope.DriverData;
+        $window.location.href = "#!/ChangeLocation";
     }
 
 });

@@ -61,10 +61,23 @@
             alert('Price cant be lower than 0');
             return;
         }
-        if (drive.XCoord == "" || drive.YCoord == "" || drive.Street == "" || drive.Number == "" || drive.Number == "" || drive.Town == "" || drive.PostalCode == "") {
-            alert('Sva polja moraju biti popunjena');
+        if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {//drive.XCoord == null || drive.XCoord == "") {
+            alert('X coordinate cant be empty!');
             return;
         }
+        else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+            alert('Y coordinate cant be empty!');
+            return;
+        }
+        else if (document.getElementById("address").innerHTML == null || document.getElementById("address").innerHTML == "") {
+            alert('Street cant be empty!');
+            return;
+        }
+
+        drive.XCoord = document.getElementById("lon").value;
+        drive.YCoord = document.getElementById("lat").value;
+        drive.Street = document.getElementById("address").innerHTML;
+
         ProfCont.SuccessDrive(drive, $rootScope.VoznjaZaKomentarVozac).then(function (response) {
             console.log(response.data);
             $window.location.href = "#!/MyHome";

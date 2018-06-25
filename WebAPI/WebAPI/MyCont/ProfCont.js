@@ -10,9 +10,6 @@
             XCoord: drive.XCoord,
             YCoord: drive.YCoord,
             Street: drive.Street,
-            Number: drive.Number,
-            Town: drive.Town,
-            PostalCode: drive.PostalCode,
             tipAuta: drive.tipAuta,
             korisnicko: sessionStorage.getItem("username")
            
@@ -76,14 +73,24 @@
             XCoord: drive.XCoord,
             YCoord: drive.YCoord,
             Street: drive.Street,
-            Number: drive.Number,
-            Town: drive.Town,
-            PostalCode: drive.PostalCode,
+            //Number: drive.Number,
+            //Town: drive.Town,
+            //PostalCode: drive.PostalCode,
             tipAuta: drive.tipAuta,
             korisnicko: sessionStorage.getItem("username")
 
         });
     }
+
+
+    factory.DodajVoznjuKonacno = function (novimodel,voznja) {
+        return $http.post('/api/Prof/DodajVoznjuKonacno', {
+            voz: voznja,
+            korisnickoAdmin: sessionStorage.getItem("username"),
+            korisnickoVozac: novimodel.selektovaniVozac
+        });
+    }
+
 
     factory.EditUser = function (user) {
         return $http.post('/api/Prof/EditUser', {
@@ -147,12 +154,36 @@
             XCoord: drive.XCoord,
             YCoord: drive.YCoord,
             Street: drive.Street,
-            Number: drive.Number,
-            Town: drive.Town,
-            PostalCode: drive.PostalCode,
+            //Number: drive.Number,
+            //Town: drive.Town,
+            //PostalCode: drive.PostalCode,
             voznja: dri,
             Cena: drive.Cena
         })
+    }
+
+
+    factory.ChangeDriveCustomer = function (drive) {
+        return $http.post('/api/Prof/ChangeDriveCustomer', {
+            XCoord: drive.XCoord,
+            YCoord: drive.YCoord,
+            Street: drive.Street,
+            tipAuta: drive.tipAuta,
+            korisnicko: sessionStorage.getItem("username"),
+            datum: drive.datum
+        });
+    }
+
+
+    factory.ChangeLocation = function (drive) {
+        return $http.post('/api/Prof/ChangeLocation', {
+            XCoord: drive.XCoord,
+            YCoord: drive.YCoord,
+            Street: drive.Street,
+            tipAuta: drive.tipAuta,
+            korisnicko: sessionStorage.getItem("username"),
+            datum: drive.datum
+        });
     }
 
     return factory;

@@ -7,23 +7,20 @@ namespace project.Models
 {
     public class Address
     {
-        public String Street { get; set; }
-        public String Number { get; set; }
-        public String Town { get; set; }
-        public int PostalCode { get; set; }
+        public String AddressFormat { get; set; }
+        //public String Number { get; set; }
+        //public String Town { get; set; }
+        //public int PostalCode { get; set; }
 
-        public Address() {
-            Street = "";
-            Number = "";
-            Town = "";
-            PostalCode = 0;
-        }
-        public Address(String street, String number, String town, int postalCode)
+        public Address()
         {
-            Street = street;
-            Number = number;
-            Town = town;
-            PostalCode = postalCode;
+           // AddressFormat = "";
+
+        }
+        public Address(String format)
+        {
+            AddressFormat = format;
+            
         }
     }
 }

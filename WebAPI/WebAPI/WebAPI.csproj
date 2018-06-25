@@ -177,6 +177,7 @@
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="MyHelpers\ClosestDistance.cs" />
     <Compile Include="MyHelpers\UserR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,6 +198,7 @@
     <Content Include="MyCont\ProfCont.js" />
     <Content Include="MyCSSs\StyleSheet1.css" />
     <Content Include="MyHtmls\AddDrivers.html" />
+    <Content Include="MyHtmls\ChangeLocation.html" />
     <Content Include="MyHtmls\Comment.html" />
     <Content Include="MyHtmls\DriveGet.html" />
     <Content Include="MyHtmls\Edit.html" />

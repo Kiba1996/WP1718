@@ -4,9 +4,10 @@
 <div class="container-fluid">
     <div class="">
         <h1>Welcome <span ng-show="loggedin">{{user.username}}</span> </h1>
-        <h4 ng-show="loggedin">
-            {{filtriranje}}
+        <h4 ng-show="loggedin && user.role==2" >
+           Address: {{DriverData.lokacija.Address.AddressFormat}}
         </h4>
+        <button  ng-show="loggedin && user.role==2" type="submit" class="btn button-success" ng-click="PromeniLokaciju()">Change your location</button>
         <h4 ng-show="!loggedin">Please login if you want to use our services.</h4>
     </div>
 </div>
@@ -114,9 +115,8 @@
                    
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                      
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
                         <p  ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
@@ -141,9 +141,8 @@
 
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                        
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
                         <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
@@ -167,9 +166,8 @@
                     
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                       
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
                         <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
@@ -192,9 +190,8 @@
 
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                       
                        
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
@@ -224,9 +221,8 @@
                    
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                        
                        
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
@@ -258,10 +254,8 @@
 
                     <div class="tema">
                         <p>  {{drive.DataAndTime}} </p>
-                        <p> {{drive.Arrival.Address.Street}}, {{drive.Arrival.Address.Number}}</p>
-                        <p> {{drive.Arrival.Address.Town}}</p>
-                        <p> {{drive.Arrival.Address.PostalCode}}</p>
-                        
+                        <p> {{drive.Arrival.Address.AddressFormat}}</p>
+                       
                         <p> {{drive.Status}}</p>
                         <p> Comment: </p>
                         <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>

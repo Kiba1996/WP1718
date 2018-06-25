@@ -7,18 +7,15 @@
     <Surname>gengusa</Surname>
     <Gender>Male</Gender>
     <JMBG>501997188925</JMBG>
-    <ContactPhoneNumber>99999999</ContactPhoneNumber>
+    <ContactPhoneNumber>4444444444</ContactPhoneNumber>
     <Email>gica@yahoo.com</Email>
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X />
-      <Y />
+      <X>-43.325086</X>
+      <Y>-21.878087</Y>
       <Address>
-        <Street />
-        <Number />
-        <Town />
-        <PostalCode>0</PostalCode>
+        <AddressFormat>Estrada União e Indústria, Cedofeitas, Matias Barbosa, Microrregião Juiz de Fora, Mesorregião Zona da Mata, MG, Região Sudeste, Brasil</AddressFormat>
       </Address>
     </Location>
     <Car>
@@ -42,13 +39,10 @@
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X />
-      <Y />
+      <X>11.337885</X>
+      <Y>43.771094</Y>
       <Address>
-        <Street />
-        <Number />
-        <Town />
-        <PostalCode>0</PostalCode>
+        <AddressFormat>Via Montegirone, I Carpi, Fiesole, FI, TOS, 50012, Italia</AddressFormat>
       </Address>
     </Location>
     <Car>
@@ -56,8 +50,8 @@
       <CarYear>2000</CarYear>
       <RegistrationNumber>64hd</RegistrationNumber>
       <TaxiNumber>2</TaxiNumber>
-      <CarType>PassengerCar</CarType>
+      <CarType>Van</CarType>
     </Car>
-    <Zauzet>true</Zauzet>
+    <Zauzet>false</Zauzet>
   </Driver>
 </ArrayOfDriver>

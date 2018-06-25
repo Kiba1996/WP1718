@@ -98,11 +98,31 @@ namespace WebAPI.MyHelpers
         public string XCoord { get; set; }
         public string YCoord { get; set; }
         public string Street { get; set; }
-        public string Number { get; set; }
-        public string Town { get; set; }
-        public string PostalCode { get; set; }
+        //public string Number { get; set; }
+        //public string Town { get; set; }
+        //public string PostalCode { get; set; }
         public string tipAuta { get; set; }
         public string korisnicko { get; set; }
+    }
+
+    public class konacnaVoznja
+    {
+        public DriveR voz { get; set; }
+        public string korisnickoAdmin { get; set; }
+        public string korisnickoVozac { get; set; }
+    }
+
+    public class ChangeDrivePrenos
+    {
+        public string XCoord { get; set; }
+        public string YCoord { get; set; }
+        public string Street { get; set; }
+        //public string Number { get; set; }
+        //public string Town { get; set; }
+        //public string PostalCode { get; set; }
+        public string tipAuta { get; set; }
+        public string korisnicko { get; set; }
+        public string datum { get; set; }
     }
 
     public class VoznjaPrenos
@@ -120,7 +140,7 @@ namespace WebAPI.MyHelpers
     {
         public bool zauzet { get; set; }
         public Enums.CarType tipAuta { get; set; }
-
+        public Location lokacija { get; set; }
         
        
     }
@@ -149,9 +169,9 @@ namespace WebAPI.MyHelpers
         public string XCoord { get; set; }
         public string YCoord { get; set; }
         public string Street { get; set; }
-        public string Number { get; set; }
-        public string Town { get; set; }
-        public string PostalCode { get; set; }
+        //public string Number { get; set; }
+        //public string Town { get; set; }
+        //public string PostalCode { get; set; }
         public Drive voznja { get; set; }
         public int Cena { get; set; }
     }

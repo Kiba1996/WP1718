@@ -6,10 +6,7 @@
       <X>98.982</X>
       <Y>23.091</Y>
       <Address>
-        <Street>Intel</Street>
-        <Number>34</Number>
-        <Town>Energy</Town>
-        <PostalCode>23461</PostalCode>
+        <AddressFormat />
       </Address>
     </Arrival>
     <CarType>PassengerCar</CarType>
@@ -25,13 +22,10 @@
       <Drives />
     </Customer>
     <Destination>
-      <X />
-      <Y />
+      <X>19.570320</X>
+      <Y>46.558858</Y>
       <Address>
-        <Street />
-        <Number />
-        <Town />
-        <PostalCode>0</PostalCode>
+        <AddressFormat>Bodoglár, Kiskunmajsa, Kiskunmajsai járás, Bács-Kiskun megye, Dél-Alföld, Alföld és Észak, 6131, Magyarország</AddressFormat>
       </Address>
     </Destination>
     <Dispatcher>
@@ -53,13 +47,10 @@
       <Role>Driver</Role>
       <Drives />
       <Location>
-        <X />
-        <Y />
+        <X>19.570320</X>
+        <Y>46.558858</Y>
         <Address>
-          <Street />
-          <Number />
-          <Town />
-          <PostalCode>0</PostalCode>
+          <AddressFormat>Bodoglár, Kiskunmajsa, Kiskunmajsai járás, Bács-Kiskun megye, Dél-Alföld, Alföld és Észak, 6131, Magyarország</AddressFormat>
         </Address>
       </Location>
       <Car>
@@ -69,25 +60,22 @@
         <TaxiNumber>2</TaxiNumber>
         <CarType>PassengerCar</CarType>
       </Car>
-      <Zauzet>true</Zauzet>
+      <Zauzet>false</Zauzet>
     </Driver>
-    <Amount>0</Amount>
+    <Amount>450</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
       <Rating>0</Rating>
     </Comment>
-    <Status>Accepted</Status>
+    <Status>Successful</Status>
   </Drive>
   <Drive>
-    <DataAndTime>Sunday, 24 June 2018 21:48:28</DataAndTime>
+    <DataAndTime>Monday, 25 June 2018 10:21:08</DataAndTime>
     <Arrival>
-      <X>60.4103</X>
-      <Y>99.343</Y>
+      <X>105.878913</X>
+      <Y>35.936503</Y>
       <Address>
-        <Street>sadsa</Street>
-        <Number>34</Number>
-        <Town>dhshds</Town>
-        <PostalCode>3243</PostalCode>
+        <AddressFormat>S202, 兴隆镇, 西吉县 / Xiji, 固原市 / Guyuan, 宁夏回族自治区, 中国</AddressFormat>
       </Address>
     </Arrival>
     <CarType>PassengerCar</CarType>
@@ -104,13 +92,10 @@
       <Drives />
     </Customer>
     <Destination>
-      <X />
-      <Y />
+      <X>11.337885</X>
+      <Y>43.771094</Y>
       <Address>
-        <Street />
-        <Number />
-        <Town />
-        <PostalCode>0</PostalCode>
+        <AddressFormat>Via Montegirone, I Carpi, Fiesole, FI, TOS, 50012, Italia</AddressFormat>
       </Address>
     </Destination>
     <Dispatcher>
@@ -122,19 +107,109 @@
       <Drives />
     </Dispatcher>
     <Driver>
+      <UserName>maca</UserName>
+      <Password>maca</Password>
+      <Name>Nevena</Name>
+      <Surname>Djurkovic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>5678903412567</JMBG>
+      <ContactPhoneNumber>333333</ContactPhoneNumber>
+      <Email>maca123@gmail.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X>11.337885</X>
+        <Y>43.771094</Y>
+        <Address>
+          <AddressFormat>Via Montegirone, I Carpi, Fiesole, FI, TOS, 50012, Italia</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>maca</Driver>
+        <CarYear>2000</CarYear>
+        <RegistrationNumber>64hd</RegistrationNumber>
+        <TaxiNumber>2</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>500</Amount>
+    <Comment>
+      <Description>Superiska voznja</Description>
+      <Date>2018-06-25T20:21:57</Date>
+      <user>deki</user>
+      <Rating>4</Rating>
+    </Comment>
+    <Status>Successful</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Monday, 25 June 2018 20:00:45</DataAndTime>
+    <Arrival>
+      <X>-43.198249</X>
+      <Y>-22.911177</Y>
+      <Address>
+        <AddressFormat>Rua Presidente Barroso, Cidade Nova, Zona Central do Rio de Janeiro, Rio de Janeiro, Microrregião Rio de Janeiro, Região Metropolitana do Rio de Janeiro, RJ, Região Sudeste, 20210-030, Brasil</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
       <Name />
       <Surname />
       <Gender>Male</Gender>
       <JMBG>0</JMBG>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X>-43.325086</X>
+      <Y>-21.878087</Y>
+      <Address>
+        <AddressFormat>Estrada União e Indústria, Cedofeitas, Matias Barbosa, Microrregião Juiz de Fora, Mesorregião Zona da Mata, MG, Região Sudeste, Brasil</AddressFormat>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <UserName>bar</UserName>
+      <Password>aa</Password>
+      <Name>Barbara</Name>
+      <Surname>Segrt</Surname>
+      <Gender>Female</Gender>
+      <JMBG>504996815119</JMBG>
+      <ContactPhoneNumber>06243259</ContactPhoneNumber>
+      <Email>barbi@gmail.com</Email>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>gengusa</UserName>
+      <Name>Tam</Name>
+      <Surname>gengusa</Surname>
+      <Gender>Male</Gender>
+      <JMBG>501997188925</JMBG>
+      <ContactPhoneNumber>4444444444</ContactPhoneNumber>
+      <Email>gica@yahoo.com</Email>
       <Role>Driver</Role>
       <Drives />
+      <Location>
+        <X>-43.325086</X>
+        <Y>-21.878087</Y>
+        <Address>
+          <AddressFormat>Estrada União e Indústria, Cedofeitas, Matias Barbosa, Microrregião Juiz de Fora, Mesorregião Zona da Mata, MG, Região Sudeste, Brasil</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>gengusa</Driver>
+        <CarYear>2004</CarYear>
+        <RegistrationNumber>23jf4</RegistrationNumber>
+        <TaxiNumber>1</TaxiNumber>
+        <CarType>Van</CarType>
+      </Car>
       <Zauzet>false</Zauzet>
     </Driver>
-    <Amount>0</Amount>
+    <Amount>2000</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
       <Rating>0</Rating>
     </Comment>
-    <Status>Created_Waiting</Status>
+    <Status>Successful</Status>
   </Drive>
 </ArrayOfDrive>

@@ -110,6 +110,7 @@ namespace WebAPI.Controllers
                 {
                     ret.tipAuta = us.Car.CarType;
                     ret.zauzet = us.Zauzet;
+                    ret.lokacija = us.Location;
                     x = true;
                 }
             }
@@ -117,6 +118,7 @@ namespace WebAPI.Controllers
             {
                 ret.tipAuta = Enums.CarType.NoType;
                 ret.zauzet = true;
+                ret.lokacija = new Location();
             }
 
             return ret;
@@ -139,7 +141,7 @@ namespace WebAPI.Controllers
                 if (u.UserName == k.korisnicko)
                 {
                     c = u;
-                    Address a = new Address(k.Street, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                    Address a = new Address(k.Street);  //, k.Number, k.Town, Int32.Parse(k.PostalCode));
                     Location l = new Location(k.XCoord, k.YCoord, a);
                     drive.Customer = (Customer)c;
                     drive.Arrival = l;
@@ -174,8 +176,108 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [ActionName("AddDriveDispatcher")]
-        public bool AddDriveDispatcher([FromBody]DriveR k)
+        public List<string> AddDriveDispatcher([FromBody]DriveR k)
         {
+
+            ClosestDistance closest = new ClosestDistance();
+
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Dispatcher> users = xml.ReadDispatcher(adm);
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            // bool g = true;
+            User c = new Dispatcher();
+            Drive drive = new Drive();
+           
+
+            bool p = false;
+
+
+
+            List<Tuple<Point, string>> proslediListu = new List<Tuple<Point, string>>();
+
+
+            foreach (Driver d in drivers)
+            {
+                if (!d.Zauzet && (d.Car.CarType == (Enums.CarType)int.Parse(k.tipAuta)))
+                {
+                    Point poi = new Point();
+                    poi.X = Double.Parse(d.Location.X);
+                    poi.Y = Double.Parse(d.Location.Y);
+                    proslediListu.Add(new Tuple<Point, string>(poi, d.UserName));
+                    //d.Zauzet = true;
+                    //drive.Driver = d;
+                    //p = true;
+                    //break;
+                }
+            }
+
+            List<string> najblizi = new List<string>();
+
+            if (!proslediListu.Any())
+            {
+                foreach (Dispatcher u in users)
+                {
+                    if (u.UserName == k.korisnicko)
+                    {
+                        c = u;
+                        Address a = new Address(k.Street);//, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                        Location l = new Location(k.XCoord, k.YCoord, a);
+                        drive.Customer = new Customer();
+                        drive.Arrival = l;
+                        if (k.tipAuta != "")
+                        {
+                            drive.CarType = (Enums.CarType)int.Parse(k.tipAuta);
+                        }
+                        drive.Amount = 0;
+                        drive.Comment = new Comment();
+                        // DateTime date = DateTime.Now.;
+                        drive.DataAndTime = String.Format("{0:F}", DateTime.Now);// new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+
+                        drive.Destination = new Location();
+                        drive.Dispatcher = (Dispatcher)c;
+                        drive.Driver = new Driver();
+                        drive.Status = Enums.DriveStatus.Created_Waiting;
+                        // u.Drives.Add(drive);
+                        break;
+                        //  g = false;
+                    }
+                }
+
+                drives.Add(drive);
+                // xml.WriteDrivers(drivers, drv);
+                xml.WriteDrives(drives, ss1);
+
+                
+
+            }
+            else
+            {
+ 
+                Point ip = new Point();
+                ip.X = Double.Parse(k.XCoord);
+                ip.Y = Double.Parse(k.YCoord);
+                najblizi = closest.OrderByDistance(proslediListu, ip);
+            }
+
+            return najblizi;
+
+        }
+
+
+       
+         [HttpPost]
+        [ActionName("DodajVoznjuKonacno")]
+        public bool DodajVoznjuKonacno([FromBody]konacnaVoznja k)
+        {
+
+            //ClosestDistance closest = new ClosestDistance();
+
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
             string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
@@ -190,16 +292,16 @@ namespace WebAPI.Controllers
             Drive drive = new Drive();
             foreach (Dispatcher u in users)
             {
-                if (u.UserName == k.korisnicko)
+                if (u.UserName == k.korisnickoAdmin)
                 {
                     c = u;
-                    Address a = new Address(k.Street, k.Number, k.Town, Int32.Parse(k.PostalCode));
-                    Location l = new Location(k.XCoord, k.YCoord, a);
+                    Address a = new Address(k.voz.Street);//, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                    Location l = new Location(k.voz.XCoord, k.voz.YCoord, a);
                     drive.Customer = new Customer();
                     drive.Arrival = l;
-                    if (k.tipAuta != "")
+                    if (k.voz.tipAuta != "")
                     {
-                        drive.CarType = (Enums.CarType)int.Parse(k.tipAuta);
+                        drive.CarType = (Enums.CarType)int.Parse(k.voz.tipAuta);
                     }
                     drive.Amount = 0;
                     drive.Comment = new Comment();
@@ -216,30 +318,22 @@ namespace WebAPI.Controllers
                 }
             }
 
-            bool p = false;
-            foreach (Driver d in drivers)
+            foreach(Driver driver in drivers)
             {
-                if (!d.Zauzet && (d.Car.CarType == (Enums.CarType)int.Parse(k.tipAuta)))
+                if(driver.UserName == k.korisnickoVozac)
                 {
-                    d.Zauzet = true;
-                    drive.Driver = d;
-                    p = true;
+                    driver.Zauzet = true;
+                    drive.Driver = driver;
                     break;
                 }
             }
-            if (!p)
-            {
-                drive.Status = Enums.DriveStatus.Created_Waiting;
-                drive.Driver = new Driver();
-            }
-
             drives.Add(drive);
             xml.WriteDrivers(drivers, drv);
             xml.WriteDrives(drives, ss1);
 
+            // return true;
+
             return true;
-
-
         }
 
         [HttpPost]
@@ -724,10 +818,18 @@ namespace WebAPI.Controllers
                     dri.Amount = k.Cena;
                     dri.Destination.X = k.XCoord;
                     dri.Destination.Y = k.YCoord;
-                    dri.Destination.Address.Street = k.Street;
-                    dri.Destination.Address.Number = k.Number;
-                    dri.Destination.Address.Town = k.Town;
-                    dri.Destination.Address.PostalCode = int.Parse(k.PostalCode);
+                    dri.Destination.Address.AddressFormat = k.Street;
+
+
+
+                    dri.Driver.Location.Address.AddressFormat = k.Street;
+                    dri.Driver.Location.X = k.XCoord;
+                    dri.Driver.Location.Y = k.YCoord;
+
+                    //.Street = k.Street;
+                    //dri.Destination.Address.Number = k.Number;
+                    //dri.Destination.Address.Town = k.Town;
+                    //dri.Destination.Address.PostalCode = int.Parse(k.PostalCode);
 
                   
                     dri.Driver.Zauzet = false;
@@ -745,6 +847,10 @@ namespace WebAPI.Controllers
                     if (kp.UserName == k.voznja.Driver.UserName)
                     {
                         kp.Zauzet = false;
+                        kp.Location.Address.AddressFormat = k.Street;
+                        kp.Location.X = k.XCoord;
+                        kp.Location.Y = k.YCoord;
+
                         break;
                     }
                 }
@@ -1011,5 +1117,76 @@ namespace WebAPI.Controllers
 
 
 
+        [HttpPost]
+        [ActionName("ChangeDriveCustomer")]
+        public bool ChangeDriveCustomer([FromBody]ChangeDrivePrenos k)
+        {
+            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+
+           // List<Customer> users = xml.ReadUsers(ss);
+            List<Drive> drives = xml.ReadDrives(ss1);
+            // bool g = true;
+            User c = new Customer();
+            Drive drive = new Drive();
+            foreach (Drive u in drives)
+            {
+                if (u.Customer.UserName == k.korisnicko && DateTime.Parse(u.DataAndTime) == DateTime.Parse(k.datum))
+                {
+
+                    u.Arrival.Address.AddressFormat = k.Street;
+                    u.Arrival.X = k.XCoord;
+                    u.Arrival.Y = k.YCoord;
+                    u.CarType = (Enums.CarType)int.Parse(k.tipAuta);
+                   
+                }
+            }
+
+            //drives.Add(drive);
+            //xml.WriteUsers(users, ss);
+            xml.WriteDrives(drives, ss1);
+
+            return true;
+
+        }
+
+
+
+        [HttpPost]
+        [ActionName("ChangeLocation")]
+        public bool ChangeLocation([FromBody]ChangeDrivePrenos k)
+        {
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+            string drv1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+
+            List<Drive> drives = xml.ReadDrives(drv1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+
+            foreach(Driver drov in drivers)
+            {
+                if(drov.UserName == k.korisnicko)
+                {
+                    drov.Location.Address.AddressFormat = k.Street;
+                    drov.Location.X = k.XCoord;
+                    drov.Location.Y = k.YCoord;
+                }
+            }
+
+            foreach(Drive dv in drives)
+            {
+                if(dv.Driver.UserName == k.korisnicko)
+                {
+                    dv.Driver.Location.Address.AddressFormat = k.Street;
+                    dv.Driver.Location.X = k.XCoord;
+                    dv.Driver.Location.Y = k.YCoord;
+                }
+            }
+
+            xml.WriteDrives(drives, drv1);
+            xml.WriteDrivers(drivers, drv);
+
+            return true;
+        }
     }
 }

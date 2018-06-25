@@ -56,7 +56,11 @@ WebAPI.config(function ($routeProvider) {
         }).when('/EditDrive', {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/EditDrive.html',
-            activeTab: 'Edit'
+            activeTab: 'none'
+        }).when('/ChangeLocation', {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/ChangeLocation.html',
+            activeTab: 'none'
         })
 
 });

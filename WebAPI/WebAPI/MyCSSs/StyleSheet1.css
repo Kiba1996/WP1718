@@ -10,9 +10,13 @@
     padding: 40px;
 }
 
-.map {
+/*.map {
     height: 400px;
     width: 100%;
+}*/
+
+.map {
+    height: 600px;
 }
 
 .zaBojuSlova {
