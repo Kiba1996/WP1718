@@ -14,4 +14,11 @@
     <TaxiNumber>2</TaxiNumber>
     <CarType>PassengerCar</CarType>
   </Car>
+  <Car>
+    <Driver>joca</Driver>
+    <CarYear>2003</CarYear>
+    <RegistrationNumber>23df4</RegistrationNumber>
+    <TaxiNumber>3</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
 </ArrayOfCar>

@@ -39,6 +39,7 @@
 <!--CD && !SVE && !FILT1 && !FILT2-->
 <input type="radio" name="group" value="0" ng-model="fu.PoCemu" ng-checked="true"/> By Rating <br />
 <input type="radio" name="group" value="1" ng-model="fu.PoCemu" /> By Date <br />
+<input ng-show="user.role == 2" type="radio" name="group" value="2" ng-model="fu.PoCemu" /> By Distance <br />
 
 <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag==0" type="submit" class="btn button-success" ng-click="Sorting(MyDrives, fu.PoCemu)">Sort</button>
 <!--<button ng-show="posebanFlag==1 && filtFlag==1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>

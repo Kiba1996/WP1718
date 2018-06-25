@@ -445,6 +445,11 @@ namespace WebAPI.Controllers
         {
             //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Driver> listaDrivers = xml.ReadDrivers(ss);
+
+
             List<Drive> listaDrives = k.Driv;//xml.ReadDrives(ss);
             List<Drive> listaDrives1 = new List<Drive>();
             //foreach (Drive d in listaDrives)
@@ -461,6 +466,24 @@ namespace WebAPI.Controllers
             else if (k.PoCemu == 1)
             {
                 listaDrives1 = listaDrives.OrderByDescending(o => DateTime.Parse(o.DataAndTime)).ToList();
+
+            }
+            else if(k.PoCemu == 2)
+            {
+
+
+                Point po = new Point();
+                foreach(Driver driv in listaDrivers)
+                {
+                    if(driv.UserName == k.Username)
+                    {
+                        po.X = Double.Parse(driv.Location.X);
+                        po.Y = Double.Parse(driv.Location.Y);
+                    }
+                }
+
+                ClosestDistance cd = new ClosestDistance();
+                listaDrives1 = cd.OrderByDistanceForDrivers(listaDrives, po);
 
             }
 

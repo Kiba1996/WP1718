@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -52,6 +53,36 @@ namespace WebAPI.MyHelpers
 
             return orderedList;
         }
+
+
+
+        public List<Drive> OrderByDistanceForDrivers(List<Drive> pointList, Point point)
+        {
+            var orderedList = new List<Drive>();
+
+            var listaDouble = new List<Tuple<double, Drive>>();
+
+
+            foreach (var var in pointList)
+            {
+                Point p = new Point();
+                p.X = Double.Parse(var.Arrival.X);
+                p.Y = Double.Parse(var.Arrival.Y);
+                double k = Distance(p, point);
+                listaDouble.Add(new Tuple<double, Drive>(k, var));
+            }
+
+            var lista = listaDouble.OrderBy(o => o.Item1).ToList();
+
+           foreach(var t in lista)
+            {
+                orderedList.Add(t.Item2);
+            }
+
+            return orderedList;
+        }
+
+
 
     }
 }

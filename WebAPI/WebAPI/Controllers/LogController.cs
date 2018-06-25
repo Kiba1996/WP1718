@@ -152,7 +152,7 @@ namespace WebAPI.Controllers
                 user.ContactPhoneNumber = k.Telefon;
                 user.Email = k.Email;
                 user.Role = Enums.RoleType.Driver;
-                user.Location = new Location();
+                user.Location = new Location("19.849211","45.242780", new Address("10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија"));
                 user.Zauzet = false;
                 int brojAuta = cars.Count() +1;
                 

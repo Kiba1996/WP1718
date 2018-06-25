@@ -212,4 +212,106 @@
     </Comment>
     <Status>Successful</Status>
   </Drive>
+  <Drive>
+    <DataAndTime>Monday, 25 June 2018 21:13:21</DataAndTime>
+    <Arrival>
+      <X>19.833741</X>
+      <Y>45.248384</Y>
+      <Address>
+        <AddressFormat>45, Браће Рибникар, Грбавица, Нови Сад, Град Нови Сад, Јужнобачки округ, Војводина, 21102, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Created_Waiting</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Monday, 25 June 2018 21:14:06</DataAndTime>
+    <Arrival>
+      <X>19.897606</X>
+      <Y>44.259053</Y>
+      <Address>
+        <AddressFormat>Првомајска, Градац, Ваљево, Град Ваљево, Колубарски округ, Централна Србија, 14000, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Created_Waiting</Status>
+  </Drive>
 </ArrayOfDrive>
