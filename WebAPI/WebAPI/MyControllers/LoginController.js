@@ -84,29 +84,47 @@
             return;
         }
 
+
         LogCont.LoginUser(user).then(function (response) {
+            $rootScope.zapamtiUsera = response.data;
+            console.log(response.data);
             if (response.data == null) {
                 alert("User with the given username and password does not exist.");
+                return;
             }
             else {
-                console.log(response);
-                document.cookie = "user=" + JSON.stringify({
-                    username: response.data.UserName,
-                    role: response.data.Role,
-                    nameSurname: response.data.Name + " " + response.data.Surname
-                }) + ";expires=Thu, 01 Jan 2019 00:00:01 GMT;";
-                sessionStorage.setItem("username", response.data.UserName);
-                sessionStorage.setItem("role", response.data.Role);
-                sessionStorage.setItem("nameSurname", response.data.Name + " " + response.data.Surname);
 
-                $rootScope.loggedin = true;
-                $rootScope.user = {
-                    username: sessionStorage.getItem("username"),
-                    role: sessionStorage.getItem("role"),
-                    nameSurname: sessionStorage.getItem("nameSurname")
-                };
-                $window.location.href = "#!/";
-            }
+                LogCont.getUserStatus(user.username).then(function (response) {
+                    if (response.data == true) {
+                        alert('Your account is blocked. You cant log in.');
+                        return;
+                    }
+
+                    else {
+                        console.log(response);
+                        document.cookie = "user=" + JSON.stringify({
+                            username: $rootScope.zapamtiUsera.UserName,//response.data.UserName,
+                            role: $rootScope.zapamtiUsera.Role,//response.data.Role,
+                            nameSurname: $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname,//response.data.Name + " " + response.data.Surname
+                        }) + ";expires=Thu, 01 Jan 2019 00:00:01 GMT;";
+                        sessionStorage.setItem("username", $rootScope.zapamtiUsera.UserName);//response.data.UserName);
+                        sessionStorage.setItem("role", $rootScope.zapamtiUsera.Role);//response.data.Role);
+                        sessionStorage.setItem("nameSurname", $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname);//response.data.Name + " " + response.data.Surname);
+
+                        $rootScope.loggedin = true;
+                        $rootScope.moraKomentar = false;
+                        $rootScope.moraKomentarKorisnik = false;
+                        
+                        $rootScope.user = {
+                            username: sessionStorage.getItem("username"),
+                            role: sessionStorage.getItem("role"),
+                            nameSurname: sessionStorage.getItem("nameSurname")
+                        };
+                        $window.location.href = "#!/";
+                    }
+                      });
+  
+               }
         });
     }
 

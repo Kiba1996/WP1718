@@ -20,6 +20,7 @@
       <Email>suza@gmail.com</Email>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
       <X>19.570320</X>
@@ -61,6 +62,7 @@
         <CarType>PassengerCar</CarType>
       </Car>
       <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
     <Amount>450</Amount>
     <Comment>
@@ -90,6 +92,7 @@
       <Email>deki@gmail.com</Email>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
       <X>11.337885</X>
@@ -132,6 +135,7 @@
         <CarType>PassengerCar</CarType>
       </Car>
       <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
     <Amount>500</Amount>
     <Comment>
@@ -159,6 +163,7 @@
       <JMBG>0</JMBG>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
       <X>-43.325086</X>
@@ -204,6 +209,7 @@
         <CarType>Van</CarType>
       </Car>
       <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
     <Amount>2000</Amount>
     <Comment>
@@ -233,11 +239,14 @@
       <Email>deki@gmail.com</Email>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
-      <X />
-      <Y />
-      <Address />
+      <X>-10.781257</X>
+      <Y>18.646245</Y>
+      <Address>
+        <AddressFormat>تكانت, موريتانيا</AddressFormat>
+      </Address>
     </Destination>
     <Dispatcher>
       <UserName>bar</UserName>
@@ -263,7 +272,11 @@
       <Role>Driver</Role>
       <Drives />
       <Location>
-        <Address />
+        <X>-10.781257</X>
+        <Y>18.646245</Y>
+        <Address>
+          <AddressFormat>تكانت, موريتانيا</AddressFormat>
+        </Address>
       </Location>
       <Car>
         <Driver>joca</Driver>
@@ -272,14 +285,16 @@
         <TaxiNumber>3</TaxiNumber>
         <CarType>PassengerCar</CarType>
       </Car>
-      <Zauzet>true</Zauzet>
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
-    <Amount>0</Amount>
+    <Amount>800</Amount>
     <Comment>
-      <Date>0001-01-01T00:00:00</Date>
-      <Rating>0</Rating>
+      <Date>2018-06-26T21:25:33</Date>
+      <user>deki</user>
+      <Rating>3</Rating>
     </Comment>
-    <Status>Processed</Status>
+    <Status>Successful</Status>
   </Drive>
   <Drive>
     <DataAndTime>Monday, 25 June 2018 21:14:06</DataAndTime>
@@ -302,6 +317,7 @@
       <Email>deki@gmail.com</Email>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
       <X>19.743925</X>
@@ -334,6 +350,8 @@
       <Role>Driver</Role>
       <Drives />
       <Location>
+        <X />
+        <Y />
         <Address />
       </Location>
       <Car>
@@ -344,11 +362,13 @@
         <CarType>PassengerCar</CarType>
       </Car>
       <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
     <Amount>700</Amount>
     <Comment>
-      <Date>0001-01-01T00:00:00</Date>
-      <Rating>0</Rating>
+      <Date>2018-06-26T20:55:32</Date>
+      <user>deki</user>
+      <Rating>3</Rating>
     </Comment>
     <Status>Successful</Status>
   </Drive>
@@ -373,6 +393,7 @@
       <Email>deki@gmail.com</Email>
       <Role>Customer</Role>
       <Drives />
+      <Blocked>false</Blocked>
     </Customer>
     <Destination>
       <X />
@@ -395,12 +416,785 @@
       <Role>Driver</Role>
       <Drives />
       <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
     </Driver>
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
       <Rating>0</Rating>
     </Comment>
-    <Status>Created_Waiting</Status>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:04:16</DataAndTime>
+    <Arrival>
+      <X>19.863281</X>
+      <Y>44.881824</Y>
+      <Address>
+        <AddressFormat>Општина Рума, Сремски округ, Војводина, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:05:14</DataAndTime>
+    <Arrival>
+      <X>20.595700</X>
+      <Y>43.654629</Y>
+      <Address>
+        <AddressFormat>Матаруге, Град Краљево, Рашки округ, Централна Србија, 36201, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:05:59</DataAndTime>
+    <Arrival>
+      <X>29.296879</X>
+      <Y>49.534714</Y>
+      <Address>
+        <AddressFormat>Гопчиця, Погребищенський район, Вінницька область, 22216, Україна</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:19:49</DataAndTime>
+    <Arrival>
+      <X>4.453121</X>
+      <Y>48.302684</Y>
+      <Address>
+        <AddressFormat>Route Forestière des Lunette, Amance, Bar-sur-Aube, Aube, Grand Est, France métropolitaine, 10140, France</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:22:08</DataAndTime>
+    <Arrival>
+      <X>-38.671875</X>
+      <Y>67.698329</Y>
+      <Address>
+        <AddressFormat>Kalaallit Nunaat</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>2018-06-26T20:32:45</Date>
+      <user>deki</user>
+      <Rating>2</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:34:16</DataAndTime>
+    <Arrival>
+      <X>31.992188</X>
+      <Y>48.768258</Y>
+      <Address>
+        <AddressFormat>Пенькине, Новомиргородський район, Кіровоградська область, 26022, Україна</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:34:44</DataAndTime>
+    <Arrival>
+      <X>1.406261</X>
+      <Y>28.097821</Y>
+      <Address>
+        <AddressFormat>Timokten, Daïra d'Aoulef, Adrar أدرار, ⵍⵣⵣⴰⵢⴻⵔ الجزائر</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>2018-06-26T20:35:07</Date>
+      <user>deki</user>
+      <Rating>4</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:40:25</DataAndTime>
+    <Arrival>
+      <X>23.906261</X>
+      <Y>-21.507599</Y>
+      <Address>
+        <AddressFormat>Seasonal Access, Ghanzi District, Botswana</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 20:45:12</DataAndTime>
+    <Arrival>
+      <X>10.664055</X>
+      <Y>44.798727</Y>
+      <Address>
+        <AddressFormat>Via Lazzari, Bagnolo in Piano, Terra di Mezzo, RE, EMR, 42011, Italia</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Driver</Role>
+      <Drives />
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Description>hgfdszxdfcgvhbjnk</Description>
+      <Date>2018-06-26T20:45:37</Date>
+      <user>deki</user>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Canceled</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 21:09:36</DataAndTime>
+    <Arrival>
+      <X>7.734375</X>
+      <Y>17.978733</Y>
+      <Address>
+        <AddressFormat>Arlit, Agadez, Niger</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X>26.250007</X>
+      <Y>49.988904</Y>
+      <Address>
+        <AddressFormat>С-230108, Лепесівка, Вільшаницька сільська рада, Білогірський район, Хмельницька область, 30233, Україна</AddressFormat>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>joca</UserName>
+      <Password>joca</Password>
+      <Name>Jovan</Name>
+      <Surname>Gajin</Surname>
+      <Gender>Male</Gender>
+      <JMBG>2828174859312</JMBG>
+      <ContactPhoneNumber>232112434</ContactPhoneNumber>
+      <Email>joca@yahoo.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X>26.250007</X>
+        <Y>49.988904</Y>
+        <Address>
+          <AddressFormat>С-230108, Лепесівка, Вільшаницька сільська рада, Білогірський район, Хмельницька область, 30233, Україна</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>joca</Driver>
+        <CarYear>2003</CarYear>
+        <RegistrationNumber>23df4</RegistrationNumber>
+        <TaxiNumber>3</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>1500</Amount>
+    <Comment>
+      <Date>2018-06-26T21:11:25</Date>
+      <user>deki</user>
+      <Rating>5</Rating>
+    </Comment>
+    <Status>Successful</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 21:09:50</DataAndTime>
+    <Arrival>
+      <X>14.296882</X>
+      <Y>58.324872</Y>
+      <Address>
+        <AddressFormat>195, Brevik distrikt, Grevbäck, Hjo, Västra Götalands län, Götaland, 54450, Sverige</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>Van</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X>14.765630</X>
+      <Y>24.740176</Y>
+      <Address>
+        <AddressFormat>Capharaon, القطرون, Libya / ليبيا</AddressFormat>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>gengusa</UserName>
+      <Password>123</Password>
+      <Name>Tam</Name>
+      <Surname>gengusa</Surname>
+      <Gender>Male</Gender>
+      <JMBG>501997188925</JMBG>
+      <ContactPhoneNumber>4444444444</ContactPhoneNumber>
+      <Email>gica@yahoo.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X>14.765630</X>
+        <Y>24.740176</Y>
+        <Address>
+          <AddressFormat>Capharaon, القطرون, Libya / ليبيا</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>gengusa</Driver>
+        <CarYear>2004</CarYear>
+        <RegistrationNumber>23jf4</RegistrationNumber>
+        <TaxiNumber>1</TaxiNumber>
+        <CarType>Van</CarType>
+      </Car>
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Successful</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 21:38:25</DataAndTime>
+    <Arrival>
+      <X>10.781252</X>
+      <Y>50.139354</Y>
+      <Address>
+        <AddressFormat>HAS 47, Pfarrweisach, Ebern (VGem), Landkreis Haßberge, Unterfranken, Bayern, 96176, Deutschland, Europe</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X>10.781252</X>
+      <Y>44.757133</Y>
+      <Address>
+        <AddressFormat>Via Martiri di Cervarolo, Correggio, Pianura Reggiana, RE, EMR, 42018, Italia</AddressFormat>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>joca</UserName>
+      <Password>joca</Password>
+      <Name>Jovan</Name>
+      <Surname>Gajin</Surname>
+      <Gender>Male</Gender>
+      <JMBG>2828174859312</JMBG>
+      <ContactPhoneNumber>232112434</ContactPhoneNumber>
+      <Email>joca@yahoo.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X>10.781252</X>
+        <Y>44.757133</Y>
+        <Address>
+          <AddressFormat>Via Martiri di Cervarolo, Correggio, Pianura Reggiana, RE, EMR, 42018, Italia</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>joca</Driver>
+        <CarYear>2003</CarYear>
+        <RegistrationNumber>23df4</RegistrationNumber>
+        <TaxiNumber>3</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>false</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Successful</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 21:41:05</DataAndTime>
+    <Arrival>
+      <X>20.625002</X>
+      <Y>44.590463</Y>
+      <Address>
+        <AddressFormat>Општина Сопот, Београд, Централна Србија, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+      <Blocked>false</Blocked>
+    </Customer>
+    <Destination>
+      <X />
+      <Y />
+      <Address />
+    </Destination>
+    <Dispatcher>
+      <Name />
+      <Surname />
+      <Gender>Male</Gender>
+      <JMBG>0</JMBG>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>joca</UserName>
+      <Password>joca</Password>
+      <Name>Jovan</Name>
+      <Surname>Gajin</Surname>
+      <Gender>Male</Gender>
+      <JMBG>2828174859312</JMBG>
+      <ContactPhoneNumber>232112434</ContactPhoneNumber>
+      <Email>joca@yahoo.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <X>10.781252</X>
+        <Y>44.757133</Y>
+        <Address>
+          <AddressFormat>Via Martiri di Cervarolo, Correggio, Pianura Reggiana, RE, EMR, 42018, Italia</AddressFormat>
+        </Address>
+      </Location>
+      <Car>
+        <Driver>joca</Driver>
+        <CarYear>2003</CarYear>
+        <RegistrationNumber>23df4</RegistrationNumber>
+        <TaxiNumber>3</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>true</Zauzet>
+      <Blocked>false</Blocked>
+    </Driver>
+    <Amount>0</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Accepted</Status>
   </Drive>
 </ArrayOfDrive>

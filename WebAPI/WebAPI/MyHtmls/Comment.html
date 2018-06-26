@@ -14,7 +14,7 @@
                 <td>Opis: </td>
                 <td><textarea class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
             </tr>
-            <tr class="zaBojuSlova">
+            <tr ng-show="!moraKomentarKorisnik" class="zaBojuSlova">
                 <td>Ocena: </td>
                 <td><input type="text" id="OcenaDo" class="form-control" ng-model="ko.Ocena" /></td>
             </tr>

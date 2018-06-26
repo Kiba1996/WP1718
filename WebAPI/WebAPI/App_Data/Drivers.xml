@@ -12,10 +12,10 @@
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X>-43.325086</X>
-      <Y>-21.878087</Y>
+      <X>14.765630</X>
+      <Y>24.740176</Y>
       <Address>
-        <AddressFormat>Estrada União e Indústria, Cedofeitas, Matias Barbosa, Microrregião Juiz de Fora, Mesorregião Zona da Mata, MG, Região Sudeste, Brasil</AddressFormat>
+        <AddressFormat>Capharaon, القطرون, Libya / ليبيا</AddressFormat>
       </Address>
     </Location>
     <Car>
@@ -68,9 +68,11 @@
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X />
-      <Y />
-      <Address />
+      <X>10.781252</X>
+      <Y>44.757133</Y>
+      <Address>
+        <AddressFormat>Via Martiri di Cervarolo, Correggio, Pianura Reggiana, RE, EMR, 42018, Italia</AddressFormat>
+      </Address>
     </Location>
     <Car>
       <Driver>joca</Driver>
@@ -80,6 +82,6 @@
       <CarType>PassengerCar</CarType>
     </Car>
     <Zauzet>true</Zauzet>
-    <Blocked>true</Blocked>
+    <Blocked>false</Blocked>
   </Driver>
 </ArrayOfDriver>

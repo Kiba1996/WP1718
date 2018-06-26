@@ -1,4 +1,4 @@
-﻿WebAPI.controller('ProfileController', function ($scope, $rootScope, ProfCont, $routeParams, $window) {
+﻿WebAPI.controller('ProfileController', function ($scope, $rootScope, ProfCont, LogCont, $routeParams, $window) {
 
     if (!$rootScope.loggedin) {
         $window.location.href = "#!/Login";
@@ -7,27 +7,41 @@
     function init() {
         console.log('Profile controller initialized');
 
-        $scope.drive = {};
-        $scope.EditUN = false;
-        $scope.EditN = false;
-        $scope.EditSN = false;
-        $scope.EditG = false;
-        $scope.EditJmbg = false;
-        $scope.EditPhone = false;
-        $scope.EditE = false;
-        $scope.EditPas = false;
-        $scope.najblizivozaci = false;
-        $scope.prznalista = false;
-        //$scope.XCoord1 = "";
-        //$scope.YCoord1 = "";
-        //$routeParams.username
-        ProfCont.getUserByUsername(sessionStorage.getItem("username")).then(function (response) {
-            console.log(response.data);
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
 
-            $scope.userProfile = response.data;
-           
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+               
+                
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+            $rootScope.moraKomentar = false;
+            $rootScope.moraKomentarKorisnik = false;
+            $scope.drive = {};
+            $scope.EditUN = false;
+            $scope.EditN = false;
+            $scope.EditSN = false;
+            $scope.EditG = false;
+            $scope.EditJmbg = false;
+            $scope.EditPhone = false;
+            $scope.EditE = false;
+            $scope.EditPas = false;
+            $scope.najblizivozaci = false;
+            $scope.prznalista = false;
+
+            ProfCont.getUserByUsername(sessionStorage.getItem("username")).then(function (response) {
+                console.log(response.data);
+
+                $scope.userProfile = response.data;
+
 
             });
+        });
  
     }
 
@@ -35,43 +49,150 @@
 
     $scope.OtovriUN = function () {
 
-        $scope.EditUN = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+
+            $scope.EditUN = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriN = function () {
 
-        $scope.EditN = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditN = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriSN = function () {
 
-        $scope.EditSN = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditSN = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriG = function () {
 
-        $scope.EditG = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditG = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriJmbg = function () {
 
-        $scope.EditJmbg = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditJmbg = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriPhone = function () {
 
-        $scope.EditPhone = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditPhone = true;
+            $scope.apply;
+        });
     }
     $scope.OtovriE = function () {
 
-        $scope.EditE = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            $scope.EditE = true;
+            $scope.apply;
+
+        });
     }
     $scope.OtovriPas = function () {
 
-        $scope.EditPas = true;
-        $scope.apply;
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+
+            $scope.EditPas = true;
+            $scope.apply;
+        });
     }
     
 
@@ -79,110 +200,138 @@
     $scope.AddDriveCustomer = function (drive) {
 
         //var p = $scope.XCoord1;
-
-        if (document.getElementById("lon").value == null || document.getElementById("lon").value ==""){//drive.XCoord == null || drive.XCoord == "") {
-            alert('X coordinate cant be empty!');
-            return;
-        }
-        else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
-            alert('Y coordinate cant be empty!');
-            return;
-        }
-        else if (document.getElementById("address").innerHTML == null || document.getElementById("address").innerHTML == "") {
-            alert('Street cant be empty!');
-            return;
-        }
-       
-        drive.XCoord = document.getElementById("lon").value;
-        drive.YCoord = document.getElementById("lat").value;
-        drive.Street = document.getElementById("address").innerHTML;
-
-        ProfCont.AddDriveCustomer(drive).then(function (response) {
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
             if (response.data == true) {
-                console.log(response.data);
-                $scope.newDrive = response.data;
-                //$rootScope.RegisterSuccess = "Registration was successful. You can login now.";
-                $window.location.href = "#!/MyHome";
+                alert('Your account is blocked.');
+
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
             }
-            else {
-                alert("Drive does not exist.");
+
+            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {//drive.XCoord == null || drive.XCoord == "") {
+                alert('X coordinate cant be empty!');
+                return;
             }
+            else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+                alert('Y coordinate cant be empty!');
+                return;
+            }
+            else if (document.getElementById("address").innerHTML == null || document.getElementById("address").innerHTML == "") {
+                alert('Street cant be empty!');
+                return;
+            }
+
+            if (drive.tipAuta == null || drive.tipAuta == "") {
+                alert('If you want to add drive then choose an option!');
+                return;
+            }
+
+
+            drive.XCoord = document.getElementById("lon").value;
+            drive.YCoord = document.getElementById("lat").value;
+            drive.Street = document.getElementById("address").innerHTML;
+
+            ProfCont.AddDriveCustomer(drive).then(function (response) {
+                if (response.data == true) {
+                    console.log(response.data);
+                    $scope.newDrive = response.data;
+                    //$rootScope.RegisterSuccess = "Registration was successful. You can login now.";
+                    $window.location.href = "#!/MyHome";
+                }
+                else {
+                    alert("Drive does not exist.");
+                }
+            });
+
+
         });
-
-        
-
 
     }
 
     $scope.EditUser = function (user) {
 
-        
-        
-        if (user.username == null || user.username == "") {
-            user.username = $scope.userProfile.UserName;
-        }
-        if (user.ime == null || user.ime == "") {
-            user.ime = $scope.userProfile.Name;
-        }
-        if (user.prezime == null || user.prezime == "") {
-            user.prezime = $scope.userProfile.Surname;
-        }
-        if (user.pol == null || user.pol == "") {
-            user.pol = $scope.userProfile.Gender;
-        }
-        if (user.jmbg == null || user.jmbg == "") {
-            user.jmbg = $scope.userProfile.JMBG;
-            
-        }
-       
-        if (user.kontaktTelefon == null || user.kontaktTelefon == "") {
-            user.kontaktTelefon = $scope.userProfile.ContactPhoneNumber;
-            
-        }
-        if (user.email == null || user.email == "") {
-            user.email = $scope.userProfile.Email;
-        }
-       
-        if (user.pwd == null || user.pwd == "") {
-            user.pwd = $scope.userProfile.Password;
-        }
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
+            if (response.data == true) {
+                alert('Your account is blocked.');
 
-        //user.OldUsername = $scope.userProfile.UserName;
-        ProfCont.EditUser(user).then(function (response) {
-            // if (response.data == true) {
-            if (response.data !=3) {
-                console.log(response.data);
-                //var cookieInfo = document.cookie.substring(5, document.cookie.length);
-                //var parsed1 = JSON.parse(cookieInfo)
-                document.cookie = "user=" + JSON.stringify({
-                    username: user.username, //response.data.UserName,
-                    role: response.data, //response.data.Role,
-                    nameSurname: user.ime + " " + user.prezime //response.data.Name + " " + response.data.Surname
-                }) + ";expires=Thu, 01 Jan 2019 00:00:01 GMT;";
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
 
-                sessionStorage.setItem("username", user.username);
-                sessionStorage.setItem("role", response.data);
-                sessionStorage.setItem("nameSurname", user.ime + " " + user.prezime);
-
-                //$rootScope.loggedin = true;
-                $rootScope.user.username = sessionStorage.getItem("username");
-                $rootScope.user.nameSurname = sessionStorage.getItem("nameSurname");
-                   // = {
-                //    username: sessionStorage.getItem("username"),
-                //    role: sessionStorage.getItem("role"),
-                //    nameSurname: sessionStorage.getItem("nameSurname")
-                //};
-
-
-                $window.location.href = "#!/MyHome";
             }
-            else {
-                alert("Username already exists.");
+
+
+            if (user.username == null || user.username == "") {
+                user.username = $scope.userProfile.UserName;
             }
+            if (user.ime == null || user.ime == "") {
+                user.ime = $scope.userProfile.Name;
+            }
+            if (user.prezime == null || user.prezime == "") {
+                user.prezime = $scope.userProfile.Surname;
+            }
+            if (user.pol == null || user.pol == "") {
+                user.pol = $scope.userProfile.Gender;
+            }
+            if (user.jmbg == null || user.jmbg == "") {
+                user.jmbg = $scope.userProfile.JMBG;
+
+            }
+
+            if (user.kontaktTelefon == null || user.kontaktTelefon == "") {
+                user.kontaktTelefon = $scope.userProfile.ContactPhoneNumber;
+
+            }
+            if (user.email == null || user.email == "") {
+                user.email = $scope.userProfile.Email;
+            }
+
+            if (user.pwd == null || user.pwd == "") {
+                user.pwd = $scope.userProfile.Password;
+            }
+
+            //user.OldUsername = $scope.userProfile.UserName;
+            ProfCont.EditUser(user).then(function (response) {
+                // if (response.data == true) {
+                if (response.data != 3) {
+                    console.log(response.data);
+                    //var cookieInfo = document.cookie.substring(5, document.cookie.length);
+                    //var parsed1 = JSON.parse(cookieInfo)
+                    document.cookie = "user=" + JSON.stringify({
+                        username: user.username, //response.data.UserName,
+                        role: response.data, //response.data.Role,
+                        nameSurname: user.ime + " " + user.prezime //response.data.Name + " " + response.data.Surname
+                    }) + ";expires=Thu, 01 Jan 2019 00:00:01 GMT;";
+
+                    sessionStorage.setItem("username", user.username);
+                    sessionStorage.setItem("role", response.data);
+                    sessionStorage.setItem("nameSurname", user.ime + " " + user.prezime);
+
+                    //$rootScope.loggedin = true;
+                    $rootScope.user.username = sessionStorage.getItem("username");
+                    $rootScope.user.nameSurname = sessionStorage.getItem("nameSurname");
+                    // = {
+                    //    username: sessionStorage.getItem("username"),
+                    //    role: sessionStorage.getItem("role"),
+                    //    nameSurname: sessionStorage.getItem("nameSurname")
+                    //};
+
+
+                    $window.location.href = "#!/MyHome";
+                }
+                else {
+                    alert("Username already exists.");
+                }
+            });
+
+
         });
-
-
-
 
     }
 
@@ -198,6 +347,11 @@
         }
         else if (document.getElementById("address").innerHTML == null || document.getElementById("address").innerHTML == "") {
             alert('Street cant be empty!');
+            return;
+        }
+
+        if (drive.tipAuta == null || drive.tipAuta == "") {
+            alert('If you want to add drive then choose an option!');
             return;
         }
 
@@ -231,10 +385,12 @@
 
     $scope.DodajVoznjuKonacno = function (novimodel) {
 
+
         if (novimodel == null) {
             alert('Morate da izaberrte slobodnog vozaca.');
             return;
         }
+        
 
         ProfCont.DodajVoznjuKonacno(novimodel, $scope.VoznjaDodavanjeDispecer).then(function (response) {
             if (response.data == true) {
@@ -274,90 +430,115 @@
 
     $scope.ChangeDriveCustomer = function (drive) {
 
-        if (drive == null) {
-            drive = {};
-            drive.tipAuta = $rootScope.VoznjaZaIzmenu.CarType;
-        }
-
-        if (drive.tipAuta == null || drive.tipAuta == "") {
-            drive.tipAuta = $rootScope.VoznjaZaIzmenu.CarType;
-        }
-
-        if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {
-           
-            drive.XCoord = $rootScope.VoznjaZaIzmenu.Arrival.X;
-        }
-        else {
-            drive.XCoord = document.getElementById("lon").value;
-        }
-
-
-        if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
-           
-            drive.YCoord = $rootScope.VoznjaZaIzmenu.Arrival.Y;
-        }
-        else {
-            drive.YCoord = document.getElementById("lat").value;
-        }
-
-
-        if (document.getElementById("address").innerText == null || document.getElementById("address").innerText == "") {
-       
-            drive.Street = $rootScope.VoznjaZaIzmenu.Arrival.Address.AddressFormat;
-        }else {
-            drive.Street = document.getElementById("address").innerText;
-        }
-
-        drive.datum = $rootScope.VoznjaZaIzmenu.DataAndTime;
-
-        ProfCont.ChangeDriveCustomer(drive).then(function (response) {
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
             if (response.data == true) {
-                console.log(response.data);
-                // $scope.newDrive = response.data;
+                alert('Your account is blocked.');
 
-                $window.location.href = "#!/MyHome";
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
+            }
+
+            if (drive == null) {
+                drive = {};
+                drive.tipAuta = $rootScope.VoznjaZaIzmenu.CarType;
+            }
+
+            if (drive.tipAuta == null || drive.tipAuta == "") {
+                drive.tipAuta = $rootScope.VoznjaZaIzmenu.CarType;
+            }
+
+            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {
+
+                drive.XCoord = $rootScope.VoznjaZaIzmenu.Arrival.X;
             }
             else {
-                alert("Drive does not exist.");
+                drive.XCoord = document.getElementById("lon").value;
             }
+
+
+            if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+
+                drive.YCoord = $rootScope.VoznjaZaIzmenu.Arrival.Y;
+            }
+            else {
+                drive.YCoord = document.getElementById("lat").value;
+            }
+
+
+            if (document.getElementById("address").innerText == null || document.getElementById("address").innerText == "") {
+
+                drive.Street = $rootScope.VoznjaZaIzmenu.Arrival.Address.AddressFormat;
+            } else {
+                drive.Street = document.getElementById("address").innerText;
+            }
+
+            drive.datum = $rootScope.VoznjaZaIzmenu.DataAndTime;
+
+            ProfCont.ChangeDriveCustomer(drive).then(function (response) {
+                if (response.data == true) {
+                    console.log(response.data);
+                    // $scope.newDrive = response.data;
+
+                    $window.location.href = "#!/MyHome";
+                }
+                else {
+                    alert("Drive does not exist.");
+                }
+            });
+
         });
-
-
     }
 
 
     $scope.ChangeLocation = function () {
 
-        drive = {};
-
-        if (document.getElementById("lon").value == null || document.getElementById("lon").value == "" || document.getElementById("lat").value == null || document.getElementById("lat").value == "" || document.getElementById("address").innerText == null || document.getElementById("address").innerText == "") {
-
-            //$window.location.href = "#!/MyHome";
-            alert('missing an address or coordinates');
-            return;
-        } else {
-           
-            
-            drive.XCoord = document.getElementById("lon").value;
-            drive.YCoord = document.getElementById("lat").value;
-            drive.Street = document.getElementById("address").innerText;
-        }
-
-        
-
-        ProfCont.ChangeLocation(drive).then(function (response) {
+        LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
             if (response.data == true) {
-                console.log(response.data);
-                // $scope.newDrive = response.data;
+                alert('Your account is blocked.');
 
-                $window.location.href = "#!/MyHome";
+                document.cookie = 'user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                sessionStorage.clear();
+                $rootScope.loggedin = false;
+                $rootScope.user = {};
+                document.location.href = "#!/Login";
+
             }
-            else {
-                alert("Drive does not exist.");
+
+
+            drive = {};
+
+            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "" || document.getElementById("lat").value == null || document.getElementById("lat").value == "" || document.getElementById("address").innerText == null || document.getElementById("address").innerText == "") {
+
+                //$window.location.href = "#!/MyHome";
+                alert('missing an address or coordinates');
+                return;
+            } else {
+
+
+                drive.XCoord = document.getElementById("lon").value;
+                drive.YCoord = document.getElementById("lat").value;
+                drive.Street = document.getElementById("address").innerText;
             }
+
+
+
+            ProfCont.ChangeLocation(drive).then(function (response) {
+                if (response.data == true) {
+                    console.log(response.data);
+                    // $scope.newDrive = response.data;
+
+                    $window.location.href = "#!/MyHome";
+                }
+                else {
+                    alert("Drive does not exist.");
+                }
+            });
+
         });
-
-
     }
 
 

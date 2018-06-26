@@ -129,7 +129,7 @@
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
                             <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,MyDrives-->
                             <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
 
 
@@ -207,7 +207,7 @@
                             <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SortedDrives-->
                             <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
                             <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
@@ -237,7 +237,7 @@
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
                             <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,FilteredDrives-->
                             <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
@@ -270,7 +270,7 @@
                             <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SearchedDrives-->
                             <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
                             <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
                             <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
