@@ -11,6 +11,7 @@
     <Email>deki@gmail.com</Email>
     <Role>Customer</Role>
     <Drives />
+    <Blocked>false</Blocked>
   </Customer>
   <Customer>
     <UserName>suza123</UserName>
@@ -22,5 +23,6 @@
     <Email>suza@gmail.com</Email>
     <Role>Customer</Role>
     <Drives />
+    <Blocked>true</Blocked>
   </Customer>
 </ArrayOfCustomer>

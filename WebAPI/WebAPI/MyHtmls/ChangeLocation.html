@@ -1,7 +1,11 @@
 ﻿<br />
 <br />
 <br />
+<div ng-show="!loggedin || user.role!=2">
+    <h1>You are not authorised for this action.</h1>
+</div>
 
+<div ng-show="user.role==2 && loggedin">
 <div id="map" class="map"></div>
 <div>
     
@@ -52,3 +56,4 @@
 
 <br />
 <button type="submit" class="btn button-success" ng-click="ChangeLocation()">Add Changes</button>
+</div>

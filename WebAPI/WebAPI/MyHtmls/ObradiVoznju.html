@@ -1,0 +1,21 @@
+﻿<br />
+<br />
+<br />
+<div ng-show="!DozvolaZaObradu || !loggedin || user.role!=1">
+    <h1>You dont have persmision for this action</h1>
+</div>
+<div ng-show="DozvolaZaObradu && loggedin && user.role==1">
+    <div ng-show="FlagNemaVozaca">
+        <h1>Drive has not been processed. There are no free drivers.</h1>
+    </div>
+    <div ng-show="!FlagNemaVozaca">
+        <div class="form-group">
+            <select class="t" id="slobodni" ng-model="novimodel.selektovaniVozac">
+                <option ng-repeat="driver in PonudjeniVozaci" value="{{driver}}">{{driver}}</option>
+            </select>
+        </div>
+        <br>
+
+        <button type="submit" class="btn button-success" ng-click="ObradiVoznjuKonacno(novimodel)">Proccess drive</button>
+    </div>
+</div>

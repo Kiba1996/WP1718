@@ -1,10 +1,11 @@
 ﻿WebAPI.controller('LoginController', function ($scope, LogCont, $window, $rootScope) {
 
     $scope.user = {};
-
+    
 
     function init() {
         console.log('Login controller initialized');
+        $rootScope.Rola = sessionStorage.getItem("role");
     };
 
     init();

@@ -1,65 +1,70 @@
 ﻿<br />
 <br />
 <br />
-
-<div id="map" class="map"></div>
-<div>
-    
+<div ng-show="!loggedin || !DozvolaIzmeniVozKorisnik || user.role!=0">
+    <h1>You cant access this action.</h1>
 </div>
-                
-<script>
-                    var map = new ol.Map({
-                        layers: [
-                            new ol.layer.Tile({
-                                source: new ol.source.OSM()
-                            })
-                        ],
-                        target: 'map',
-                        view: new ol.View({
-                            center: [0, 0],
-                            zoom: 2
-                        })
-                    });
-                    function simpleReverseGeocoding(lon, lat) {
-                        fetch('https://cors.io/?http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function (response) {
-                            return response.json();
-                        }).then(function (json) {
-                            document.getElementById('address').innerHTML = json.display_name;
-                        })
-                    }
-                    map.on('click', function (e) {
-                        var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
-                            return val.toFixed(6);
-                        });
-                        var lon = document.getElementById('lon').value = coordinate[0];
-                        var lat = document.getElementById('lat').value = coordinate[1];
-                        simpleReverseGeocoding(lon, lat);
-                    });
-                    
-</script>
-
-<p>Address: {{VoznjaZaIzmenu.Arrival.Address.AddressFormat}}</p> 
-<p>  {{VoznjaZaIzmenu.Arrival.X}}, {{VoznjaZaIzmenu.Arrival.X}} </p>
-<p ng-show="VoznjaZaIzmenu.CarType==0"> Tip auta: Passanger car</p>
-<p ng-show="VoznjaZaIzmenu.CarType==1"> Tip auta: Van</p>
-
+<div ng-show="loggedin && DozvolaIzmeniVozKorisnik && user.role==0">
    
+    <div id="map" class="map"></div>
+    <div>
+
+    </div>
+
+    <script>
+        var map = new ol.Map({
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            target: 'map',
+            view: new ol.View({
+                center: [0, 0],
+                zoom: 2
+            })
+        });
+        function simpleReverseGeocoding(lon, lat) {
+            fetch('https://cors.io/?http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                document.getElementById('address').innerHTML = json.display_name;
+            })
+        }
+        map.on('click', function (e) {
+            var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
+                return val.toFixed(6);
+            });
+            var lon = document.getElementById('lon').value = coordinate[0];
+            var lat = document.getElementById('lat').value = coordinate[1];
+            simpleReverseGeocoding(lon, lat);
+        });
+
+    </script>
+
+    <p>Address: {{VoznjaZaIzmenu.Arrival.Address.AddressFormat}}</p>
+    <p>  {{VoznjaZaIzmenu.Arrival.X}}, {{VoznjaZaIzmenu.Arrival.X}} </p>
+    <p ng-show="VoznjaZaIzmenu.CarType==0"> Tip auta: Passanger car</p>
+    <p ng-show="VoznjaZaIzmenu.CarType==1"> Tip auta: Van</p>
+
+
     <input id="lon" type="number" step="0.000001" class="t">
- 
+
     <input id="lat" type="number" step="0.000001" class="t">
-  
+
     <span class="t" id="address">
     </span>
 
-<br />
+    <br />
 
-<div class="form-group">
-    <select class="t" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
-        <option value="" disabled>Choose a car type</option>
-        <option value="0"> Passanger car</option>
-        <option value="1">Van</option>
-    </select>
+    <div class="form-group">
+        <select class="t" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
+            <option value="" disabled>Choose a car type</option>
+            <option value="0"> Passanger car</option>
+            <option value="1">Van</option>
+        </select>
+    </div>
+    <br>
+
+    <button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="ChangeDriveCustomer(drive)">Change drive</button>
 </div>
-<br>
-
-<button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="ChangeDriveCustomer(drive)">Change drive</button>

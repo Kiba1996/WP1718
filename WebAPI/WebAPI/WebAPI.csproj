@@ -185,6 +185,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="MyControllers\BlockController.js" />
     <Content Include="MyControllers\CommentController.js" />
     <Content Include="MyControllers\LoginController.js" />
     <Content Include="MyControllers\MainController.js" />
@@ -198,15 +199,16 @@
     <Content Include="MyCont\ProfCont.js" />
     <Content Include="MyCSSs\StyleSheet1.css" />
     <Content Include="MyHtmls\AddDrivers.html" />
+    <Content Include="MyHtmls\BlokUsers.html" />
     <Content Include="MyHtmls\ChangeLocation.html" />
     <Content Include="MyHtmls\Comment.html" />
     <Content Include="MyHtmls\DriveGet.html" />
     <Content Include="MyHtmls\Edit.html" />
     <Content Include="MyHtmls\EditDrive.html" />
     <Content Include="MyHtmls\EndDrive.html" />
-    <Content Include="MyHtmls\HelpHome.html" />
     <Content Include="MyHtmls\Login.html" />
     <Content Include="MyHtmls\MyHome.html" />
+    <Content Include="MyHtmls\ObradiVoznju.html" />
     <Content Include="MyHtmls\Profile.html" />
     <Content Include="MyHtmls\Register.html" />
     <Content Include="Scripts\angular-route.min.js" />

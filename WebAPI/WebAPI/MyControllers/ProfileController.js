@@ -1,5 +1,8 @@
 ﻿WebAPI.controller('ProfileController', function ($scope, $rootScope, ProfCont, $routeParams, $window) {
 
+    if (!$rootScope.loggedin) {
+        $window.location.href = "#!/Login";
+    }
    
     function init() {
         console.log('Profile controller initialized');
@@ -17,7 +20,8 @@
         $scope.prznalista = false;
         //$scope.XCoord1 = "";
         //$scope.YCoord1 = "";
-        ProfCont.getUserByUsername($routeParams.username).then(function (response) {
+        //$routeParams.username
+        ProfCont.getUserByUsername(sessionStorage.getItem("username")).then(function (response) {
             console.log(response.data);
 
             $scope.userProfile = response.data;
@@ -247,6 +251,25 @@
 
     }
 
+    $scope.ObradiVoznjuKonacno = function (novimodel) {
+        if(novimodel == null) {
+            alert('Morate da izaberrte slobodnog vozaca.');
+            return;
+        }
+
+        ProfCont.ObradiVoznjuKonacno(novimodel, $rootScope.VoznjaZaObradu).then(function (response) {
+            if (response.data == true) {
+                console.log(response.data);
+                $window.location.href = "#!/MyHome";
+            }
+            else {
+                alert("neuspesno obradjivanje voznje.");
+            }
+
+
+        });
+
+    }
 
 
     $scope.ChangeDriveCustomer = function (drive) {
@@ -311,7 +334,7 @@
 
             //$window.location.href = "#!/MyHome";
             alert('missing an address or coordinates');
-            
+            return;
         } else {
            
             

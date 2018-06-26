@@ -26,22 +26,16 @@ WebAPI.config(function ($routeProvider) {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Profile.html',
             activeTab: 'Profile'
-        }).when('/Profile/:username', {
-
-            controller: 'ProfileController',
-            templateUrl: 'MyHtmls/Profile.html',
-            activetab: 'Profile'
-
-        }).when('/DriveGet/:username',
+        }).when('/DriveGet',
         {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/DriveGet.html',
             activetab: 'none'
-        }).when('/AddDrivers/:username', {
+        }).when('/AddDrivers', {
             controller: 'LoginController',
             templateUrl: 'MyHtmls/AddDrivers.html',
             activetab: 'AddDrivers'
-        }).when('/Edit/:username', {
+        }).when('/Edit', {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/Edit.html',
             activeTab: 'Edit'
@@ -60,6 +54,14 @@ WebAPI.config(function ($routeProvider) {
         }).when('/ChangeLocation', {
             controller: 'ProfileController',
             templateUrl: 'MyHtmls/ChangeLocation.html',
+            activeTab: 'none'
+        }).when('/ObradiVoznju', {
+            controller: 'ProfileController',
+            templateUrl: 'MyHtmls/ObradiVoznju.html',
+            activeTab: 'none'
+        }).when('/BlokUsers', {
+            controller: 'BlockController',
+            templateUrl: 'MyHtmls/BlokUsers.html',
             activeTab: 'none'
         })
 

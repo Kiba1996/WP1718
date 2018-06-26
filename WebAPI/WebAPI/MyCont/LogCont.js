@@ -14,6 +14,12 @@
         });
     }
 
+    factory.getUserStatus = function (username) {
+
+        return $http.get('/api/Prof/getUserStatus?username=' + username);
+    }
+
+
     factory.LoginUser = function (user) {
         return $http.post('/api/Log/Login', {
             Username: user.username,

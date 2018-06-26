@@ -15,6 +15,41 @@ namespace WebAPI.Controllers
         public static XMLDataIO xml = new XMLDataIO();
 
         [HttpGet]
+        [ActionName("getUserStatus")]
+        public bool getUserStatus(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            bool ret = false;
+
+            foreach (Customer c in users)
+            {
+                if (c.UserName == username && c.Blocked == true)
+                {
+                    ret = true;
+                    break;
+                }
+            }
+            if (!ret)
+            {
+                foreach (Driver d in drivers)
+                {
+                    if (d.UserName == username && d.Blocked == true)
+                    {
+                        ret = true;
+                        break;
+                    }
+                }
+            }
+            return ret;
+
+        }
+
+        [HttpGet]
         [ActionName("GetUserByUsername")]
         public User GetUserByUsername(string username)
         {
@@ -123,6 +158,164 @@ namespace WebAPI.Controllers
 
             return ret;
         }
+
+        
+        [HttpGet]
+        [ActionName("Block")]
+        public List<User> Block(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            List<User> list = new List<User>();
+
+            foreach (Customer c in users)
+            {
+                if(c.UserName == username)
+                {
+                    c.Blocked = true;
+                }
+
+                if (c.Blocked == false)
+                {
+                    list.Add(c);
+                }
+            }
+
+            foreach (Driver d in drivers)
+            {
+                if (d.UserName == username)
+                {
+                    d.Blocked = true;
+                }
+
+                if (d.Blocked == false)
+                {
+                    list.Add(d);
+                }
+            }
+
+
+            xml.WriteUsers(users, ss);
+            xml.WriteDrivers(drivers, drv);
+            return list;
+
+        }
+
+        [HttpGet]
+        [ActionName("Unblock")]
+        public List<User> Unblock(string username)
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            List<User> list = new List<User>();
+
+            foreach (Customer c in users)
+            {
+                if (c.UserName == username)
+                {
+                    c.Blocked = false;
+                }
+
+                if (c.Blocked == true)
+                {
+                    list.Add(c);
+                }
+            }
+
+            foreach (Driver d in drivers)
+            {
+                if (d.UserName == username)
+                {
+                    d.Blocked = false;
+                }
+
+                if (d.Blocked == true)
+                {
+                    list.Add(d);
+                }
+            }
+
+            xml.WriteUsers(users, ss);
+            xml.WriteDrivers(drivers, drv);
+
+            return list;
+
+        }
+
+
+        [HttpGet]
+        [ActionName("getBlockedUsers")]
+        public List<User> getBlockedUsers()
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            List<User> list = new List<User>();
+
+            foreach(Customer c in users)
+            {
+                if(c.Blocked == true)
+                {
+                    list.Add(c);
+                }
+            }
+
+            foreach(Driver d in drivers)
+            {
+                if(d.Blocked == true)
+                {
+                    list.Add(d);
+                }
+            }
+
+            return list;
+
+        }
+
+        [HttpGet]
+        [ActionName("getUnblockedUsers")]
+        public List<User> getUnblockedUsers()
+        {
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Customer> users = xml.ReadUsers(ss);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            List<User> list = new List<User>();
+
+            foreach (Customer c in users)
+            {
+                if (c.Blocked == false)
+                {
+                    list.Add(c);
+                }
+            }
+
+            foreach (Driver d in drivers)
+            {
+                if (d.Blocked == false)
+                {
+                    list.Add(d);
+                }
+            }
+
+            return list;
+
+        }
+
+
 
         [HttpPost]
         [ActionName("AddDriveCustomer")]
@@ -335,6 +528,77 @@ namespace WebAPI.Controllers
 
             return true;
         }
+
+
+        
+        [HttpPost]
+        [ActionName("ObradiVoznjuKonacno")]
+        public bool ObradiVoznjuKonacno([FromBody]konacnaVoznjaObrada k)
+        {
+
+            //ClosestDistance closest = new ClosestDistance();
+
+            string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+            string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
+            string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
+
+            List<Dispatcher> users = xml.ReadDispatcher(adm);
+            List<Drive> drives = xml.ReadDrives(ss1);
+            List<Driver> drivers = xml.ReadDrivers(drv);
+
+            // bool g = true;
+            User c = new Dispatcher();
+            Driver driver = new Driver();
+
+
+
+
+
+            foreach (Dispatcher u in users)
+            {
+                if (u.UserName == k.korisnickoAdmin)
+                {
+                    c = u; 
+                    break;
+                   
+                }
+            }
+
+            foreach (Driver dre in drivers)
+            {
+                if (dre.UserName == k.korisnickoVozac)
+                {
+                    dre.Zauzet = true;
+                    driver = dre;
+                    break;
+                }
+            }
+
+            foreach(Drive dr in drives)
+            {
+                if(DateTime.Parse(dr.DataAndTime) == DateTime.Parse(k.voz.DataAndTime) && (dr.Customer.UserName == k.voz.Customer.UserName || dr.Dispatcher.UserName == k.voz.Dispatcher.UserName))
+                {
+
+                    dr.Driver = driver;
+                    dr.Dispatcher = (Dispatcher)c;
+                    dr.Status = Enums.DriveStatus.Processed;
+
+                }
+            }
+
+           
+            xml.WriteDrivers(drivers, drv);
+            xml.WriteDrives(drives, ss1);
+
+            // return true;
+
+            return true;
+        }
+
+
+
+
 
         [HttpPost]
         [ActionName("GetFilterUser")]
@@ -658,7 +922,7 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [ActionName("ProcessDrive")]
-        public List<Drive> ProcessDrive([FromBody]ObradaPrenos k)
+        public List<string> ProcessDrive([FromBody]KomentarVozacPrenos k)
         {
             Drive por = new Drive();
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
@@ -668,71 +932,44 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
+            ClosestDistance cd = new ClosestDistance();
             bool p = false;
           //  Drive promenjena = new Drive(); 
             Driver driver = new Driver();
             Dispatcher dispacer = new Dispatcher();
-           // List<Drive> li = new List<Drive>();
+            // List<Drive> li = new List<Drive>();
             //li = k.voznje;
+            List<Tuple<Point, string>> proslediListu = new List<Tuple<Point, string>>();
+
+
             foreach (Driver d in drivers)
             {
-                if (!d.Zauzet && (d.Car.CarType ==k.dr.CarType))
+                if (!d.Zauzet && (d.Car.CarType == k.voz.CarType))
                 {
-                    d.Zauzet = true;
-                    driver = d;
-                    p = true;
-                    break;
+                    Point poi = new Point();
+                    poi.X = Double.Parse(d.Location.X);
+                    poi.Y = Double.Parse(d.Location.Y);
+                    proslediListu.Add(new Tuple<Point, string>(poi, d.UserName));
+                    //d.Zauzet = true;
+                    //drive.Driver = d;
+                    //p = true;
+                    //break;
                 }
             }
 
-            foreach(Dispatcher disp in dispatchers)
+            List<string> najblizi = new List<string>();
+
+            if (proslediListu.Any())
             {
-                if(disp.UserName == k.korisnicko)
-                {
-                    dispacer = disp;
-                }
-            }
-            //if (!p)
-            //{
-            //    drive.Status = Enums.DriveStatus.Created_Waiting;
-            //    drive.Driver = new Driver();
-            //}
-
-            if (p)
-            {
-                foreach (Drive dri in drives)
-                {
-                    if ((dri.Customer.UserName == k.dr.Customer.UserName || dri.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
-                    {
-                      
-                        dri.Status = Enums.DriveStatus.Processed;
-                        //dri.Driver.Zauzet = true;
-                        dri.Driver = driver;
-                        dri.Dispatcher = dispacer;
-                        //por = dri;
-                       // promenjena = dri;
-                        break;
-                    }
-                }
-
-                foreach (Drive w in k.voznje)
-                {
-                    if ((w.Customer.UserName == k.dr.Customer.UserName || w.Dispatcher.UserName == k.dr.Dispatcher.UserName) && DateTime.Parse(w.DataAndTime) == DateTime.Parse(k.dr.DataAndTime))
-                    {
-                        w.Status = Enums.DriveStatus.Processed; ;
-                        w.Driver = driver;
-                        w.Dispatcher = dispacer;
-                    }
-                }
-
-                
-
-                xml.WriteDrives(drives, ss1);
-                xml.WriteDrivers(drivers, drv);
-            }
            
+                Point ip = new Point();
+                ip.X = Double.Parse(k.voz.Arrival.X);
+                ip.Y = Double.Parse(k.voz.Arrival.Y);
+                najblizi = cd.OrderByDistance(proslediListu, ip);
+            }
 
-            return k.voznje;//por;
+            return najblizi;
+
         }
 
 

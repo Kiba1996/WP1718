@@ -1,5 +1,9 @@
 ﻿WebAPI.controller('CommentController', function ($scope, $rootScope, LogCont, ProfCont, $window) {
 
+    if (!$rootScope.loggedin) {
+        $window.location.href = "#!/Login";
+    }
+
     function init() {
         $scope.PokaziUspesna = false;
         $scope.PokaziNeuspesna = false;

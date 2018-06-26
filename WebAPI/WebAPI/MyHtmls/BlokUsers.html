@@ -1,0 +1,41 @@
+﻿<br />
+<br />
+<br />
+<div ng-show="!loggedin && user.role!=1">
+    <h1>You are not loggedin as a administrator.</h1>
+</div>
+<div ng-show="loggedin && user.role==1">
+
+    <button type="submit" id="btnBlok" ng-click="PrikaziBlokirane()">Show blocked users</button>
+    <button type="submit" id="btnUnblok" ng-click="PrikaziNeblokirane()">Show not blocked users</button>
+
+    <div ng-show="Blokirani">
+        <div class="form-group">
+            <div class="teme-repeat" ng-repeat="korisnik in listaBlokiranih">
+
+                <div class="tema">
+                   
+                    <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
+                    <p ng-show="korisnik.Role == 0"> Customer</p>
+                    <p ng-show="korisnik.Role == 2">Driver</p>
+                    <button type="submit" class="btn button-success" ng-click="Unblock(korisnik.UserName)">Unblock user</button><!--,AllDrives-->
+                </div>
+            </div>
+         </div>
+    </div>
+    <div ng-show="Neblokirani">
+
+        <div class="form-group">
+            <div class="teme-repeat" ng-repeat="korisnik in listaNeblokiranih">
+
+                <div class="tema">
+
+                    <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
+                    <p ng-show="korisnik.Role == 0"> Customer</p>
+                    <p ng-show="korisnik.Role == 2">Driver</p>
+                    <button type="submit" class="btn button-success" ng-click="Block(korisnik.UserName)">Block user</button><!--,AllDrives-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

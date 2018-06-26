@@ -1,19 +1,28 @@
-﻿<h1>COMMENT</h1>
+﻿
+<br/>
+<br />
+<br />
+<div ng-show="!loggedin || !DozvolaZaKomentarKorisnik || user.role!=0">
+    <h1>You cant access this page.</h1>
+</div>
+<div ng-show="loggedin && DozvolaZaKomentarKorisnik && user.role==0">
+    <h1>COMMENT</h1>
 
-<div class="form-group">
-    <table class="zaBojuSlova">
-        <tr class="zaBojuSlova">
-            <td>Opis: </td>
-            <td><textarea class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
-         </tr>
-        <tr class="zaBojuSlova">
-            <td>Ocena: </td>
-               <td><input type="text" id="OcenaDo" class="form-control" ng-model="ko.Ocena" /></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button  type="submit" class="btn button-success" ng-click="Commenting(ko)">Comment</button>
-            </td>
-        </tr>
-      </table>
+    <div class="form-group">
+        <table class="zaBojuSlova">
+            <tr class="zaBojuSlova">
+                <td>Opis: </td>
+                <td><textarea class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
+            </tr>
+            <tr class="zaBojuSlova">
+                <td>Ocena: </td>
+                <td><input type="text" id="OcenaDo" class="form-control" ng-model="ko.Ocena" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn button-success" ng-click="Commenting(ko)">Comment</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

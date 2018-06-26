@@ -240,28 +240,46 @@
       <Address />
     </Destination>
     <Dispatcher>
-      <Name />
-      <Surname />
-      <Gender>Male</Gender>
-      <JMBG>0</JMBG>
+      <UserName>bar</UserName>
+      <Password>aa</Password>
+      <Name>Barbara</Name>
+      <Surname>Segrt</Surname>
+      <Gender>Female</Gender>
+      <JMBG>504996815119</JMBG>
+      <ContactPhoneNumber>06243259</ContactPhoneNumber>
+      <Email>barbi@gmail.com</Email>
       <Role>Dispatcher</Role>
       <Drives />
     </Dispatcher>
     <Driver>
-      <Name />
-      <Surname />
+      <UserName>joca</UserName>
+      <Password>joca</Password>
+      <Name>Jovan</Name>
+      <Surname>Gajin</Surname>
       <Gender>Male</Gender>
-      <JMBG>0</JMBG>
+      <JMBG>2828174859312</JMBG>
+      <ContactPhoneNumber>232112434</ContactPhoneNumber>
+      <Email>joca@yahoo.com</Email>
       <Role>Driver</Role>
       <Drives />
-      <Zauzet>false</Zauzet>
+      <Location>
+        <Address />
+      </Location>
+      <Car>
+        <Driver>joca</Driver>
+        <CarYear>2003</CarYear>
+        <RegistrationNumber>23df4</RegistrationNumber>
+        <TaxiNumber>3</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>true</Zauzet>
     </Driver>
     <Amount>0</Amount>
     <Comment>
       <Date>0001-01-01T00:00:00</Date>
       <Rating>0</Rating>
     </Comment>
-    <Status>Created_Waiting</Status>
+    <Status>Processed</Status>
   </Drive>
   <Drive>
     <DataAndTime>Monday, 25 June 2018 21:14:06</DataAndTime>
@@ -270,6 +288,77 @@
       <Y>44.259053</Y>
       <Address>
         <AddressFormat>Првомајска, Градац, Ваљево, Град Ваљево, Колубарски округ, Централна Србија, 14000, Србија</AddressFormat>
+      </Address>
+    </Arrival>
+    <CarType>PassengerCar</CarType>
+    <Customer>
+      <UserName>deki</UserName>
+      <Password>deki</Password>
+      <Name>Dejan</Name>
+      <Surname>Stajic</Surname>
+      <Gender>Male</Gender>
+      <JMBG>510994234876</JMBG>
+      <ContactPhoneNumber>9388323</ContactPhoneNumber>
+      <Email>deki@gmail.com</Email>
+      <Role>Customer</Role>
+      <Drives />
+    </Customer>
+    <Destination>
+      <X>19.743925</X>
+      <Y>45.291457</Y>
+      <Address>
+        <AddressFormat>Војвођанска, Руменка, Град Нови Сад, Јужнобачки округ, Војводина, 21201, Србија</AddressFormat>
+      </Address>
+    </Destination>
+    <Dispatcher>
+      <UserName>bar</UserName>
+      <Password>aa</Password>
+      <Name>Barbara</Name>
+      <Surname>Segrt</Surname>
+      <Gender>Female</Gender>
+      <JMBG>504996815119</JMBG>
+      <ContactPhoneNumber>06243259</ContactPhoneNumber>
+      <Email>barbi@gmail.com</Email>
+      <Role>Dispatcher</Role>
+      <Drives />
+    </Dispatcher>
+    <Driver>
+      <UserName>joca</UserName>
+      <Password>joca</Password>
+      <Name>Jovan</Name>
+      <Surname>Gajin</Surname>
+      <Gender>Male</Gender>
+      <JMBG>2828174859312</JMBG>
+      <ContactPhoneNumber>232112434</ContactPhoneNumber>
+      <Email>joca@yahoo.com</Email>
+      <Role>Driver</Role>
+      <Drives />
+      <Location>
+        <Address />
+      </Location>
+      <Car>
+        <Driver>joca</Driver>
+        <CarYear>2003</CarYear>
+        <RegistrationNumber>23df4</RegistrationNumber>
+        <TaxiNumber>3</TaxiNumber>
+        <CarType>PassengerCar</CarType>
+      </Car>
+      <Zauzet>false</Zauzet>
+    </Driver>
+    <Amount>700</Amount>
+    <Comment>
+      <Date>0001-01-01T00:00:00</Date>
+      <Rating>0</Rating>
+    </Comment>
+    <Status>Successful</Status>
+  </Drive>
+  <Drive>
+    <DataAndTime>Tuesday, 26 June 2018 13:12:05</DataAndTime>
+    <Arrival>
+      <X>21.029294</X>
+      <Y>45.645387</Y>
+      <Address>
+        <AddressFormat>DJ591A, Diniaș, Timiș, 307311, România</AddressFormat>
       </Address>
     </Arrival>
     <CarType>PassengerCar</CarType>

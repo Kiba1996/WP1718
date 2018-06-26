@@ -23,6 +23,10 @@
 
             //$scope.FILT1 = false;
             //$scope.FILT2 = false;
+            $rootScope.DozvolaIzmeniVozKorisnik = false;
+            $rootScope.DozvolaZaObradu = false;
+            $rootScope.DozvolaZaKomentarKorisnik = false;
+            $rootScope.DozvolaZavrsiVoznju = false;
             console.log(response.data);
         });
 
@@ -219,59 +223,58 @@
         ProfCont.CancelDrive(drive).then(function (response) {
             console.log(response.data);
             $rootScope.VoznjaZaKomentar = response.data;
+            $rootScope.DozvolaZaKomentarKorisnik = true;
             $window.location.href = "#!/Comment";
 
         });
     }
-    $scope.ProcessDrive = function (drive, f) {
-
-        ProfCont.ProcessDrive(drive, f).then(function (response) {
+    $scope.ProcessDrive = function (drive) { //,f
+        $rootScope.VoznjaZaObradu = drive;
+        ProfCont.ProcessDrive(drive).then(function (response) {
+            //,f
+            
             console.log(response.data);
-
-            if ($scope.listaFlag == 1) {
-                $scope.MyDrives = response.data;
-                $scope.$evalAsync;//$scope.$apply();
+            if (response.data.length == 0) {
+                $rootScope.FlagNemaVozaca = true;
+            } else {
+                $rootScope.FlagNemaVozaca = false;
             }
 
+            $rootScope.PonudjeniVozaci = response.data;
 
-            if ($scope.listaFlag == 2) {
-                $scope.AllDrives = response.data;
-                $scope.$evalAsync;//$scope.$apply();
-            }
+            $rootScope.DozvolaZaObradu = true;
+            $window.location.href = "#!/ObradiVoznju";
 
-            if ($scope.listaFlag == 4) {
-                $scope.SortedDrives = response.data;
-                $scope.$evalAsync;//$scope.$apply();
-            }
-
-            if ($scope.listaFlag == 5) {
-                $scope.FilteredDrives = response.data;
-                $scope.$evalAsync;//$scope.$apply();
-            }
-
-            if ($scope.listaFlag == 6) {
-                $scope.SearchedDrives = response.data;
-                $scope.$evalAsync;//$scope.$apply();
-            }
-
-
-            //$rootScope.VoznjaZaKomentar = response.data;
-            //$window.location.href = "#!/MyHome";
-            //$window.location.refresh();
-            //if (response.data) {
-            //    $route.reload();
-            //}
-            //if (f == 1) {
+            //if ($scope.listaFlag == 1) {
             //    $scope.MyDrives = response.data;
-            //}
-            //if (f == 2) {
-            //    $scope.AllDrives = response.data;
-            //}
-            //if (f == 4) {
-            //    $scope.AllDrives = response.data;
+            //    $scope.$evalAsync;//$scope.$apply();
             //}
 
+
+            //if ($scope.listaFlag == 2) {
+            //    $scope.AllDrives = response.data;
+            //    $scope.$evalAsync;//$scope.$apply();
+            //}
+
+            //if ($scope.listaFlag == 4) {
+            //    $scope.SortedDrives = response.data;
+            //    $scope.$evalAsync;//$scope.$apply();
+            //}
+
+            //if ($scope.listaFlag == 5) {
+            //    $scope.FilteredDrives = response.data;
+            //    $scope.$evalAsync;//$scope.$apply();
+            //}
+
+            //if ($scope.listaFlag == 6) {
+            //    $scope.SearchedDrives = response.data;
+            //    $scope.$evalAsync;//$scope.$apply();
+            //}
+
+
+           
         });
+       
     }
 
 
@@ -310,6 +313,7 @@
     $scope.EndDrive = function (drive) {
 
         $rootScope.VoznjaZaKomentarVozac = drive;
+        $rootScope.DozvolaZavrsiVoznju = true;
         $window.location.href = "#!/EndDrive";
 
 
@@ -321,7 +325,7 @@
         }
 
         $rootScope.VoznjaZaKomentar = drive;
-
+        $rootScope.DozvolaZaKomentarKorisnik = true;
         $window.location.href = "#!/Comment";
     }
 
@@ -332,7 +336,7 @@
         }
 
         $rootScope.VoznjaZaIzmenu = drive;
-
+        $rootScope.DozvolaIzmeniVozKorisnik = true;
         $window.location.href = "#!/EditDrive";
     }
 

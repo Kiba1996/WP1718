@@ -92,6 +92,15 @@
     }
 
 
+    factory.ObradiVoznjuKonacno = function (novimodel, voznja) {
+        return $http.post('/api/Prof/ObradiVoznjuKonacno', {
+            voz: voznja,
+            korisnickoAdmin: sessionStorage.getItem("username"),
+            korisnickoVozac: novimodel.selektovaniVozac
+        });
+    }
+
+
     factory.EditUser = function (user) {
         return $http.post('/api/Prof/EditUser', {
             Username: user.username,
@@ -120,11 +129,11 @@
             Voz: voz
         });
     }
-    factory.ProcessDrive = function (drive,drives) {
+    factory.ProcessDrive = function (drive) {
         return $http.post('/api/Prof/ProcessDrive', {
-            dr: drive,
-            voznje: drives,
-            korisnicko: sessionStorage.getItem("username")
+            KommOpis: sessionStorage.getItem("username"),
+            voz: drive
+            
         });
     }
 
@@ -184,6 +193,20 @@
             korisnicko: sessionStorage.getItem("username"),
             datum: drive.datum
         });
+    }
+
+    factory.getBlockedUsers = function () {
+        return $http.get('/api/Prof/getBlockedUsers');
+    }
+    factory.getUnblockedUsers = function () {
+        return $http.get('/api/Prof/getUnblockedUsers');
+    }
+
+    factory.Block = function (korisnickoime) {
+        return $http.get('/api/Prof/Block?username=' + korisnickoime);
+    }
+    factory.Unblock = function (korisnickoime) {
+        return $http.get('/api/Prof/Unblock?username=' + korisnickoime);
     }
 
     return factory;

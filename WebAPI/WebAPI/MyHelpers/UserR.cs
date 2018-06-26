@@ -112,6 +112,14 @@ namespace WebAPI.MyHelpers
         public string korisnickoVozac { get; set; }
     }
 
+    public class konacnaVoznjaObrada
+    {
+        public Drive voz { get; set; }
+        public string korisnickoAdmin { get; set; }
+        public string korisnickoVozac { get; set; }
+    }
+
+
     public class ChangeDrivePrenos
     {
         public string XCoord { get; set; }
