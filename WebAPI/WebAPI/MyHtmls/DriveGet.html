@@ -4,10 +4,8 @@
 <div ng-show="!loggedin || user.role==2">
     <h1>You are not authorised to add drives.</h1>
 </div>
-<div class="container-fluid" ng-show="loggedin && user.role!=2"> <!--&& (user.role==0 || user.role==1)">-->
-   
+<div class="container-fluid" ng-show="loggedin && user.role!=2"> 
            
-       
         <div ng-show="!najblizivozaci" class="body">
             <h2 class="hed2">Choose location: </h2>
             <div>
@@ -42,54 +40,43 @@
                         var lat = document.getElementById('lat').innerHTML = coordinate[1];
                         simpleReverseGeocoding(lon, lat);
                     });
-                    //document.getElementById('reversegeocoding').addEventListener('click', function (e) {
-                    //    if (document.getElementById('lon').value && document.getElementById('lat').value) {
-                    //        simpleReverseGeocoding(document.getElementById('lon').value, document.getElementById('lat').value);
-                    //    }
-                    //});
+                    
                 </script>
-
 
             </div>
             <div class="josjedan">
-            <div class="form-group">
-                <!--<input type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="">-->
-                
-               <p>X: </p> <span class="tspan" id="lon">
+                <div class="form-group">
+              
+                   <p>X: </p> <span class="tspan" id="lon"></span>
 
-                </span>
-            </div>
-            <div class="form-group">
-                <!--<input type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="">-->
-                
-                <p>Y: </p><span class="tspan" id="lat">
+                </div>
+                <div class="form-group">
+              
+                    <p>Y: </p><span class="tspan" id="lat"></span>
 
-                </span>
-            </div>
-            <div class="form-group">
-                <!--<input type="text" class="t" id="address" ng-model="drive.Street" placeholder="Street">-->
-               <p>Address: </p> <span class="tspan" id="address">
+                </div>
+                <div class="form-group">
 
-                </span>
-            </div>
+                   <p>Address: </p> <span class="tspan" id="address"> </span>
 
+                </div>
 
-            <div class="form-group">
-                <select class="t form-control" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
-                    <option value="" disabled>Choose a car type</option>
-                    <option value="0"> Passanger car</option>
-                    <option value="1">Van</option>
-                </select>
-            </div>
-            <br>
+                <div class="form-group">
+                    <select class="t form-control" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
+                        <option value="" disabled>Choose a car type</option>
+                        <option value="0"> Passanger car</option>
+                        <option value="1">Van</option>
+                    </select>
+                </div>
+                <br>
 
-            <button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="AddDriveCustomer(drive)">Add a drive</button>
-            <button ng-show="user.role==1 && !najblizivozaci" type="submit" class="btn button-success" ng-click="AddDriveDispatcher(drive)">Add a drive</button>
-                <br />
-                <br />
-        </div>
-            </div>
-        <div class="josjedan" ng-show="!prznalista">
+                <button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="AddDriveCustomer(drive)">Add a drive</button>
+                <button ng-show="user.role==1 && !najblizivozaci" type="submit" class="btn button-success" ng-click="AddDriveDispatcher(drive)">Add a drive</button>
+                    <br />
+                    <br />  
+          </div>
+       </div>
+       <div class="josjedan" ng-show="!prznalista">
 
             <br />
             <br />

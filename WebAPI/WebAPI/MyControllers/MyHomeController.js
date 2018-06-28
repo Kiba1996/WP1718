@@ -49,7 +49,7 @@
 
     $scope.getDrives1 = function () {
         LogCont.getDrives1(sessionStorage.getItem("username")).then(function (response) {
-            //$scope.FilterRez = response.data;
+           
             $scope.AllDrives = response.data;
             $rootScope.filtriranje = "All drives"
             $scope.listaFlag = 2; //AD
@@ -104,7 +104,6 @@
             ProfCont.Sorting(Drives, broj).then(function (response) {
 
                 console.log(response.data);
-                //$scope.FilterRez = response.data;
                 $scope.SortedDrives = response.data;
                 $scope.listaFlag = 4; //SD
 
@@ -133,10 +132,8 @@
             }
             ProfCont.Filter(Drives, Status).then(function (response) {
                 console.log(response.data);
-                //$scope.FilterRez = response.data;
                 $scope.FilteredDrives = response.data;
                 $scope.listaFlag = 5; //FD
-                //$scope.posebanFlag = 2;// !SVE
                 $scope.filtFlag = 1; //FILT
 
             });
@@ -160,35 +157,16 @@
 
 
             if (su == null) {
-                // alert('You cant search!Fill in the search fields.');
+                 alert('You cant search! Fill in the search fields.');
                 return;
             }
-            //if (su.DatumOd > su.DatumDo || su.CenaOd> su.CenaDo || su.OcenaOd > su.OcenaDo) {
-            //    alert('Incorrect values in search fields.');
-            //    return;
-            //}
-            //if (su.OcenaOd < 0 || su.OcenaDo < 0 || su.CenaOd < 0 || su.CenDo < 0) {
-            //    alert('You cant search negative numbers.');
-            //    return;
-            //}
-            //if(su.VozIme == "") {
-            //    su.VozIme = null;
-            //}
-            //if (su.VozPre == "") {
-            //    su.VozPre = null;
-            //}
-            //if (su.MusIme == "") {
-            //    su.MusIme = null;
-            //}
-            //if (su.MusPre == "") {
-            //    su.MusPre = null;
-            //}
+           
             if (su.OcenaDo == "") {
                 su.OcenaDo = null;
             }
             if (su.OcenaDo != null) {
                 if (!/^\d+$/.test(su.OcenaDo)) {
-                    alert("Uneta ocena mora biti broj");
+                    alert("Rating must be a number.");
                     return;
                 }
             }
@@ -199,7 +177,7 @@
             if (su.OcenaOd != null) {
 
                 if (!/^\d+$/.test(su.OcenaOd)) {
-                    alert("Uneta ocena mora biti broj");
+                    alert("Rating must be a number.");
                     return;
                 }
             }
@@ -210,18 +188,18 @@
             if (su.CenaDo != null) {
 
                 if (!/^\d+$/.test(su.CenaDo)) {
-                    alert("Uneta cena mora biti broj");
+                    alert("Price must be a number");
                     return;
                 }
             }
             if (su.CenaOd == "") {
                 su.CenaOd = null;
             }
-            //else {
+           
             if (su.CenaOd != null) {
 
                 if (!/^\d+$/.test(su.CenaOd)) {
-                    alert("Uneta cena mora biti broj");
+                    alert("Price must be a number");
                     return;
                 }
             }
@@ -239,28 +217,14 @@
                 su.MusPre = null;
             }
             
-            //if (document.getElementById("DatumOd").value == "") {
-            //    su.DatumDo = null;
-            //}
-            //if (document.getElementById("DatumOd").nodeValue == "") {
-            //    su.DatumOd = null;
-            //}
-            //su.DatumOd = document.getElementById("DatumOd").value;
-            //su.DatumDo = document.getElementById("DatumDo").value;
+           
             ProfCont.Search(Drives, su).then(function (response) {
                 console.log(response.data);
                 $scope.SearchedDrives = response.data;
 
                 $scope.listaFlag = 6; //FD
-                //$scope.posebanFlag = 2;// !SVE
                 $scope.filtFlag = 2; //FILT
-                //$scope.CD = false;
-                //$scope.MD = false;
-                //$scope.AD = false;
-                //$scope.SD = false;
-                //$scope.FD = true;
-                //$scope.FILT1 = true;
-                //$scope.FILT2 = true;
+               
 
             });
         });
@@ -291,11 +255,10 @@
             });
         });
     }
-    $scope.ProcessDrive = function (drive) { //,f
+    $scope.ProcessDrive = function (drive) {
         $rootScope.VoznjaZaObradu = drive;
         ProfCont.ProcessDrive(drive).then(function (response) {
-            //,f
-            
+           
             console.log(response.data);
             if (response.data.length == 0) {
                 $rootScope.FlagNemaVozaca = true;
@@ -308,33 +271,7 @@
             $rootScope.DozvolaZaObradu = true;
             $window.location.href = "#!/ObradiVoznju";
 
-            //if ($scope.listaFlag == 1) {
-            //    $scope.MyDrives = response.data;
-            //    $scope.$evalAsync;//$scope.$apply();
-            //}
-
-
-            //if ($scope.listaFlag == 2) {
-            //    $scope.AllDrives = response.data;
-            //    $scope.$evalAsync;//$scope.$apply();
-            //}
-
-            //if ($scope.listaFlag == 4) {
-            //    $scope.SortedDrives = response.data;
-            //    $scope.$evalAsync;//$scope.$apply();
-            //}
-
-            //if ($scope.listaFlag == 5) {
-            //    $scope.FilteredDrives = response.data;
-            //    $scope.$evalAsync;//$scope.$apply();
-            //}
-
-            //if ($scope.listaFlag == 6) {
-            //    $scope.SearchedDrives = response.data;
-            //    $scope.$evalAsync;//$scope.$apply();
-            //}
-
-
+           
            
         });
        
@@ -477,13 +414,5 @@
             $window.location.href = "#!/ChangeLocation";
         });
     }
-
-
-    //$scope.FilterNot = function () {
-
-    //    alert('Drives are alredy filtered by status created waiting.');
-    //    return;
-    //}
-
 
 });

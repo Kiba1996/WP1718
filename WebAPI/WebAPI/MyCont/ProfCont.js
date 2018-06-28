@@ -35,9 +35,6 @@
         });
     }
 
-    //factory.Sorting = function (username) {
-    //    return $http.get('api/Prof/SortingUser?k=' + username);
-    //}
 
     factory.Sorting = function (Drives,fu) {
         return $http.post('api/Prof/SortingUser', {
@@ -73,9 +70,6 @@
             XCoord: drive.XCoord,
             YCoord: drive.YCoord,
             Street: drive.Street,
-            //Number: drive.Number,
-            //Town: drive.Town,
-            //PostalCode: drive.PostalCode,
             tipAuta: drive.tipAuta,
             korisnicko: sessionStorage.getItem("username")
 
@@ -153,7 +147,6 @@
     factory.Comment = function (ko, voz) {
         return $http.post('/api/Prof/Comment', {
             KommOpis: ko.Opis,
-           // KommOcena: ko.Ocena,
             Voz: voz
         });
     }
@@ -163,9 +156,6 @@
             XCoord: drive.XCoord,
             YCoord: drive.YCoord,
             Street: drive.Street,
-            //Number: drive.Number,
-            //Town: drive.Town,
-            //PostalCode: drive.PostalCode,
             voznja: dri,
             Cena: drive.Cena
         })

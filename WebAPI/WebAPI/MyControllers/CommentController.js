@@ -21,7 +21,6 @@
             }
 
             $rootScope.moraKomentar = false;
-           // $rootScope.moraKomentarKorisnik = false;
             $scope.PokaziUspesna = false;
             $scope.PokaziNeuspesna = false;
         });
@@ -46,7 +45,7 @@
             
 
             if (ko == null) {
-                alert('Niste uneli komentar.');
+                alert('You didnt enter comment.');
                 return;
             }
             if (ko.Opis == "") {
@@ -55,7 +54,7 @@
             if ($rootScope.moraKomentarKorisnik == true) {
                 ko.Ocena = "0";
                 if (ko.Opis == null) {
-                    alert('Niste uneli komentar.');
+                    alert('You didnt enter comment.');
                     return;
                 }
             }
@@ -65,7 +64,7 @@
                     ko.Ocena = null;
                 }
                 if (ko.Ocena == null && ko.Opis == null) {
-                    alert('Niste uneli komentar.');
+                    alert('You didnt enter comment.');
                     return;
                 }
                 if (ko.Ocena != "1" && ko.Ocena != "2" && ko.Ocena != "3" && ko.Ocena != "4" && ko.Ocena != "5") {
@@ -79,9 +78,8 @@
           
 
 
-            ProfCont.Commenting(ko, $rootScope.VoznjaZaKomentar).then(function (response) {
+            ProfCont.Commenting(ko,$rootScope.VoznjaZaKomentar).then(function (response) {
                 console.log(response.data);
-               // $rootScope.VoznjaZaKomentar = response.data;
                 $rootScope.moraKomentarKorisnik = false;
                 $rootScope.$apply;
                 $window.location.href = "#!/MyHome";
@@ -155,7 +153,7 @@
 
 
             if (ko == null || ko.Opis == "" || ko.Opis == null) {
-                alert('Niste uneli komentar.')
+                alert('You didnt enter comment.')
                 return;
             }
 
@@ -164,7 +162,6 @@
                 console.log(response.data);
                 $rootScope.moraKomentar = false;
                 $rootScope.$apply;
-                // $rootScope.VoznjaZaKomentar = response.data;
                 $window.location.href = "#!/MyHome";
 
             });
@@ -190,14 +187,14 @@
 
 
             if (drive == null) {
-                alert('Morate odabrati lokaciju i upisati cenu.')
+                alert('You must choose a location and put in the price.')
                 return;
             }
             if (drive.Cena <= 0) {
                 alert('Price cant be lower than 0');
                 return;
             }
-            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
+            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {
                 alert('X coordinate cant be empty!');
                 return;
             }

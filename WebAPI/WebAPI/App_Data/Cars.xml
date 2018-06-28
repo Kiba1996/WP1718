@@ -42,4 +42,32 @@
     <TaxiNumber>6</TaxiNumber>
     <CarType>Van</CarType>
   </Car>
+  <Car>
+    <Driver>amber123</Driver>
+    <CarYear>2009</CarYear>
+    <RegistrationNumber>dh73k</RegistrationNumber>
+    <TaxiNumber>7</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+  <Car>
+    <Driver>mika</Driver>
+    <CarYear>2012</CarYear>
+    <RegistrationNumber>9kd8a</RegistrationNumber>
+    <TaxiNumber>8</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+  <Car>
+    <Driver>srdja</Driver>
+    <CarYear>2000</CarYear>
+    <RegistrationNumber>h879s</RegistrationNumber>
+    <TaxiNumber>9</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
+  <Car>
+    <Driver>kori</Driver>
+    <CarYear>2004</CarYear>
+    <RegistrationNumber>h67sk</RegistrationNumber>
+    <TaxiNumber>10</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
 </ArrayOfCar>

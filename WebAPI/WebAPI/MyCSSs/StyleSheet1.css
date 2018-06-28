@@ -11,8 +11,6 @@
 }
 
 .map {
-    /*height: 50%;
-    width: 50%;*/
     width: 700px;
     height: 300px;
     
@@ -27,23 +25,16 @@
     background: transparent; /*#0b213f;*/
     font-family: Candara;
     color: #191970;
-   
-    
     cursor: pointer;
     display: block;
-    /*width: 100%;*/
     max-width:30%;
     height: 30px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.428571429;
     margin: auto;
-    /*-webkit-border-radius: 5px;*/
     border-radius: 5px;
 }
-/*.map {
-    height: 600px;
-}*/
 
 .zaBojuSlova {
     color: #191970 !important;
@@ -71,14 +62,12 @@
 
 .topright {
     position: absolute;
-    /*top: 70px;*/
     right: 16px;
     font-size: 18px;
 }
 
 .topleft {
     position: absolute;
-    /*top: 70px;*/
     left: 16px;
     font-size: 18px;
 }
@@ -119,7 +108,6 @@
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.428571429;
-    /*-webkit-border-radius: 5px;*/
     border-radius: 5px;
 }
 
@@ -137,7 +125,6 @@
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.428571429;
-    /*-webkit-border-radius: 5px;*/
     border-radius: 5px;
 }
 
@@ -179,16 +166,8 @@
     text-align: center;
 }
 
-    /*.zaRegistrovanje .success {
-        color: green;
-    }*/
-
+  
 .button-success {
-    /*background: linear-gradient(180deg, #0b213f, #12aae9) !important;
-    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.75);
-    border-radius: 3px;
-    color: #fff;*/
-    /*width: 100%;*/
     transition: 0.2s ease;
     height: 45px;
     font-size: 20px;
@@ -211,11 +190,6 @@
     color: #fff !important;
 }
 
-
-/** {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.01em;
-}*/
 
 body {
     padding: 0;
@@ -296,8 +270,6 @@ textarea {
     }
 
 
-
-
 .profile-content .item {
     width: 90%;
     min-height: 50px;
@@ -331,8 +303,7 @@ textarea {
 
 
 .voznjeklas {
-    /*background: #000;/*#fff;*/
-    /*border: 2px solid #0060FF;*/
+    
     width: 100%;
     margin: auto;
     min-height: 200px;
@@ -341,18 +312,9 @@ textarea {
     margin-top: 100px;
     padding: 30px;
     color: #191970;
-    /*opacity: .4;*/
-  
     margin-bottom: 50px;
 }
 
-    /*.voznjeklas .voznjeklas-repeat a {
-        background: #fff;
-        color: #0060FF;
-        font-weight: 500;
-        text-decoration: none;
-        /*opacity: .4;
-    }*/
 
     .voznjeklas .voznjeklas-repeat .voz {
         width: 100%;
@@ -376,16 +338,7 @@ textarea {
 
 .tabe {
     border-color: transparent !important;
-    /*border: 2px solid #191970;*/
-    /*border-bottom: 1px solid #ddd;*/
-    /*border-right-color: #191970;
-    border-left-color: #191970*/
     
-    /*border-top-color: #191970;
-    /*top: 10%;
-    left: 5%;
-    right: 10%;
-        */
 }
 
 .klasadiv {
@@ -423,10 +376,7 @@ textarea {
 
 .tabel {
     border: 1px solid #191970;
-    /*border-bottom: 1px solid #191970;
-    border-top: 1px solid #191970;
-    border-right-color: #191970;
-    border-left-color: #191970*/
+   
 }
 
 .hed {
@@ -447,8 +397,5 @@ hr {
 #logo {
     float: left;
 }
-/*.zaTabelu {
-    width: 50%;
-}*/
 
-/*# sourceMappingURL=app.css.map */
+

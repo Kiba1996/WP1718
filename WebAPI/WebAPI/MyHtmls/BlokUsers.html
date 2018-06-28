@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td colspan="2" align="center" ng-show="Blokirani">
-                <!--<div ng-show="Blokirani">-->
+                
                     <div class="form-group">
                         <div class="teme-repeat" ng-repeat="korisnik in listaBlokiranih">
 
@@ -32,32 +32,26 @@
                                 <hr />
                             </div>
                         </div>
-                    <!--</div>-->
-                </div>
+                    </div>
             </td>
             <td colspan="2" align="center"  ng-show="Neblokirani">
-                <!--<div ng-show="Neblokirani">-->
 
                     <div class="form-group">
                         <div class="teme-repeat" ng-repeat="korisnik in listaNeblokiranih">
 
                             <div class="tema">
-
                                 <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
                                 <p ng-show="korisnik.Role == 0"> Customer</p>
                                 <p ng-show="korisnik.Role == 2">Driver</p>
                                 <button type="submit" class="btn button-success form-control" ng-click="Block(korisnik.UserName)">Block user</button><!--,AllDrives-->
                                 <hr />
                             </div>
+
                         </div>
                     </div>
-                <!--</div>-->
+              
             </td>
         </tr>
     </table>
-    
-    
 
-  
-   
 </div>

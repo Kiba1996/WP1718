@@ -73,8 +73,7 @@ namespace WebAPI.Controllers
                 user.ContactPhoneNumber = k.Telefon;
                 user.Email = k.Email;
                 user.Role = Enums.RoleType.Customer;
-               // user.Drives = new List<Drive>();
-               
+              
                 users.Add(user);
                 xml.WriteUsers(users, ss);
 
@@ -104,8 +103,6 @@ namespace WebAPI.Controllers
             List<Car> cars = xml.ReadCars(ca);
 
             Car auto = new Car();
-
-            bool b = true;
             bool g = true;
 
             foreach (Customer u in users)
@@ -161,20 +158,12 @@ namespace WebAPI.Controllers
                     if(car.RegistrationNumber == k.Reg)
                     {
                         return false;
-                        //car.Driver = k.Username;
-                        //user.Car = car;
-                        //b = false;
-                        //break;
+                       
                     }
                 }
 
                 user.Car = new Car(k.Username, k.Year, k.Reg, brojAuta, (Enums.CarType)int.Parse(k.tipVoz));
 
-                //if (b)
-                //{
-                //    user.Car = new Car();
-                //}
-                // user.Drives = new List<Drive>();
                 cars.Add(user.Car);
                 drivers.Add(user);
                 xml.WriteCars(cars, ca);
@@ -257,14 +246,7 @@ namespace WebAPI.Controllers
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
             List<Drive> listaDrives = xml.ReadDrives(ss);
-            //List<Drive> listaDrives1 = new List<Drive>();
-            //foreach (Drive d in listaDrives)
-            //{
-            //    //if (d.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-            //    //{
-            //        listaDrives1.Add(d);
-            //    //}
-            //}
+           
             return listaDrives;
         }
 
@@ -278,7 +260,7 @@ namespace WebAPI.Controllers
             List<Drive> listaDrives1 = new List<Drive>();
             foreach (Drive d in listaDrives)
             {
-                if (d.Status == Enums.DriveStatus.Created_Waiting)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+                if (d.Status == Enums.DriveStatus.Created_Waiting)
                 {
                 listaDrives1.Add(d);
                 }
@@ -286,8 +268,5 @@ namespace WebAPI.Controllers
             return listaDrives1;
         }
 
-
-        
-        
     }
 }

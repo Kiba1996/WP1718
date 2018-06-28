@@ -37,11 +37,6 @@
         return $http.get('api/Log/GetDrivesDriver?username=' + username);
     }
 
-    //factory.getFilterDrivesUser = function(username) {
-    //    return $http.get('api/Log/GetFilterUser?username=' + username);
-    //}
-
-
     factory.RegisterDriver = function (user) {
         return $http.post('/api/Log/RegisterDriver', {
             Username: user.username,
@@ -57,7 +52,6 @@
             tipVoz: user.tipV
         });
     }
-
 
 
     return factory;

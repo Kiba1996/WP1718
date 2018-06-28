@@ -75,8 +75,7 @@ namespace WebAPI.Controllers
                     kor.Gender = us.Gender;
                     kor.Password = null;
                     kor.JMBG = us.JMBG;
-                    // kor.Drives = us.Drives;
-
+                    
                     return kor;
                 }
             }
@@ -95,8 +94,7 @@ namespace WebAPI.Controllers
                     kor.Gender = us.Gender;
                     kor.Password = null;
                     kor.JMBG = us.JMBG;
-                    // kor.Drives = us.Drives;
-
+                   
                     return kor;
                 }
             }
@@ -116,9 +114,6 @@ namespace WebAPI.Controllers
                     kor.Gender = us.Gender;
                     kor.Password = null;
                     kor.JMBG = us.JMBG;
-                    //kor.Location = new Location();
-
-                    // kor.Drives = us.Drives;
 
                     return kor;
                 }
@@ -326,7 +321,7 @@ namespace WebAPI.Controllers
 
             List<Customer> users = xml.ReadUsers(ss);
             List<Drive> drives = xml.ReadDrives(ss1);
-            // bool g = true;
+            
             User c = new Customer();
             Drive drive = new Drive();
             foreach (Customer u in users)
@@ -334,7 +329,7 @@ namespace WebAPI.Controllers
                 if (u.UserName == k.korisnicko)
                 {
                     c = u;
-                    Address a = new Address(k.Street);  //, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                    Address a = new Address(k.Street); 
                     Location l = new Location(k.XCoord, k.YCoord, a);
                     drive.Customer = (Customer)c;
                     drive.Arrival = l;
@@ -344,21 +339,16 @@ namespace WebAPI.Controllers
                     }
                     drive.Amount = 0;
                     drive.Comment = new Comment();
-                    // DateTime date = DateTime.Now;
-                    drive.DataAndTime = String.Format("{0:F}", DateTime.Now);// new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+                    drive.DataAndTime = String.Format("{0:F}", DateTime.Now);
                     drive.Destination = new Location();
                     drive.Dispatcher = new Dispatcher();
                     drive.Driver = new Driver();
                     drive.Status = Enums.DriveStatus.Created_Waiting;
-                    
-                    // u.Drives.Add(drive);
-
-                    //  g = false;
+                  
                 }
             }
 
             drives.Add(drive);
-            //xml.WriteUsers(users, ss);
             xml.WriteDrives(drives, ss1);
 
             return true;
@@ -383,14 +373,9 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
-            // bool g = true;
             User c = new Dispatcher();
             Drive drive = new Drive();
            
-
-            bool p = false;
-
-
 
             List<Tuple<Point, string>> proslediListu = new List<Tuple<Point, string>>();
 
@@ -403,10 +388,7 @@ namespace WebAPI.Controllers
                     poi.X = Double.Parse(d.Location.X);
                     poi.Y = Double.Parse(d.Location.Y);
                     proslediListu.Add(new Tuple<Point, string>(poi, d.UserName));
-                    //d.Zauzet = true;
-                    //drive.Driver = d;
-                    //p = true;
-                    //break;
+                    
                 }
             }
 
@@ -419,7 +401,7 @@ namespace WebAPI.Controllers
                     if (u.UserName == k.korisnicko)
                     {
                         c = u;
-                        Address a = new Address(k.Street);//, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                        Address a = new Address(k.Street);
                         Location l = new Location(k.XCoord, k.YCoord, a);
                         drive.Customer = new Customer();
                         drive.Arrival = l;
@@ -429,24 +411,20 @@ namespace WebAPI.Controllers
                         }
                         drive.Amount = 0;
                         drive.Comment = new Comment();
-                        // DateTime date = DateTime.Now.;
-                        drive.DataAndTime = String.Format("{0:F}", DateTime.Now);// new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+                        drive.DataAndTime = String.Format("{0:F}", DateTime.Now);
 
                         drive.Destination = new Location();
                         drive.Dispatcher = (Dispatcher)c;
                         drive.Driver = new Driver();
                         drive.Status = Enums.DriveStatus.Created_Waiting;
-                        // u.Drives.Add(drive);
+                       
                         break;
-                        //  g = false;
+                        
                     }
                 }
 
                 drives.Add(drive);
-                // xml.WriteDrivers(drivers, drv);
                 xml.WriteDrives(drives, ss1);
-
-                
 
             }
             else
@@ -468,8 +446,7 @@ namespace WebAPI.Controllers
         [ActionName("DodajVoznjuKonacno")]
         public bool DodajVoznjuKonacno([FromBody]konacnaVoznja k)
         {
-
-            //ClosestDistance closest = new ClosestDistance();
+            
 
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
@@ -480,7 +457,7 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
-            // bool g = true;
+            
             User c = new Dispatcher();
             Drive drive = new Drive();
             foreach (Dispatcher u in users)
@@ -488,7 +465,7 @@ namespace WebAPI.Controllers
                 if (u.UserName == k.korisnickoAdmin)
                 {
                     c = u;
-                    Address a = new Address(k.voz.Street);//, k.Number, k.Town, Int32.Parse(k.PostalCode));
+                    Address a = new Address(k.voz.Street);
                     Location l = new Location(k.voz.XCoord, k.voz.YCoord, a);
                     drive.Customer = new Customer();
                     drive.Arrival = l;
@@ -498,16 +475,13 @@ namespace WebAPI.Controllers
                     }
                     drive.Amount = 0;
                     drive.Comment = new Comment();
-                    // DateTime date = DateTime.Now.;
-                    drive.DataAndTime = String.Format("{0:F}", DateTime.Now);// new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-
+                    drive.DataAndTime = String.Format("{0:F}", DateTime.Now);
                     drive.Destination = new Location();
                     drive.Dispatcher = (Dispatcher)c;
-                    //drive.Driver = new Driver();
                     drive.Status = Enums.DriveStatus.Formed;
-                    // u.Drives.Add(drive);
+
                     break;
-                    //  g = false;
+                   
                 }
             }
 
@@ -524,8 +498,6 @@ namespace WebAPI.Controllers
             xml.WriteDrivers(drivers, drv);
             xml.WriteDrives(drives, ss1);
 
-            // return true;
-
             return true;
         }
 
@@ -536,7 +508,6 @@ namespace WebAPI.Controllers
         public bool ObradiVoznjuKonacno([FromBody]konacnaVoznjaObrada k)
         {
 
-            //ClosestDistance closest = new ClosestDistance();
 
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
@@ -547,14 +518,9 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
-            // bool g = true;
             User c = new Dispatcher();
             Driver driver = new Driver();
-
-
-
-
-
+            
             foreach (Dispatcher u in users)
             {
                 if (u.UserName == k.korisnickoAdmin)
@@ -591,8 +557,6 @@ namespace WebAPI.Controllers
             xml.WriteDrivers(drivers, drv);
             xml.WriteDrives(drives, ss1);
 
-            // return true;
-
             return true;
         }
 
@@ -608,52 +572,16 @@ namespace WebAPI.Controllers
             {
                 return new List<Drive>();
             }
-            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
+            
             List<Drive> listaDrives1 = new List<Drive>();
             foreach (Drive d in k.Driv)
             {
-                if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat))// && d.Customer.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+                if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat))
                 {
                     listaDrives1.Add(d);
                 }
             }
-            //List<Drive> listaDrives = xml.ReadDrives(ss);
-            //if (k.Stat == null)
-            //{
-            //    return listaDrives;
-            //}
-            //List<Drive> listaDrives1 = new List<Drive>();
-            //if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Customer)
-            //{
-            //    foreach (Drive d in listaDrives)
-            //    {
-            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Customer.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-            //        {
-            //            listaDrives1.Add(d);
-            //        }
-            //    }
-            //}
-            //else if((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Driver)
-            //{
-            //    foreach (Drive d in listaDrives)
-            //    {
-            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Driver.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-            //        {
-            //            listaDrives1.Add(d);
-            //        }
-            //    }
-            //}
-            //else if ((Enums.RoleType)int.Parse(k.Role) == Enums.RoleType.Dispatcher)
-            //{
-
-            //    foreach (Drive d in listaDrives)
-            //    {
-            //        if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat) && d.Dispatcher.UserName == k.Username)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-            //        {
-            //            listaDrives1.Add(d);
-            //        }
-            //    }
-            //}
+           
             return listaDrives1;
         }
 
@@ -672,7 +600,7 @@ namespace WebAPI.Controllers
             {
                 foreach (Drive d in listaDrives)
                 {
-                    if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat))//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
+                    if (d.Status == (Enums.DriveStatus)int.Parse(k.Stat))
                     {
                         listaDrives1.Add(d);
                     }
@@ -681,48 +609,18 @@ namespace WebAPI.Controllers
             return listaDrives1;
         }
 
-        //[HttpGet]
-        //[ActionName("SortingUser")]
-        //public List<Drive> SortingUser(string k)
-        //{
-        //    string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
-
-        //    List<Drive> listaDrives = xml.ReadDrives(ss);
-        //    List<Drive> listaDrives2 = new List<Drive>();
-        //    foreach (Drive d in listaDrives)
-        //    {
-        //        if (d.Customer.UserName == k ||d.Dispatcher.UserName == k || d.Driver.UserName == k)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-        //        {
-        //            listaDrives2.Add(d);
-        //        }
-        //    }
-        //    List<Drive> listaDrives1 = listaDrives2.OrderByDescending(o=> o.Comment.Rating).ToList();
-
-
-        //    return listaDrives1;
-        //}
-
-
+        
         [HttpPost]
         [ActionName("SortingUser")]
         public List<Drive> SortingUser([FromBody] UserSort k)
         {
-            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
-
+           
             string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
 
             List<Driver> listaDrivers = xml.ReadDrivers(ss);
-
-
             List<Drive> listaDrives = k.Driv;//xml.ReadDrives(ss);
             List<Drive> listaDrives1 = new List<Drive>();
-            //foreach (Drive d in listaDrives)
-            //{
-            //    if (d.Customer.UserName == k || d.Dispatcher.UserName == k || d.Driver.UserName == k)//.Customer.UserName == username || d.Dispatcher.UserName == username || d.Driver.UserName == username)
-            //    {
-            //        listaDrives2.Add(d);
-            //    }
-            //}
+           
             if (k.PoCemu == 0)
             {
                 listaDrives1 = listaDrives.OrderByDescending(o => o.Comment.Rating).ToList();
@@ -734,7 +632,6 @@ namespace WebAPI.Controllers
             }
             else if(k.PoCemu == 2)
             {
-
 
                 Point po = new Point();
                 foreach(Driver driv in listaDrivers)
@@ -763,10 +660,9 @@ namespace WebAPI.Controllers
             {
                 return new List<Drive>();
             }
-            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
-            List<Drive> listaDrives1 = k.Driv;//new List<Drive>();
-                                              //foreach (Drive d in k.Driv)
-                                              //{
+           
+            List<Drive> listaDrives1 = k.Driv;
+
             if (k.DatumOd != null)
             {
                 listaDrives1 = listaDrives1.Where(o => DateTime.Parse(o.DataAndTime) >= DateTime.Parse(k.DatumOd)).ToList();
@@ -856,7 +752,6 @@ namespace WebAPI.Controllers
                     dri.Comment.Description = k.KommOpis;
                     dri.Comment.Rating = int.Parse(k.KommOcena);
                     dri.Comment.user = k.voz.Customer.UserName;
-                    //dri.Status = Enums.DriveStatus.Canceled;
                     por =true;
                     break;
                 }
@@ -876,32 +771,20 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
-            //foreach(Driver kp in drivers)
-            //{
-            //    if(kp.UserName == k.voz.Driver.UserName)
-            //    {
-            //        kp.Zauzet = false;
-            //        por = true;
-            //    }
-            //}
-
-            //if (por)
-            //{
-                foreach (Drive dri in drives)
+            foreach (Drive dri in drives)
+            {
+                if (dri.Driver.UserName == k.voz.Driver.UserName && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.voz.DataAndTime))
                 {
-                    if (dri.Driver.UserName == k.voz.Driver.UserName && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.voz.DataAndTime))
-                    {
-                        dri.Comment.Date = DateTime.Parse(String.Format("{0:F}", DateTime.Now));
-                        dri.Comment.Description = k.KommOpis;
-                        dri.Comment.Rating = 0;//int.Parse(k.KommOcena);
-                        dri.Comment.user = k.voz.Driver.UserName;
-                        dri.Driver.Zauzet = false;
-                        dri.Status = Enums.DriveStatus.Unsuccessful;
-                        //dri.Status = Enums.DriveStatus.Canceled;
-                        por = true;
-                        break;
-                    }
-              //  }
+                    dri.Comment.Date = DateTime.Parse(String.Format("{0:F}", DateTime.Now));
+                    dri.Comment.Description = k.KommOpis;
+                    dri.Comment.Rating = 0;
+                    dri.Comment.user = k.voz.Driver.UserName;
+                    dri.Driver.Zauzet = false;
+                    dri.Status = Enums.DriveStatus.Unsuccessful;
+                    por = true;
+                    break;
+                }
+
             }
             if (por)
             {
@@ -933,12 +816,10 @@ namespace WebAPI.Controllers
             List<Driver> drivers = xml.ReadDrivers(drv);
 
             ClosestDistance cd = new ClosestDistance();
-            bool p = false;
-          //  Drive promenjena = new Drive(); 
+           
             Driver driver = new Driver();
             Dispatcher dispacer = new Dispatcher();
-            // List<Drive> li = new List<Drive>();
-            //li = k.voznje;
+            
             List<Tuple<Point, string>> proslediListu = new List<Tuple<Point, string>>();
 
 
@@ -950,10 +831,7 @@ namespace WebAPI.Controllers
                     poi.X = Double.Parse(d.Location.X);
                     poi.Y = Double.Parse(d.Location.Y);
                     proslediListu.Add(new Tuple<Point, string>(poi, d.UserName));
-                    //d.Zauzet = true;
-                    //drive.Driver = d;
-                    //p = true;
-                    //break;
+                    
                 }
             }
 
@@ -980,17 +858,14 @@ namespace WebAPI.Controllers
             Drive por = new Drive();
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
             string drv = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drivers.xml");
-            //string adm = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Admins.xml");
-            //List<Dispatcher> dispatchers = xml.ReadDispatcher(adm);
+            
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
             bool p = false;
-            //  Drive promenjena = new Drive(); 
+            
             Driver driver = new Driver();
-            //Dispatcher dispacer = new Dispatcher();
-            // List<Drive> li = new List<Drive>();
-            //li = k.voznje;
+            
             foreach (Driver d in drivers)
             {
                 if (d.UserName == k.korisnicko)
@@ -1002,13 +877,6 @@ namespace WebAPI.Controllers
                 }
             }
 
-           
-            //if (!p)
-            //{
-            //    drive.Status = Enums.DriveStatus.Created_Waiting;
-            //    drive.Driver = new Driver();
-            //}
-
             if (p)
             {
                 foreach (Drive dri in drives)
@@ -1017,11 +885,8 @@ namespace WebAPI.Controllers
                     {
 
                         dri.Status = Enums.DriveStatus.Accepted;
-                        //dri.Driver.Zauzet = true;
                         dri.Driver = driver;
                        
-                        //por = dri;
-                        // promenjena = dri;
                         break;
                     }
                 }
@@ -1045,11 +910,9 @@ namespace WebAPI.Controllers
             }
 
 
-            return k.voznje;//por;
+            return k.voznje;
         }
-        
-
-
+       
         [ActionName("SuccessDrive")]
         public bool SuccessDrive([FromBody]SuccessDrivePrenos k)
         {
@@ -1060,17 +923,6 @@ namespace WebAPI.Controllers
             List<Drive> drives = xml.ReadDrives(ss1);
             List<Driver> drivers = xml.ReadDrivers(drv);
 
-            //foreach(Driver kp in drivers)
-            //{
-            //    if(kp.UserName == k.voz.Driver.UserName)
-            //    {
-            //        kp.Zauzet = false;
-            //        por = true;
-            //    }
-            //}
-
-            //if (por)
-            //{
             foreach (Drive dri in drives)
             {
                 if (dri.Driver.UserName == k.voznja.Driver.UserName && DateTime.Parse(dri.DataAndTime) == DateTime.Parse(k.voznja.DataAndTime))
@@ -1086,19 +938,13 @@ namespace WebAPI.Controllers
                     dri.Driver.Location.X = k.XCoord;
                     dri.Driver.Location.Y = k.YCoord;
 
-                    //.Street = k.Street;
-                    //dri.Destination.Address.Number = k.Number;
-                    //dri.Destination.Address.Town = k.Town;
-                    //dri.Destination.Address.PostalCode = int.Parse(k.PostalCode);
-
-                  
+                   
                     dri.Driver.Zauzet = false;
                     dri.Status = Enums.DriveStatus.Successful;
-                    //dri.Status = Enums.DriveStatus.Canceled;
                     por = true;
                     break;
                 }
-                //  }
+                
             }
             if (por)
             {
@@ -1175,9 +1021,7 @@ namespace WebAPI.Controllers
             }
             if (g)
             {
-                //int cCounter = 0;
-                //int aCounter = 0;
-                //int dCounter = 0;
+                
                 foreach (Customer u in users)
                 {
                     if (u.UserName == k.OldUsername)
@@ -1202,8 +1046,6 @@ namespace WebAPI.Controllers
                         u.ContactPhoneNumber = k.Telefon;
                         u.Email = k.Email;
 
-                       // users.ad(user);
-                        
                         q = 0;
                         c = u;
 
@@ -1277,7 +1119,6 @@ namespace WebAPI.Controllers
                         {
                             dri.Customer.UserName = k.Username;
                             dri.Customer.Surname = k.Prezime;
-                            //dri.Customer.Role = c.Role;
                             dri.Customer.Password = k.Password;
                             dri.Customer.Name = k.Ime;
                             dri.Customer.JMBG = Int64.Parse(k.Jmbg);
@@ -1291,7 +1132,6 @@ namespace WebAPI.Controllers
                             }
                            
                             dri.Customer.Email = k.Email;
-                           // dri.Customer.Drives = c.Drives;
                             dri.Customer.ContactPhoneNumber = k.Telefon;
                         }
                     }
@@ -1299,7 +1139,7 @@ namespace WebAPI.Controllers
 
                     xml.WriteUsers(users, ss);
                     xml.WriteDrives(drives, drv1);
-                    //return 1;
+                    
                 }
                 if (q == 1)
                 {
@@ -1309,7 +1149,6 @@ namespace WebAPI.Controllers
                         {
                             dri.Dispatcher.UserName = k.Username;
                             dri.Dispatcher.Surname = k.Prezime;
-                            //dri.Customer.Role = c.Role;
                             dri.Dispatcher.Password = k.Password;
                             dri.Dispatcher.Name = k.Ime;
                             dri.Dispatcher.JMBG = Int64.Parse(k.Jmbg);
@@ -1323,13 +1162,12 @@ namespace WebAPI.Controllers
                             }
 
                             dri.Dispatcher.Email = k.Email;
-                            // dri.Customer.Drives = c.Drives;
                             dri.Dispatcher.ContactPhoneNumber = k.Telefon;
                         }
                     }
                     xml.WriteDispatchers(admins, adm);
                     xml.WriteDrives(drives, drv1);
-                    // return 2;
+                    
                 }
                 if (q == 2)
                 {
@@ -1339,7 +1177,6 @@ namespace WebAPI.Controllers
                         {
                             dri.Driver.UserName = k.Username;
                             dri.Driver.Surname = k.Prezime;
-                            //dri.Customer.Role = c.Role;
                             dri.Driver.Password = k.Password;
                             dri.Driver.Name = k.Ime;
                             dri.Driver.JMBG = Int64.Parse(k.Jmbg);
@@ -1353,7 +1190,6 @@ namespace WebAPI.Controllers
                             }
 
                             dri.Driver.Email = k.Email;
-                            // dri.Customer.Drives = c.Drives;
                             dri.Driver.ContactPhoneNumber = k.Telefon;
                         }
                     }
@@ -1367,7 +1203,7 @@ namespace WebAPI.Controllers
                     xml.WriteDrivers(drivers, drv);
                     xml.WriteDrives(drives, drv1);
                     xml.WriteCars(cars, auto);
-                    //return 3;
+                    
                 }
                 
                 return q;
@@ -1387,12 +1223,12 @@ namespace WebAPI.Controllers
         [ActionName("ChangeDriveCustomer")]
         public bool ChangeDriveCustomer([FromBody]ChangeDrivePrenos k)
         {
-            //string ss = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Users.xml");
+        
             string ss1 = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Drives.xml");
 
-           // List<Customer> users = xml.ReadUsers(ss);
+           
             List<Drive> drives = xml.ReadDrives(ss1);
-            // bool g = true;
+            
             User c = new Customer();
             Drive drive = new Drive();
             foreach (Drive u in drives)
@@ -1408,8 +1244,7 @@ namespace WebAPI.Controllers
                 }
             }
 
-            //drives.Add(drive);
-            //xml.WriteUsers(users, ss);
+           
             xml.WriteDrives(drives, ss1);
 
             return true;

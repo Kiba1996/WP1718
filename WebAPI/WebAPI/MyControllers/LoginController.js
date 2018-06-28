@@ -103,13 +103,13 @@
                     else {
                         console.log(response);
                         document.cookie = "user=" + JSON.stringify({
-                            username: $rootScope.zapamtiUsera.UserName,//response.data.UserName,
-                            role: $rootScope.zapamtiUsera.Role,//response.data.Role,
-                            nameSurname: $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname,//response.data.Name + " " + response.data.Surname
+                            username: $rootScope.zapamtiUsera.UserName,
+                            role: $rootScope.zapamtiUsera.Role,
+                            nameSurname: $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname,
                         }) + ";expires=Thu, 01 Jan 2019 00:00:01 GMT;";
-                        sessionStorage.setItem("username", $rootScope.zapamtiUsera.UserName);//response.data.UserName);
-                        sessionStorage.setItem("role", $rootScope.zapamtiUsera.Role);//response.data.Role);
-                        sessionStorage.setItem("nameSurname", $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname);//response.data.Name + " " + response.data.Surname);
+                        sessionStorage.setItem("username", $rootScope.zapamtiUsera.UserName);
+                        sessionStorage.setItem("role", $rootScope.zapamtiUsera.Role);
+                        sessionStorage.setItem("nameSurname", $rootScope.zapamtiUsera.Name + " " + $rootScope.zapamtiUsera.Surname);
 
                         $rootScope.loggedin = true;
                         $rootScope.moraKomentar = false;

@@ -199,7 +199,6 @@
 
     $scope.AddDriveCustomer = function (drive) {
 
-        //var p = $scope.XCoord1;
         LogCont.getUserStatus(sessionStorage.getItem("username")).then(function (response) {
             if (response.data == true) {
                 alert('Your account is blocked.');
@@ -212,7 +211,7 @@
 
             }
 
-            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
+            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {
                 alert('X coordinate cant be empty!');
                 return;
             }
@@ -239,7 +238,6 @@
                 if (response.data == true) {
                     console.log(response.data);
                     $scope.newDrive = response.data;
-                    //$rootScope.RegisterSuccess = "Registration was successful. You can login now.";
                     $window.location.href = "#!/MyHome";
                 }
                 else {
@@ -287,37 +285,23 @@
                 user.jmbg = $scope.userProfile.JMBG;
 
             }
-            //if (user.jmbg.match(/[a-z]/i)) {
-            //    alert('Jmbg cant contain characters: a-z');
-            //    return;
-            //}
-            //if (user.jmbg.length != 13) {
-            //    alert('Jmbg must contain 13 numbers');
-            //    return;
-            //}
             
             if (user.kontaktTelefon == null || user.kontaktTelefon == "") {
                 user.kontaktTelefon = $scope.userProfile.ContactPhoneNumber;
 
             }
-            //if (user.kontaktTelefon.match(/[a-z]/i)) {
-            //    alert('Phone number cant contain characterse a-z');
-            //    return;
-            //}
+            
             if (user.email == null || user.email == "") {
                 user.email = $scope.userProfile.Email;
             }
-            //if (!user.email.includes('@')) {
-            //    alert('Email is not valid!');
-            //    return;
-            //}
+            
             if (user.pwd == null || user.pwd == "") {
                 user.pwd = $scope.userProfile.Password;
             }
 
-            //user.OldUsername = $scope.userProfile.UserName;
+            
             ProfCont.EditUser(user).then(function (response) {
-                // if (response.data == true) {
+                
                 if (response.data != 3) {
                     console.log(response.data);
                     //var cookieInfo = document.cookie.substring(5, document.cookie.length);
@@ -360,7 +344,7 @@
 
     $scope.AddDriveDispatcher = function (drive) {
 
-        if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
+        if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {
             alert('X coordinate cant be empty!');
             return;
         }
@@ -393,16 +377,9 @@
 
             }
 
-           // if (response.data == true) {
-            
             $scope.najblizivozaci = true;
             $scope.apply;
-               // $scope.newDrive = response.data;
-               // $window.location.href = "#!/MyHome";
-          //  } else {
-            //    alert("Drve does not exist.");
-          //  }
-
+            
         });
     }
 
@@ -410,7 +387,7 @@
 
 
         if (novimodel == null) {
-            alert('Morate da izaberrte slobodnog vozaca.');
+            alert('You must choose a free driver.');
             return;
         }
         
@@ -421,7 +398,7 @@
                 $window.location.href = "#!/MyHome";
             }
             else {
-                alert("neuspesno dodavanje voznje.");
+                alert("Unsuccessful drive add.");
             }
 
 
@@ -432,7 +409,7 @@
 
     $scope.ObradiVoznjuKonacno = function (novimodel) {
         if(novimodel == null) {
-            alert('Morate da izaberrte slobodnog vozaca.');
+            alert('You must choose a free driver.');
             return;
         }
 
@@ -442,7 +419,7 @@
                 $window.location.href = "#!/MyHome";
             }
             else {
-                alert("neuspesno obradjivanje voznje.");
+                alert("Unsuccessful drive add.");
             }
 
 
@@ -504,8 +481,7 @@
             ProfCont.ChangeDriveCustomer(drive).then(function (response) {
                 if (response.data == true) {
                     console.log(response.data);
-                    // $scope.newDrive = response.data;
-
+                   
                     $window.location.href = "#!/MyHome";
                 }
                 else {
@@ -535,8 +511,7 @@
             drive = {};
 
             if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "" || document.getElementById("lat").innerHTML == null || document.getElementById("lat").innerHTML == "" || document.getElementById("address").innerHTML == null || document.getElementById("address").innerText == "") {
-
-                //$window.location.href = "#!/MyHome";
+ 
                 alert('missing an address or coordinates');
                 return;
             } else {
@@ -552,8 +527,7 @@
             ProfCont.ChangeLocation(drive).then(function (response) {
                 if (response.data == true) {
                     console.log(response.data);
-                    // $scope.newDrive = response.data;
-
+                    
                     $window.location.href = "#!/MyHome";
                 }
                 else {

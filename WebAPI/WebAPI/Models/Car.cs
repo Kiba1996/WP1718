@@ -8,7 +8,7 @@ namespace project.Models
 {
     public class Car
     {
-        public String Driver { get; set; }//Driver Driver { get; set; }
+        public String Driver { get; set; }
         public int CarYear { get; set; }
         public String RegistrationNumber { get; set; }
         public int TaxiNumber { get; set; }

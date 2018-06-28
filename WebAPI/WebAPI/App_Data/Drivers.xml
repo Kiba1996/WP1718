@@ -12,10 +12,10 @@
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X>19.849211</X>
-      <Y>45.242780</Y>
+      <X>19.804450</X>
+      <Y>45.255306</Y>
       <Address>
-        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+        <AddressFormat>9, Тодора Тозе Јовановића, Бистрица (Ново Насеље), Нови Сад, Град Нови Сад, Јужнобачки округ, Војводина, 21137, Србија</AddressFormat>
       </Address>
     </Location>
     <Car>
@@ -26,7 +26,7 @@
       <CarType>PassengerCar</CarType>
     </Car>
     <Zauzet>false</Zauzet>
-    <Blocked>false</Blocked>
+    <Blocked>true</Blocked>
   </Driver>
   <Driver>
     <UserName>joca</UserName>
@@ -137,7 +137,7 @@
       <TaxiNumber>5</TaxiNumber>
       <CarType>PassengerCar</CarType>
     </Car>
-    <Zauzet>false</Zauzet>
+    <Zauzet>true</Zauzet>
     <Blocked>false</Blocked>
   </Driver>
   <Driver>
@@ -164,6 +164,118 @@
       <RegistrationNumber>hdhyw8</RegistrationNumber>
       <TaxiNumber>6</TaxiNumber>
       <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>amber123</UserName>
+    <Password>amber</Password>
+    <Name>Amber</Name>
+    <Surname>Liu</Surname>
+    <Gender>Female</Gender>
+    <JMBG>7689453409876</JMBG>
+    <ContactPhoneNumber>7686435</ContactPhoneNumber>
+    <Email>amb@yahoo.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>amber123</Driver>
+      <CarYear>2009</CarYear>
+      <RegistrationNumber>dh73k</RegistrationNumber>
+      <TaxiNumber>7</TaxiNumber>
+      <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>mika</UserName>
+    <Password>mika</Password>
+    <Name>Milos</Name>
+    <Surname>Milosevic</Surname>
+    <Gender>Male</Gender>
+    <JMBG>7865490876567</JMBG>
+    <ContactPhoneNumber>9806578</ContactPhoneNumber>
+    <Email>mika@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>mika</Driver>
+      <CarYear>2012</CarYear>
+      <RegistrationNumber>9kd8a</RegistrationNumber>
+      <TaxiNumber>8</TaxiNumber>
+      <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>srdja</UserName>
+    <Password>srdja</Password>
+    <Name>Srdjan</Name>
+    <Surname>Srdulovic</Surname>
+    <Gender>Male</Gender>
+    <JMBG>8769089056780</JMBG>
+    <ContactPhoneNumber>788988</ContactPhoneNumber>
+    <Email>srdja@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>srdja</Driver>
+      <CarYear>2000</CarYear>
+      <RegistrationNumber>h879s</RegistrationNumber>
+      <TaxiNumber>9</TaxiNumber>
+      <CarType>PassengerCar</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>kori</UserName>
+    <Password>kori</Password>
+    <Name>Kortni</Name>
+    <Surname>Pantelic</Surname>
+    <Gender>Female</Gender>
+    <JMBG>7894567893021</JMBG>
+    <ContactPhoneNumber>879643</ContactPhoneNumber>
+    <Email>kortni1992@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>kori</Driver>
+      <CarYear>2004</CarYear>
+      <RegistrationNumber>h67sk</RegistrationNumber>
+      <TaxiNumber>10</TaxiNumber>
+      <CarType>PassengerCar</CarType>
     </Car>
     <Zauzet>false</Zauzet>
     <Blocked>false</Blocked>

@@ -9,12 +9,8 @@
     <h1 class="hed2">Click on the map to change your location:</h1>
     <div id="map" class=" map">
 
-
     </div>
-    <div>
-
-    </div>
-
+   
     <script>
         var map = new ol.Map({
             layers: [
@@ -50,16 +46,9 @@
             var lat = document.getElementById('lat').innerHTML = coordinate[1];
             simpleReverseGeocoding(lon, lat);
         });
-                    //document.getElementById('reversegeocoding').addEventListener('click', function (e) {
-                    //    if (document.getElementById('lon').value && document.getElementById('lat').value) {
-                    //        simpleReverseGeocoding(document.getElementById('lon').value, document.getElementById('lat').value);
-                    //    }
-                    //});
-       
+                   
     </script>
     <div class="josjedan">
-
-       
 
        <p>X: </p> <span id="lon"   class="tspan"></span>
 
