@@ -5,37 +5,59 @@
     <h1>You are not loggedin as a administrator.</h1>
 </div>
 <div ng-show="loggedin && user.role==1">
+    <table  class="tabel" align="center">
+        <tr>
+            <td>
+                <button type="submit" class="btn button-success form-control" id="btnBlok" ng-click="PrikaziBlokirane()">Show blocked users</button>
+            </td>
+            <td>
+                <button type="submit" class="btn button-success form-control" id="btnUnblok" ng-click="PrikaziNeblokirane()">Show not blocked users</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="providno" colspan="2">Providno</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" ng-show="Blokirani">
+                <!--<div ng-show="Blokirani">-->
+                    <div class="form-group">
+                        <div class="teme-repeat" ng-repeat="korisnik in listaBlokiranih">
 
-    <button type="submit" id="btnBlok" ng-click="PrikaziBlokirane()">Show blocked users</button>
-    <button type="submit" id="btnUnblok" ng-click="PrikaziNeblokirane()">Show not blocked users</button>
+                            <div class="tema">
 
-    <div ng-show="Blokirani">
-        <div class="form-group">
-            <div class="teme-repeat" ng-repeat="korisnik in listaBlokiranih">
-
-                <div class="tema">
-                   
-                    <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
-                    <p ng-show="korisnik.Role == 0"> Customer</p>
-                    <p ng-show="korisnik.Role == 2">Driver</p>
-                    <button type="submit" class="btn button-success" ng-click="Unblock(korisnik.UserName)">Unblock user</button><!--,AllDrives-->
+                                <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
+                                <p ng-show="korisnik.Role == 0"> Customer</p>
+                                <p ng-show="korisnik.Role == 2">Driver</p>
+                                <button type="submit" class="btn button-success form-control" ng-click="Unblock(korisnik.UserName)">Unblock user</button><!--,AllDrives-->
+                                <hr />
+                            </div>
+                        </div>
+                    <!--</div>-->
                 </div>
-            </div>
-         </div>
-    </div>
-    <div ng-show="Neblokirani">
+            </td>
+            <td colspan="2" align="center"  ng-show="Neblokirani">
+                <!--<div ng-show="Neblokirani">-->
 
-        <div class="form-group">
-            <div class="teme-repeat" ng-repeat="korisnik in listaNeblokiranih">
+                    <div class="form-group">
+                        <div class="teme-repeat" ng-repeat="korisnik in listaNeblokiranih">
 
-                <div class="tema">
+                            <div class="tema">
 
-                    <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
-                    <p ng-show="korisnik.Role == 0"> Customer</p>
-                    <p ng-show="korisnik.Role == 2">Driver</p>
-                    <button type="submit" class="btn button-success" ng-click="Block(korisnik.UserName)">Block user</button><!--,AllDrives-->
-                </div>
-            </div>
-        </div>
-    </div>
+                                <p> {{korisnik.Name}} {{korisnik.Surname}} - {{korisnik.UserName}}</p>
+                                <p ng-show="korisnik.Role == 0"> Customer</p>
+                                <p ng-show="korisnik.Role == 2">Driver</p>
+                                <button type="submit" class="btn button-success form-control" ng-click="Block(korisnik.UserName)">Block user</button><!--,AllDrives-->
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                <!--</div>-->
+            </td>
+        </tr>
+    </table>
+    
+    
+
+  
+   
 </div>

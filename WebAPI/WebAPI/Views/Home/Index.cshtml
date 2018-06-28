@@ -38,13 +38,19 @@
                 </div>
                
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    @*<img src="http://1.bp.blogspot.com/-5l0RRPCgqfw/UqDmPP5mLnI/AAAAAAAADbk/i4ohihy8wHg/s1600/header+badge3.png" id="logo" />*@
                     <ul class="nav navbar-nav">  
-                        <li ng-show="loggedin && !moraKomentar && !moraKomentarKorisnik"  ng-class="checkActive('/MyHome')"><a href="#!/"><i class="ion ion-android-home"></i> Home</a></li>
+
+                        <li ng-show="loggedin && !moraKomentar && !moraKomentarKorisnik"  ng-class="checkActive('/MyHome')"><a href="#!/"><i class="ion ion-android-home"></i> TAXI SERVICE</a></li>
                         <li ng-show="loggedin && !moraKomentar && !moraKomentarKorisnik" ng-class="checkActive('/Edit')"><a href="#!/Edit"><i class="ion ion-person"></i>Edit Profile</a></li>
                         <li ng-show="user.role == 1" ng-class="checkActive('/AddDrivers')"><a href="#!/AddDrivers"><i class="ion ion-person"></i>Add Drivers</a></li>
                         <li ng-show="user.role == 1" ng-class="checkActive('/BlokUsers')"><a href="#!/BlokUsers"><i class="ion ion-person"></i>Block Users</a></li>
                     </ul>
+                   
+                       
+                    
                     <ul class="nav navbar-nav navbar-right">
+                       
                         <li ng-show="!loggedin"  ng-class="checkActive('/Login')"><a href="#!/Login">Login</a></li>
                         <li ng-show="!loggedin"  ng-class="checkActive('/Register')"><a href="#!/Register">Register</a></li>
                         <li ng-show="loggedin && !moraKomentar && !moraKomentarKorisnik" ng-class="checkActive('/Profile')"><a href="#!/Profile"><i class="ion ion-person"></i> {{user.nameSurname}}</a></li>

@@ -5,23 +5,16 @@
     <h1>You are not authorised to add drives.</h1>
 </div>
 <div class="container-fluid" ng-show="loggedin && user.role!=2"> <!--&& (user.role==0 || user.role==1)">-->
-    <div class="registerWindow">
-        <div class="header">
-            <h2>Drive</h2>
-        </div>
-        <div ng-show="najblizivozaci" class="body">
-            <label>Add your location: </label>
-            <div>
    
-                <div id="map" class="map"></div>
-                <div>
-                    
-                    <!--<button id="reversegeocoding" type=button name="button">Reverse geocode manually</button>-->
-                    <!--<span id="address">
+           
+       
+        <div ng-show="!najblizivozaci" class="body">
+            <h2 class="hed2">Choose location: </h2>
+            <div>
 
-                    </span>-->
-                </div>>
-                <<script>
+                <div id="map" class="map"></div>
+               
+                <script>
                     var map = new ol.Map({
                         layers: [
                             new ol.layer.Tile({
@@ -45,8 +38,8 @@
                         var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
                             return val.toFixed(6);
                         });
-                        var lon = document.getElementById('lon').value = coordinate[0];
-                        var lat = document.getElementById('lat').value = coordinate[1];
+                        var lon = document.getElementById('lon').innerHTML = coordinate[0];
+                        var lat = document.getElementById('lat').innerHTML = coordinate[1];
                         simpleReverseGeocoding(lon, lat);
                     });
                     //document.getElementById('reversegeocoding').addEventListener('click', function (e) {
@@ -58,27 +51,31 @@
 
 
             </div>
-           
-           
+            <div class="josjedan">
             <div class="form-group">
                 <!--<input type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="">-->
-                <input id="lon" type="number" step="0.000001" class="t">
-            </div>
-            <div class="form-group">
-                <!--<input type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="">-->
-                <input id="lat" type="number" step="0.000001" class="t">
-               
-            </div>
-            <div class="form-group">
-                <!--<input type="text" class="t" id="address" ng-model="drive.Street" placeholder="Street">-->
-                <span class="t" id="address">
+                
+               <p>X: </p> <span class="tspan" id="lon">
 
                 </span>
             </div>
-           
-           
             <div class="form-group">
-                <select class="t" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
+                <!--<input type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="">-->
+                
+                <p>Y: </p><span class="tspan" id="lat">
+
+                </span>
+            </div>
+            <div class="form-group">
+                <!--<input type="text" class="t" id="address" ng-model="drive.Street" placeholder="Street">-->
+               <p>Address: </p> <span class="tspan" id="address">
+
+                </span>
+            </div>
+
+
+            <div class="form-group">
+                <select class="t form-control" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
                     <option value="" disabled>Choose a car type</option>
                     <option value="0"> Passanger car</option>
                     <option value="1">Van</option>
@@ -88,25 +85,38 @@
 
             <button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="AddDriveCustomer(drive)">Add a drive</button>
             <button ng-show="user.role==1 && !najblizivozaci" type="submit" class="btn button-success" ng-click="AddDriveDispatcher(drive)">Add a drive</button>
-
+                <br />
+                <br />
         </div>
-        <div ng-show="!praznalista">
-        <div ng-show="user.role==1 && najblizivozaci">
-            <div class="form-group">
-                <select class="t" id="slobodni" ng-model="novimodel.selektovaniVozac">
-                    <option ng-repeat="driver in ListaNajblizih" value="{{driver}}">{{driver}}</option>
-                </select>
             </div>
-            <br>
+        <div class="josjedan" ng-show="!prznalista">
 
-            <button type="submit" class="btn button-success" ng-click="DodajVoznjuKonacno(novimodel)">Add a drive</button>
+            <br />
+            <br />
+            <br />
+
+            <div ng-show="user.role==1 && najblizivozaci">
+                <div class="form-group">
+                    <p class="hed2">Choose a driver from a list of closest drivers: </p>
+                    <select class="t form-control" id="slobodni" ng-model="novimodel.selektovaniVozac">
+                        <option ng-repeat="driver in ListaNajblizih" value="{{driver}}">{{driver}}</option>
+                    </select>
+                </div>
+                <br>
+
+                <button type="submit" class="btn button-success form-control" ng-click="DodajVoznjuKonacno(novimodel)">Add  drive</button>
+
+            </div>
+        </div>
+        <div ng-show="prznalista">
+            <br />
+            <br />
+            <br />
+            <p>&nbsp;&nbsp; Drive will be added with a status created waiting due to a lack of free drivers. You can process it again later.</p>
 
         </div>
-        </div>
-        <div ng-show="praznalista">
-            <p>Nema slobodnih vozaca.Voznja ce biti u statusu kreirana-na cekanju. Pritisnite dugme da zavrsite sa kreiranem voznje.</p>
-            
-        </div>
-    </div>
-</div>
+           
+    </div> 
+
+
    

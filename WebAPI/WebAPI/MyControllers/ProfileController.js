@@ -212,11 +212,11 @@
 
             }
 
-            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {//drive.XCoord == null || drive.XCoord == "") {
+            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
                 alert('X coordinate cant be empty!');
                 return;
             }
-            else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+            else if (document.getElementById("lat").innerHTML == null || document.getElementById("lat").innerHTML == "") {
                 alert('Y coordinate cant be empty!');
                 return;
             }
@@ -231,8 +231,8 @@
             }
 
 
-            drive.XCoord = document.getElementById("lon").value;
-            drive.YCoord = document.getElementById("lat").value;
+            drive.XCoord = document.getElementById("lon").innerHTML;
+            drive.YCoord = document.getElementById("lat").innerHTML;
             drive.Street = document.getElementById("address").innerHTML;
 
             ProfCont.AddDriveCustomer(drive).then(function (response) {
@@ -266,6 +266,10 @@
 
             }
 
+            if (user == null) {
+                aler('You didnt change anything');
+                return;
+            }
 
             if (user.username == null || user.username == "") {
                 user.username = $scope.userProfile.UserName;
@@ -283,15 +287,30 @@
                 user.jmbg = $scope.userProfile.JMBG;
 
             }
-
+            //if (user.jmbg.match(/[a-z]/i)) {
+            //    alert('Jmbg cant contain characters: a-z');
+            //    return;
+            //}
+            //if (user.jmbg.length != 13) {
+            //    alert('Jmbg must contain 13 numbers');
+            //    return;
+            //}
+            
             if (user.kontaktTelefon == null || user.kontaktTelefon == "") {
                 user.kontaktTelefon = $scope.userProfile.ContactPhoneNumber;
 
             }
+            //if (user.kontaktTelefon.match(/[a-z]/i)) {
+            //    alert('Phone number cant contain characterse a-z');
+            //    return;
+            //}
             if (user.email == null || user.email == "") {
                 user.email = $scope.userProfile.Email;
             }
-
+            //if (!user.email.includes('@')) {
+            //    alert('Email is not valid!');
+            //    return;
+            //}
             if (user.pwd == null || user.pwd == "") {
                 user.pwd = $scope.userProfile.Password;
             }
@@ -327,6 +346,10 @@
                 }
                 else {
                     alert("Username already exists.");
+                    $scope.u = {};
+                    $scope.apply;
+                    
+                    return
                 }
             });
 
@@ -337,11 +360,11 @@
 
     $scope.AddDriveDispatcher = function (drive) {
 
-        if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {//drive.XCoord == null || drive.XCoord == "") {
+        if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
             alert('X coordinate cant be empty!');
             return;
         }
-        else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+        else if (document.getElementById("lat").innerHTML == null || document.getElementById("lat").innerHTML == "") {
             alert('Y coordinate cant be empty!');
             return;
         }
@@ -355,8 +378,8 @@
             return;
         }
 
-        drive.XCoord = document.getElementById("lon").value;
-        drive.YCoord = document.getElementById("lat").value;
+        drive.XCoord = document.getElementById("lon").innerHTML;
+        drive.YCoord = document.getElementById("lat").innerHTML;
         drive.Street = document.getElementById("address").innerHTML;
 
         $scope.VoznjaDodavanjeDispecer = drive;
@@ -511,7 +534,7 @@
 
             drive = {};
 
-            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "" || document.getElementById("lat").value == null || document.getElementById("lat").value == "" || document.getElementById("address").innerText == null || document.getElementById("address").innerText == "") {
+            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "" || document.getElementById("lat").innerHTML == null || document.getElementById("lat").innerHTML == "" || document.getElementById("address").innerHTML == null || document.getElementById("address").innerText == "") {
 
                 //$window.location.href = "#!/MyHome";
                 alert('missing an address or coordinates');
@@ -519,8 +542,8 @@
             } else {
 
 
-                drive.XCoord = document.getElementById("lon").value;
-                drive.YCoord = document.getElementById("lat").value;
+                drive.XCoord = document.getElementById("lon").innerHTML;
+                drive.YCoord = document.getElementById("lat").innerHTML;
                 drive.Street = document.getElementById("address").innerText;
             }
 

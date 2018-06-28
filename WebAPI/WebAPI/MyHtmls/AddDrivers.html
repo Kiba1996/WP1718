@@ -5,20 +5,20 @@
 
     <div class="registerWindow">
         <div class="header">
-            <h2>Add Driver Form: </h2>
+            <h2>Add Driver: </h2>
         </div>
         <div class="body">
             <div class="form-group">
-                <input type="text" class="t" id="username" ng-model="user.username" placeholder="Username">
+                <input type="text" class="t form-control" id="username" ng-model="user.username" placeholder="Username">
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="ime" ng-model="user.ime" placeholder="Name">
+                <input type="text" class="t form-control" id="ime" ng-model="user.ime" placeholder="Name">
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="prezime" ng-model="user.prezime" placeholder="Surname">
+                <input type="text" class="t form-control" id="prezime" ng-model="user.prezime" placeholder="Surname">
             </div>
             <div class="form-group">
-                <select class="t" id="pol" ng-model="user.pol" placeholder="Gender">
+                <select class="t form-control" id="pol" ng-model="user.pol" placeholder="Gender">
                     <option value="" disabled>Choose gender</option>
                     <option value="Male"> Male</option>
                     <option value="Female">Female</option>
@@ -26,27 +26,27 @@
                 <!--<input type="text" class="t" id="pol" ng-model="user.pol" placeholder="Pol">-->
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="jmbg" ng-model="user.jmbg" placeholder="JMBG">
+                <input type="text" class="t form-control" id="jmbg" ng-model="user.jmbg" placeholder="JMBG">
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon" placeholder="Phone Number">
+                <input type="text" class="t form-control" id="kontaktTelefon" ng-model="user.kontaktTelefon" placeholder="Phone Number">
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="email" ng-model="user.email" placeholder="Email">
+                <input type="text" class="t form-control" id="email" ng-model="user.email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="password" class="t" id="pwd" ng-model="user.pwd" placeholder="Password">
+                <input type="password" class="t form-control" id="pwd" ng-model="user.pwd" placeholder="Password">
             </div>
-            <h2>Add Car Form: </h2>
+            <h2>Add a car for this driver: </h2>
 
             <div class="form-group">
-                <input type="number" class="t" id="god" ng-model="user.year" placeholder="Year">
+                <input type="number" class="t form-control" id="god" ng-model="user.year" placeholder="Year">
             </div>
             <div class="form-group">
-                <input type="text" class="t" id="regs" ng-model="user.reg" placeholder="Registration number">
+                <input type="text" class="t form-control" id="regs" ng-model="user.reg" placeholder="Registration number">
             </div>
             <div class="form-group">
-                <select class="t" id="pol" ng-model="user.tipV" placeholder="Car type">
+                <select class="t form-control" id="pol" ng-model="user.tipV" placeholder="Car type">
                     <option value="" disabled>Choose car type</option>
                     <option value="0"> Passenger Car</option>
                     <option value="1">Van</option>
@@ -54,7 +54,7 @@
             </div>
 
             <br>
-            <button type="submit" class="btn button-success" ng-click="RegisterDriver(user)">Register</button>
+            <button type="submit" class="btn button-success form-control" ng-click="RegisterDriver(user)">Register</button>
         </div>
     </div>
 </div>

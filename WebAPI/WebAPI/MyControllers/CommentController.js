@@ -197,11 +197,11 @@
                 alert('Price cant be lower than 0');
                 return;
             }
-            if (document.getElementById("lon").value == null || document.getElementById("lon").value == "") {//drive.XCoord == null || drive.XCoord == "") {
+            if (document.getElementById("lon").innerHTML == null || document.getElementById("lon").innerHTML == "") {//drive.XCoord == null || drive.XCoord == "") {
                 alert('X coordinate cant be empty!');
                 return;
             }
-            else if (document.getElementById("lat").value == null || document.getElementById("lat").value == "") {
+            else if (document.getElementById("lat").innerHTML == null || document.getElementById("lat").innerHTML == "") {
                 alert('Y coordinate cant be empty!');
                 return;
             }
@@ -210,8 +210,8 @@
                 return;
             }
 
-            drive.XCoord = document.getElementById("lon").value;
-            drive.YCoord = document.getElementById("lat").value;
+            drive.XCoord = document.getElementById("lon").innerHTML;
+            drive.YCoord = document.getElementById("lat").innerHTML;
             drive.Street = document.getElementById("address").innerHTML;
 
             ProfCont.SuccessDrive(drive, $rootScope.VoznjaZaKomentarVozac).then(function (response) {

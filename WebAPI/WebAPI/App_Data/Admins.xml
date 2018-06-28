@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfDispatcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Dispatcher>
-    <UserName>bar</UserName>
-	<Password>aa</Password>
+    <UserName>barbi</UserName>
+    <Password>aa</Password>
     <Name>Barbara</Name>
     <Surname>Segrt</Surname>
     <Gender>Female</Gender>
     <JMBG>504996815119</JMBG>
-    <ContactPhoneNumber>06243259</ContactPhoneNumber>
+    <ContactPhoneNumber>456334</ContactPhoneNumber>
     <Email>barbi@gmail.com</Email>
     <Role>Dispatcher</Role>
     <Drives />

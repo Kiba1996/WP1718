@@ -478,4 +478,12 @@
         });
     }
 
+
+    //$scope.FilterNot = function () {
+
+    //    alert('Drives are alredy filtered by status created waiting.');
+    //    return;
+    //}
+
+
 });

@@ -6,17 +6,17 @@
     <h1>You cant access this page.</h1>
 </div>
 <div ng-show="loggedin && DozvolaZaKomentarKorisnik && user.role==0">
-    <h1>COMMENT</h1>
+    <h1 class="hed2">Add Comment: </h1>
 
     <div class="form-group">
-        <table class="zaBojuSlova">
+        <table align="center" class="josjedan zaBojuSlova">
             <tr class="zaBojuSlova">
-                <td>Opis: </td>
-                <td><textarea class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
+                <td>Description: </td>
+                <td><textarea class="t form-control" placeholder="Description..." ng-model="ko.Opis"></textarea></td>
             </tr>
             <tr ng-show="!moraKomentarKorisnik" class="zaBojuSlova">
-                <td>Ocena: </td>
-                <td><input type="text" id="OcenaDo" class="form-control" ng-model="ko.Ocena" /></td>
+                <td>Rating: </td>
+                <td><input type="text" id="OcenaDo" class="t form-control" ng-model="ko.Ocena" /></td>
             </tr>
             <tr>
                 <td colspan="2">

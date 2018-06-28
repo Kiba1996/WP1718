@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Customer>
-    <UserName>deki</UserName>
-    <Password>deki</Password>
-    <Name>Dejan</Name>
-    <Surname>Stajic</Surname>
-    <Gender>Male</Gender>
-    <JMBG>510994234876</JMBG>
-    <ContactPhoneNumber>9388323</ContactPhoneNumber>
-    <Email>deki@gmail.com</Email>
+    <UserName>maca</UserName>
+    <Password>maca</Password>
+    <Name>Marija</Name>
+    <Surname>Djurkovic</Surname>
+    <Gender>Female</Gender>
+    <JMBG>8765437896543</JMBG>
+    <ContactPhoneNumber>98756743</ContactPhoneNumber>
+    <Email>maca@gmail.com</Email>
     <Role>Customer</Role>
     <Drives />
     <Blocked>false</Blocked>
   </Customer>
   <Customer>
-    <UserName>suza123</UserName>
+    <UserName>suza</UserName>
+    <Password>suza</Password>
     <Name>Suzana</Name>
     <Surname>Jovic</Surname>
-    <Gender>Male</Gender>
-    <JMBG>1309996232132</JMBG>
-    <ContactPhoneNumber>097313</ContactPhoneNumber>
-    <Email>suza@gmail.com</Email>
+    <Gender>Female</Gender>
+    <JMBG>8769076578965</JMBG>
+    <ContactPhoneNumber>8765476</ContactPhoneNumber>
+    <Email>suzana.jovic96@gmail.com</Email>
     <Role>Customer</Role>
     <Drives />
-    <Blocked>true</Blocked>
+    <Blocked>false</Blocked>
   </Customer>
 </ArrayOfCustomer>

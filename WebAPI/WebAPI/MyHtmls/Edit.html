@@ -2,69 +2,69 @@
 <br />
 <br />
 <div ng-show="!loggedin">
-    <h1>If you want to se your profile page please login.</h1>
+    <h1>If you want to se your profile info please login.</h1>
 </div>
 
 <div class="registerWindow" ng-show="loggedin">
     <div class="header">
-        <h1>Edit Form: </h1>
+        <h1 class="hed2">Edit profile form: </h1>
     </div>
     <div >
         <div class="form-group">
-            <table border="1">
+            <table >
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">User name: {{userProfile.UserName}}.</label>
+                        <label>User name: {{userProfile.UserName}}.</label>
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriUN()">Input new username</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriUN()">Input new username</button>
                     </td>
                 </tr>
                 <tr ng-show="EditUN">
                     <td colspan="2">
-                        <input type="text" class="t" id="Username" ng-model="user.username" />
+                        <input type="text" class="t form-control" id="Username" ng-model="u.username" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">Name: {{userProfile.Name}}.</label>
+                        <label class="">Name: {{userProfile.Name}}.</label>
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriN()">Input new name</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriN()">Input new name</button>
                     </td>
                 </tr>
                 <tr  ng-show="EditN">
                     <td colspan="2">
-                        <input ng-show="EditN" type="text" class="t" id="ime" ng-model="user.ime" />
+                        <input ng-show="EditN" type="text" class="t form-control" id="ime" ng-model="u.ime" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">Surname: {{userProfile.Surname}}.</label>
+                        <label class="">Surname: {{userProfile.Surname}}.</label>
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriSN()">Input new surname</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriSN()">Input new surname</button>
                     </td>
                 </tr>
                 <tr ng-show="EditSN">
                     <td colspan="2">
-                        <input  type="text" class="t" id="prezime" ng-model="user.prezime"/>
+                        <input  type="text" class="t form-control" id="prezime" ng-model="u.prezime"/>
                     </td>
                 </tr>  
                 <tr>
                     <td>
-                        <label ng-show="userProfile.Gender==0" class="zaBojuSlova">Gender: Male.</label>
-                        <label ng-show="userProfile.Gender==1" class="zaBojuSlova">Gender: Female.</label>
+                        <label ng-show="userProfile.Gender==0" class="">Gender: Male.</label>
+                        <label ng-show="userProfile.Gender==1" class="">Gender: Female.</label>
 
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriG()">Input new gender</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriG()">Input new gender</button>
 
                     </td>
                 </tr>
                 <tr ng-show="EditG">
                     <td colspan="2">
-                         <select class="t" id="pol" ng-model="user.pol">
+                         <select class="t form-control" id="pol" ng-model="u.pol">
                                 <option value="" disabled>Choose gender</option>
                                 <option value="Male"> Male</option>
                                 <option value="Female">Female</option>
@@ -73,47 +73,47 @@
                 </tr>
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">JMBG: {{userProfile.JMBG}}.</label>
+                        <label class="">JMBG: {{userProfile.JMBG}}.</label>
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriJmbg()">Input new jmbg</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriJmbg()">Input new jmbg</button>
                     </td>
                 </tr>        
                 <tr ng-show="EditJmbg">
                     <td colspan="2">
-                        <input  type="text" class="t" id="jmbg" ng-model="user.jmbg" />
+                        <input  type="text" class="t form-control" id="jmbg" ng-model="u.jmbg" />
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">Phone: {{userProfile.ContactPhoneNumber}}.</label>
+                        <label class="">Phone: {{userProfile.ContactPhoneNumber}}.</label>
 
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriPhone()">Input new phone</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriPhone()">Input new phone</button>
 
                     </td>
                 </tr>
                 <tr ng-show="EditPhone">
                     <td colspan="2">
-                        <input  type="text" class="t" id="kontaktTelefon" ng-model="user.kontaktTelefon" />
+                        <input  type="text" class="t form-control" id="kontaktTelefon" ng-model="u.kontaktTelefon" />
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label class="zaBojuSlova">Email: {{userProfile.Email}}.</label>
+                        <label class="">Email: {{userProfile.Email}}.</label>
 
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriE()">Input new email</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriE()">Input new email</button>
 
                     </td>
                 </tr>
                 <tr ng-show="EditE">
                     <td colspan="2">
-                        <input  type="text" class="t" id="email" ng-model="user.email" />
+                        <input  type="text" class="t form-control" id="email" ng-model="u.email" />
 
                     </td>
                 </tr>
@@ -122,18 +122,18 @@
 
                     </td>
                     <td>
-                        <button type="submit" ng-click="OtovriPas()">Input new password</button>
+                        <button type="submit" class="btn button-success form-control" ng-click="OtovriPas()">Input new password</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input ng-show="EditPas" type="password" class="t" id="pwd" ng-model="user.pwd" />
+                        <input ng-show="EditPas" type="password" class="t form-control" id="pwd" ng-model="u.pwd" />
                     </td>
                 </tr>         
                 
           </table>
-            <button type="submit" class="btn button-success" ng-click="EditUser(user)">Edit</button>
+            <button type="submit" class="btn button-success form-control" ng-click="EditUser(u)">Edit</button>
         </div>
     </div>
     </div>

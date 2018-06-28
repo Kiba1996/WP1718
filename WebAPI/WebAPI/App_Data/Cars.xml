@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Car>
-    <Driver>gengusa</Driver>
-    <CarYear>2004</CarYear>
-    <RegistrationNumber>23jf4</RegistrationNumber>
+    <Driver>coca</Driver>
+    <CarYear>2009</CarYear>
+    <RegistrationNumber>sdea4</RegistrationNumber>
     <TaxiNumber>1</TaxiNumber>
-    <CarType>Van</CarType>
-  </Car>
-  <Car>
-    <Driver>maca</Driver>
-    <CarYear>2000</CarYear>
-    <RegistrationNumber>64hd</RegistrationNumber>
-    <TaxiNumber>2</TaxiNumber>
     <CarType>PassengerCar</CarType>
   </Car>
   <Car>
     <Driver>joca</Driver>
-    <CarYear>2003</CarYear>
-    <RegistrationNumber>23df4</RegistrationNumber>
+    <CarYear>1999</CarYear>
+    <RegistrationNumber>hg678d</RegistrationNumber>
+    <TaxiNumber>2</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+  <Car>
+    <Driver>gica</Driver>
+    <CarYear>2010</CarYear>
+    <RegistrationNumber>jhd8w</RegistrationNumber>
     <TaxiNumber>3</TaxiNumber>
     <CarType>PassengerCar</CarType>
+  </Car>
+  <Car>
+    <Driver>deki</Driver>
+    <CarYear>2011</CarYear>
+    <RegistrationNumber>37ddj</RegistrationNumber>
+    <TaxiNumber>4</TaxiNumber>
+    <CarType>Van</CarType>
+  </Car>
+  <Car>
+    <Driver>ana123</Driver>
+    <CarYear>2007</CarYear>
+    <RegistrationNumber>hdy8s</RegistrationNumber>
+    <TaxiNumber>5</TaxiNumber>
+    <CarType>PassengerCar</CarType>
+  </Car>
+  <Car>
+    <Driver>kap</Driver>
+    <CarYear>1999</CarYear>
+    <RegistrationNumber>hdhyw8</RegistrationNumber>
+    <TaxiNumber>6</TaxiNumber>
+    <CarType>Van</CarType>
   </Car>
 </ArrayOfCar>

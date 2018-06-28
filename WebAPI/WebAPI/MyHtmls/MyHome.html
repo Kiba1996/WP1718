@@ -1,247 +1,498 @@
-﻿<div ng-show="loggedin">
+﻿<h1 ng-show="!loggedin">Please login if you want to use our services.</h1>
+<div ng-show="loggedin">
     <br />
     <br />
-    <br /><!--VOZNJE-->
-    <div class="container-fluid">
-        <div class="">
-            <h1>Welcome <span ng-show="loggedin">{{user.username}}</span> </h1>
-            <h4 ng-show="loggedin && user.role==2">
-                Address: {{DriverData.lokacija.Address.AddressFormat}}
-            </h4>
-            <button ng-show="loggedin && user.role==2" type="submit" class="btn button-success" ng-click="PromeniLokaciju()">Change your location</button>
-            <h4 ng-show="!loggedin">Please login if you want to use our services.</h4>
-        </div>
-    </div>
-    <div ng-show="user.role == 1">
-        <button type="submit" class="btn button-success" ng-click="getDrives1()">Show All Drives</button>
-    </div>
-    <div ng-show="user.role == 2">
-        <button type="submit" class="btn button-success" ng-click="getDrives2()"> Show all drives with a status Waiting</button>
-    </div>
-    <div ng-show="listaFlag!=3 && posebanFlag!=3" class="body">
-        <div class="form-group">
-            <select class="t" id="fil" ng-model="fu.Stat">
-                <option value="0">Created-waiting</option>
-                <option value="1"> Canceled</option>
-                <option value="2">Formed</option>
-                <option value="3">Processed</option>
-                <option value="4">Accepted</option>
-                <option value="5">Successful</option>
-                <option value="6">Unsuccessful</option>
-            </select>
-        </div>
-        <br>
+    <br />
+  
+    <table class="table" align="center">
+        
+                
+        
+        <tr ng-show="listaFlag != 3 && posebanFlag!=3">
+            <td >
+                <br />
+                <div class="containerClass">
+                    <div ng-show="user.role != 2">
+                        <!--class="topright"-->
+                        <button class="btn button-success" onclick="location.href='#!/DriveGet'" type="button">
+                            &nbsp; &nbsp; Add drive &nbsp; &nbsp;
+                        </button>
+                        <!--<a href="#!/DriveGet">Add Drive</a>-->
+                    </div>
+                </div>
+                <!--<h1>Welcome <span ng-show="loggedin">{{user.username}}</span> </h1>-->
 
-    </div>
-    <!--!CD && !SVE && !FILT1 && !FILT2-->
-    <!--SVE && FILT1-->
-    <!--!SVE && FILT2-->
-    <!--SVE && !FILT1 && !FILT2-->
-    <!--CD && !SVE && !FILT1 && !FILT2-->
-    <input type="radio" name="group" value="0" ng-model="fu.PoCemu" ng-checked="true" /> By Rating <br />
-    <input type="radio" name="group" value="1" ng-model="fu.PoCemu" /> By Date <br />
-    <div ng-show="user.role == 2 && listaFlag==3">
-        <input  type="radio" name="group" value="2" ng-model="fu.PoCemu" /> By Distance <br />
-    </div>
-    <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag==0" type="submit" class="btn button-success" ng-click="Sorting(MyDrives, fu.PoCemu)">Sort</button>
-    <!--<button ng-show="posebanFlag==1 && filtFlag==1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
-    <button ng-show="posebanFlag==3 && filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>-->
-    <button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives,fu.PoCemu)">Sort</button>
-    <button ng-show="posebanFlag==1 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(AllDrives,fu.PoCemu)">Sort</button>
-    <button ng-show="posebanFlag==3 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(CreatedDrives,fu.PoCemu)">Sort</button>
-    <button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Sorting(SearchedDrives,fu.PoCemu)">Sort</button>
-    <!--<span class="input-group-addon">
-       <span class="glyphicon glyphicon-calendar"></span>
-    </span>-->
-    <div class="zaBojuSlova">
-        <div class="form-group">
-            <table class="zaBojuSlova">
-                <tr class="zaBojuSlova">
-                    <td>  </td>
-                    <td>Od: </td>
-                    <td>Do: </td>
-                </tr>
-                <tr class="zaBojuSlova">
-                    <td>Datum: </td>
-                    <td><input type="date" id="DatumOd" class="form-control" ng-model="su.DatumOd" /></td>
-                    <td><input type="date" id="DatumDo" class="form-control" ng-model="su.DatumDo" /></td>
-                </tr>
-                <tr class="zaBojuSlova">
-                    <td>Ocena: </td>
-                    <td><input type='text' id="OcenaOd" class="form-control" ng-model="su.OcenaOd" /></td>
-                    <td><input type='text' id="OcenaDo" class="form-control" ng-model="su.OcenaDo" /></td>
-                </tr>
-                <tr class="zaBojuSlova">
-                    <td>Cena: </td>
-                    <td><input type='text' id="CenaOd" class="form-control" ng-model="su.CenaOd" /></td>
-                    <td><input type='text' id="CenaDo" class="form-control" ng-model="su.CenaDo" /></td>
-                </tr>
-                <tr class="zaBojuSlova" ng-show="user.role == 1">
-                    <td> </td>
-                    <td>Ime:</td>
-                    <td>Prezime: </td>
-                </tr>
-                <tr class="zaBojuSlova" ng-show="user.role == 1">
-                    <td>Vozac: </td>
-                    <td><input type='text' id="VozIme" class="form-control" ng-model="su.VozIme" /></td>
-                    <td><input type='text' id="VozPre" class="form-control" ng-model="su.VozPre" /></td>
-                </tr>
-                <tr class="zaBojuSlova" ng-show="user.role == 1">
-                    <td>Musterija: </td>
-                    <td><input type='text' id="MusIme" class="form-control" ng-model="su.MusIme" /></td>
-                    <td><input type='text' id="MusPre" class="form-control" ng-model="su.MusPre" /></td>
-                </tr>
-                <tr>
-                    <td colspan="3" align="right">
-                        <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag!=1" type="submit" class="btn button-success" ng-click="Search(MyDrives,su)">Search</button>
-                        <button ng-show="posebanFlag==1 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(AllDrives,su)">Search</button>
-                        <button ng-show="posebanFlag==3 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(CreatedDrives,su)">Search</button>
-                        <button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Search(FilteredDrives,su)">Search</button>
-                        <!--<button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Search(Sorted,su)">Search</button>-->
-                    </td>
-                </tr>
+            </td>
+           <td   align="center">
 
-            </table>
-        </div>
-    </div>
+               <div class="container-fluid">
+
+                   <div>
+                       
+                       <h4 ng-show="loggedin && user.role==2">
+                           Your location:<br />
+                           <span tspan>  {{DriverData.lokacija.Address.AddressFormat}}  </span>
+                       </h4>
+                      
+                      
+                       <table class="tabe">
+                           <tr>
+                               <td>
+                                   <br />
+                                   <button ng-show="loggedin && user.role==2" type="submit" class="btn button-success" ng-click="PromeniLokaciju()">Change your location</button>
+
+
+                               </td>
+                               <td>
+                                   <br />
+                                   <div ng-show="user.role == 1">
+                                       <button type="submit" class="btn button-success" ng-click="getDrives1()">Show All Drives</button>
+                                   </div>
+                                   <div ng-show="user.role == 2">
+                                       <button type="submit" class="btn button-success" ng-click="getDrives2()">Drives with status: Waiting</button>
+                                   </div>
+                               </td>
+                           </tr>
+                       </table>
 
 
 
-    <h4>{{filtriranje}}</h4> <!--ng-show="Drives && !F"-->
+
+
+                   </div>
+
+               </div>
+           
+           
+           </td>
+            <td></td>
+       </tr>
+
+        <tr ng-show="listaFlag == 3 && posebanFlag==3">
+            <!--<td>
+                <br />
+                <div class="containerClass">
+                    <div ng-show="user.role != 2">
+                       
+                        <button class="btn button-success" onclick="location.href='#!/DriveGet'" type="button">
+                            Add drive
+                        </button>
+                       
+                    </div>
+                </div>-->
+                <!--<a href="#!/DriveGet">Add Drive</a>-->
+                <!--<h1>Welcome <span ng-show="loggedin">{{user.username}}</span> </h1>-->
+
+            <!--</td>-->
+            <td colspan="2" align="center">
+
+                <div class="container-fluid">
+
+                    <div>
+
+                        <h4 ng-show="loggedin && user.role==2">
+                            Your location:<br />
+                            <span tspan>  {{DriverData.lokacija.Address.AddressFormat}}  </span>
+                        </h4>
+
+
+                        <table class="tabe">
+                            <tr>
+                                <td>
+                                    <br />
+                                    <button ng-show="loggedin && user.role==2" type="submit" class="btn button-success" ng-click="PromeniLokaciju()">Change your location</button>
+
+
+                                </td>
+                                <td>
+                                    <br />
+                                    <div ng-show="user.role == 1">
+                                        <button type="submit" class="btn button-success" ng-click="getDrives1()">Show All Drives</button>
+                                    </div>
+                                    <div ng-show="user.role == 2">
+                                        <button type="submit" class="btn button-success" ng-click="getDrives2()">Drives with status: Waiting</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+            </td>
+           
+        </tr>
+
+
+        <tr>
+            <td colspan="3">
+                <hr>
+            </td>
+        </tr>
+        <tr>
+           
+           
+            <td>
+
+
+                <div align="center">
+                    <table align="center">
+
+                        <tr>
+                            <td>
+                                By Rating <input type="radio" name="group" value="0" ng-model="fu.PoCemu" ng-checked="true" />
+                            </td>
+                            <td>
+                                By Date <input type="radio" name="group" value="1" ng-model="fu.PoCemu" />
+
+                            </td>
+                            <td>
+                                <div ng-show="user.role == 2 && listaFlag==3">
+                                    By Distance <input type="radio" name="group" value="2" ng-model="fu.PoCemu" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag==0" type="submit" class="btn button-success" ng-click="Sorting(MyDrives, fu.PoCemu)">&nbsp;&nbsp;&nbsp; Sort&nbsp;&nbsp;&nbsp;</button>
+                    <!--<button ng-show="posebanFlag==1 && filtFlag==1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>
+            <button ng-show="posebanFlag==3 && filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives)">Sort</button>-->
+                    <button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Sorting(FilteredDrives,fu.PoCemu)">&nbsp;&nbsp;&nbsp;Sort&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="posebanFlag==1 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(AllDrives,fu.PoCemu)">&nbsp;&nbsp;&nbsp;Sort&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="posebanFlag==3 && filtFlag == 0" type="submit" class="btn button-success" ng-click="Sorting(CreatedDrives,fu.PoCemu)">&nbsp;&nbsp;&nbsp;Sort&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Sorting(SearchedDrives,fu.PoCemu)">&nbsp;&nbsp;&nbsp;Sort&nbsp;&nbsp;&nbsp;</button>
+                    <!--<span class="input-group-addon">
+               <span class="glyphicon glyphicon-calendar"></span>
+            </span>-->
+                </div>
+
+
+
+
+
+
+            </td>
+
+
+
+            <td  align="center">
+
+
+                <!--<div class="zaBojuSlova topleft">
+            <div class="form-group">-->
+                <table class="tabe">
+                    <tr class="zaBojuSlova">
+                        <td>  </td>
+                        <td>Od: </td>
+                        <td>Do: </td>
+                    </tr>
+                    <tr class="zaBojuSlova ">
+                        <td>Datum: </td>
+                        <td><input type="date" id="DatumOd" class="t form-control" ng-model="su.DatumOd" /></td>
+                        <td><input type="date" id="DatumDo" class="t form-control" ng-model="su.DatumDo" /></td>
+                    </tr>
+                    <tr class="zaBojuSlova">
+                        <td>Ocena: </td>
+                        <td><input type='text' id="OcenaOd" class="t form-control" ng-model="su.OcenaOd" /></td>
+                        <td><input type='text' id="OcenaDo" class="t form-control" ng-model="su.OcenaDo" /></td>
+                    </tr>
+                    <tr class="zaBojuSlova">
+                        <td>Cena: </td>
+                        <td><input type='text' id="CenaOd" class="t form-control" ng-model="su.CenaOd" /></td>
+                        <td><input type='text' id="CenaDo" class="t form-control" ng-model="su.CenaDo" /></td>
+                    </tr>
+                    <tr class="zaBojuSlova" ng-show="user.role == 1">
+                        <td> </td>
+                        <td>Ime:</td>
+                        <td>Prezime: </td>
+                    </tr>
+                    <tr class="zaBojuSlova" ng-show="user.role == 1">
+                        <td>Vozac: </td>
+                        <td><input type='text' id="VozIme" class="t form-control" ng-model="su.VozIme" /></td>
+                        <td><input type='text' id="VozPre" class="t form-control" ng-model="su.VozPre" /></td>
+                    </tr>
+                    <tr class="zaBojuSlova" ng-show="user.role == 1">
+                        <td>Musterija: </td>
+                        <td><input type='text' id="MusIme" class="t form-control" ng-model="su.MusIme" /></td>
+                        <td><input type='text' id="MusPre" class="t form-control" ng-model="su.MusPre" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <br />
+                            <button ng-show="listaFlag!=3 && posebanFlag==2 && filtFlag!=1" type="submit" class="btn button-success" ng-click="Search(MyDrives,su)">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</button>
+                            <button ng-show="posebanFlag==1 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(AllDrives,su)">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</button>
+                            <button ng-show="posebanFlag==3 && filtFlag != 1" type="submit" class="btn button-success" ng-click="Search(CreatedDrives,su)">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</button>
+                            <button ng-show="filtFlag == 1" type="submit" class="btn button-success" ng-click="Search(FilteredDrives,su)">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</button>
+                            <!--<button ng-show="filtFlag == 2" type="submit" class="btn button-success" ng-click="Search(Sorted,su)">Search</button>-->
+                        </td>
+                    </tr>
+
+                </table>
+                <!--</div>
+        </div>-->
+
+            </td>
+
+
+            <td align="center" class="zaTabelu">
+
+
+                <div ng-show="listaFlag!=3 && posebanFlag!=3">
+
+                    <div class="form-group">
+                        <select class="t" id="fil" ng-model="fu.Stat">
+                            <option value="0">Created-waiting</option>
+                            <option value="1"> Canceled</option>
+                            <option value="2">Formed</option>
+                            <option value="3">Processed</option>
+                            <option value="4">Accepted</option>
+                            <option value="5">Successful</option>
+                            <option value="6">Unsuccessful</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button ng-show="listaFlag == 1" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="listaFlag == 2" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+
+                    <button ng-show="listaFlag == 4 && posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="listaFlag == 4 && posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="listaFlag == 5 && posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="listaFlag == 5 && posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+                    <button ng-show="listaFlag==6" type="submit" class="btn button-success" ng-click="Filter(SearchedDrives,fu.Stat)">&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp;</button>
+
+                </div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+
+
+
+
+
+            </td>
+
+
+           
+            <!--HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH-->
+            </tr>
+        <tr>
+            <td colspan="3">
+                <hr>
+            </td>
+        </tr>
+      
+        
+       </table>
+   
+   
     <div class="container">
-        <div class="col-md-12">
-            <div class="praceneTeme">
+       
+        <!--<div class="col-md-12">-->
+            <div class="voznjeklas">
+                <div class="klasadiv">
+                    <h1>{{filtriranje}}</h1>
+                </div>
                 <div ng-show="listaFlag == 1">
-                    <button type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+                    <!--<button type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>-->
 
-                    <div ng-show="listaFlag==1" class="teme-repeat" ng-repeat="drive in MyDrives">
+                    <div ng-show="listaFlag==1" class="voznjeklas-repeat" ng-repeat="drive in MyDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
-                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,MyDrives-->
-                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="CancelDrive(drive)">Cancel Drive</button>
+                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success form-control" ng-click="ProcessDrive(drive)">Process Drive</button><!--,MyDrives-->
+                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success form-control" ng-click="EndDrive(drive)">End Drive</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success form-control" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="EditDrive(drive)">Edit Drive</button>
 
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div  ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
                 </div>
                 <div ng-show="listaFlag==3">
-                    <div ng-show="listaFlag==3" class="teme-repeat" ng-repeat="drive in CreatedDrives">
+                    <div ng-show="listaFlag==3" class="voznjeklas-repeat" ng-repeat="drive in CreatedDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
 
-                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2" type="submit" class="btn button-success" ng-click="AcceptDrive(drive,CreatedDrives)">Accept Drive</button>
+                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2" type="submit" class="btn button-success form-control" ng-click="AcceptDrive(drive,CreatedDrives)">Accept Drive</button>
 
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
                 </div>
                 <div ng-show="listaFlag==2">
-                    <button type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                    <!--<button type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>-->
 
-                    <div ng-show="listaFlag==2" class="teme-repeat" ng-repeat="drive in AllDrives">
+                    <div ng-show="listaFlag==2" class="voznjeklas-repeat" ng-repeat="drive in AllDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
-                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,AllDrives-->
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
+                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success form-control" ng-click="ProcessDrive(drive)">Process Drive</button><!--,AllDrives-->
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div  ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
                 </div>
                 <div ng-show="listaFlag==4">
-                    <button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
-                    <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+                    <!--<button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                    <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>-->
 
-                    <div ng-show="listaFlag==4" class="teme-repeat" ng-repeat="drive in SortedDrives">
+                    <div ng-show="listaFlag==4" class="voznjeklas-repeat" ng-repeat="drive in SortedDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
-
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
-                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SortedDrives-->
-                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
-                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="CancelDrive(drive)">Cancel Drive</button>
+                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success form-control" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SortedDrives-->
+                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success form-control" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
+                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success form-control" ng-click="EndDrive(drive)">End Drive</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success form-control" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
                 </div>
                 <div ng-show="listaFlag==5">
-                    <button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
-                    <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>
+                    <!--<button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
+                    <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>-->
 
-                    <div ng-show="listaFlag==5" class="teme-repeat" ng-repeat="drive in FilteredDrives">
+                    <div ng-show="listaFlag==5" class="voznjeklas-repeat" ng-repeat="drive in FilteredDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
 
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
-                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,FilteredDrives-->
-                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="CancelDrive(drive)">Cancel Drive</button>
+                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success form-control" ng-click="ProcessDrive(drive)">Process Drive</button><!--,FilteredDrives-->
+                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success form-control" ng-click="EndDrive(drive)">End Drive</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success form-control" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
@@ -250,46 +501,54 @@
                 <div ng-show="listaFlag==6">
                     <!--<button ng-show="posebanFlag==1" type="submit" class="btn button-success" ng-click="Filter(AllDrives,fu.Stat)">Filtering</button>
                     <button ng-show="posebanFlag==2" type="submit" class="btn button-success" ng-click="Filter(MyDrives,fu.Stat)">Filtering</button>-->
-                    <button ng-show="listaFlag==6" type="submit" class="btn button-success" ng-click="Filter(SearchedDrives,fu.Stat)">Filtering</button>
+                    <!--<button ng-show="listaFlag==6" type="submit" class="btn button-success" ng-click="Filter(SearchedDrives,fu.Stat)">Filtering</button>-->
 
 
-                    <div ng-show="listaFlag==6" class="teme-repeat" ng-repeat="drive in SearchedDrives">
+                    <div ng-show="listaFlag==6" class="voznjeklas-repeat" ng-repeat="drive in SearchedDrives">
 
-                        <div class="tema">
-                            <p>  {{drive.DataAndTime}} </p>
-                            <p> {{drive.Arrival.Address.AddressFormat}}</p>
-
-                            <p> {{drive.Status}}</p>
+                        <div class="voz">
+                            <p> Drive created:  {{drive.DataAndTime}} </p>
+                            <p> Arrival: {{drive.Arrival.Address.AddressFormat}}</p>
+                            <p> Destination: {{drive.Destination.Address.AddressFormat}}</p>
+                            <p ng-show="drive.Status==0"> Drive Status: Created-Waiting</p>
+                            <p ng-show="drive.Status==1"> Drive Status: Canceled</p>
+                            <p ng-show="drive.Status==2"> Drive Status: Formed</p>
+                            <p ng-show="drive.Status==3"> Drive Status: Processed</p>
+                            <p ng-show="drive.Status==4"> Drive Status: Accepted</p>
+                            <p ng-show="drive.Status==5"> Drive Status: Successful</p>
+                            <p ng-show="drive.Status==6"> Drive Status: Unsuccessful</p>
+                            <p ng-show="drive.CarType==0"> Car type: passanger car</p>
+                            <p ng-show="drive.CarType==1"> Car type: van</p>
+                            <p>Dispatcher: {{drive.Dispatcher.Name}}  {{drive.Dispatcher.Surname}}</p>
+                            <p>Driver: {{drive.Driver.Name}}  {{drive.Driver.Surname}}</p>
+                            <p>Musterija: {{drive.Customer.Name}}  {{drive.Customer.Surname}}</p>
+                            <hr />
                             <p> Comment: </p>
-                            <p ng-show="drive.Comment.Description"> {{drive.Comment.Description}}</p>
-                            <p ng-show="drive.Comment.Rating!= 0"> {{drive.Comment.Rating}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.user}}</p>
-                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">{{drive.Comment.Date}}</p>
-
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="CancelDrive(drive)">Cancel Drive</button>
-                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SearchedDrives-->
-                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
-                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success" ng-click="EndDrive(drive)">End Drive</button>
-                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success" ng-click="Komentarisi(drive)">Comment</button>
-                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success" ng-click="EditDrive(drive)">Edit Drive</button>
+                            <p ng-show="drive.Comment.Description">Description: {{drive.Comment.Description}}</p>
+                            <p ng-show="drive.Comment.Rating!= 0"> Rating: {{drive.Comment.Rating}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">By: {{drive.Comment.user}}</p>
+                            <p ng-show="drive.Comment.Description || drive.Comment.Rating != 0">Date: {{drive.Comment.Date}}</p>
+                            <hr />
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="CancelDrive(drive)">Cancel Drive</button>
+                            <button ng-show="drive.Status == 0 && user.role==1" type="submit" class="btn button-success form-control" ng-click="ProcessDrive(drive)">Process Drive</button><!--,SearchedDrives-->
+                            <button ng-show="!DriverData.zauzet && DriverData.tipAuta==drive.CarType && user.role==2 && posebanFlag==3" type="submit" class="btn button-success form-control" ng-click="AcceptDrive(drive,SortedDrives)">Accept Drive</button>
+                            <button ng-show="user.role == 2 &&(drive.Status==2 || drive.Status==3 || drive.Status == 4)" type="submit" class="btn button-success form-control" ng-click="EndDrive(drive)">End Drive</button>
+                            <button ng-show="user.role == 0 && drive.Status==5 && !drive.Comment.Description && drive.Comment.Rating==0" type="submit" class="btn button-success form-control" ng-click="Komentarisi(drive)">Comment</button>
+                            <button ng-show="drive.Status == 0 && user.role==0" type="submit" class="btn button-success form-control" ng-click="EditDrive(drive)">Edit Drive</button>
 
                         </div>
-                        <div class="nemaTema" ng-show="Drives.length == 0">
+                        <div  ng-show="Drives.length == 0">
                             <h4>No drives.</h4>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <!--</div>-->
     </div>
 
 
     <br />
-    <div class="containerClass">
-        <div class="topright" ng-show="user.role != 2">
-            <a href="#!/DriveGet">Add Drive</a>
-        </div>
-    </div>
+   
 
 </div>
 <div ng-show="!loggedin">

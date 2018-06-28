@@ -397,7 +397,7 @@ namespace WebAPI.Controllers
 
             foreach (Driver d in drivers)
             {
-                if (!d.Zauzet && (d.Car.CarType == (Enums.CarType)int.Parse(k.tipAuta)))
+                if (!d.Blocked && !d.Zauzet && (d.Car.CarType == (Enums.CarType)int.Parse(k.tipAuta)))
                 {
                     Point poi = new Point();
                     poi.X = Double.Parse(d.Location.X);
@@ -944,7 +944,7 @@ namespace WebAPI.Controllers
 
             foreach (Driver d in drivers)
             {
-                if (!d.Zauzet && (d.Car.CarType == k.voz.CarType))
+                if (!d.Blocked && !d.Zauzet && (d.Car.CarType == k.voz.CarType))
                 {
                     Point poi = new Point();
                     poi.X = Double.Parse(d.Location.X);
@@ -1184,7 +1184,10 @@ namespace WebAPI.Controllers
                     {
                         
                         u.UserName = k.Username;
-                        u.Password = k.Password;
+                        if (k.Password != null)
+                        {
+                            u.Password = k.Password;
+                        }
                         u.Name = k.Ime;
                         u.Surname = k.Prezime;
                         if (k.Pol == "Female")
@@ -1213,7 +1216,10 @@ namespace WebAPI.Controllers
                     if (u.UserName == k.OldUsername)
                     {
                         u.UserName = k.Username;
-                        u.Password = k.Password;
+                        if (k.Password != null)
+                        {
+                            u.Password = k.Password;
+                        }
                         u.Name = k.Ime;
                         u.Surname = k.Prezime;
                         if (k.Pol == "Female" || k.Pol=="1")

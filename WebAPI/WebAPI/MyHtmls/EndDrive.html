@@ -7,18 +7,27 @@
 <div ng-show="loggedin && user.role==2 && DozvolaZavrsiVoznju">
 
     
+    <table align="center">
+        <tr>
+            <td>
+                <button type="submit" class="btn button-success" ng-click="VozUsp()">Voznja je uspesna.</button>
 
-    <button type="submit" class="btn button-success" ng-click="VozUsp()">Voznja je uspesna.</button>
-    <button type="submit" class="btn button-success" ng-click="VozNeusp()">Voznja je neuspesna.</button>
+            </td>
+            <td>
+                <button type="submit" class="btn button-success" ng-click="VozNeusp()">Voznja je neuspesna.</button>
 
+            </td>
+        </tr>
+    </table>
+   
 
     <div ng-show="PokaziUspesna" class="container-fluid">
-        <div class="registerWindow">
-            <div class="header">
-                <h2>Location</h2>
-            </div>
+        <div class="">
+          
+                
+           
             <div class="body">
-                <label>Add your location: </label>
+                <h2 class="hed2">Choose location: </h2>
                 <div id="map" class="map"></div>
                 <div>
                     <!--<input id="lon" type="number" step="0.000001">
@@ -53,8 +62,8 @@
                         var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
                             return val.toFixed(6);
                         });
-                        var lon = document.getElementById('lon').value = coordinate[0];
-                        var lat = document.getElementById('lat').value = coordinate[1];
+                        var lon = document.getElementById('lon').innerHTML = coordinate[0];
+                        var lat = document.getElementById('lat').innerHTML = coordinate[1];
                         simpleReverseGeocoding(lon, lat);
                     });
                 //document.getElementById('reversegeocoding').addEventListener('click', function (e) {
@@ -63,28 +72,35 @@
                 //    }
                 //});
                 </script>
-
+               </div>
+            <div class="josjedan">
+                <h3 class="hed2"> Destination: </h3>
                 <div class="form-group">
                     <!--<input type="text" class="t" id="xCoord" ng-model="drive.XCoord" placeholder="">-->
-                    <input id="lon" type="number" step="0.000001" class="t">
+                   
+                   <p>X: </p> <span class="tspan form-control" id="lon">
+
+                    </span>
                 </div>
                 <div class="form-group">
                     <!--<input type="text" class="t" id="yCoord" ng-model="drive.YCoord" placeholder="">-->
-                    <input id="lat" type="number" step="0.000001" class="t">
+                    
+                   <p>Y: </p> <span class="tspan form-control" id="lat">
 
+                    </span>
                 </div>
                 <div class="form-group">
                     <!--<input type="text" class="t" id="address" ng-model="drive.Street" placeholder="Street">-->
-                    <span class="t" id="address">
+                    <p>Address: </p><span class="tspan form-control" id="address">
 
                     </span>
                 </div>
 
                 <div class="form-group">
-                    <input type="number" class="t" id="postalCode" ng-model="drive.Cena">
+                   <p>Price: </p> <input type="number" class="tspan form-control" id="postalCode" ng-model="drive.Cena">
                 </div>
                 <br>
-                <button type="submit" ng-show="user.role==2" class="btn button-success" ng-click="SuccessDrive(drive)">Send</button>
+                <button type="submit" ng-show="user.role==2" class="btn button-success form-control" ng-click="SuccessDrive(drive)">Send</button>
             </div>
         </div>
 
@@ -92,17 +108,17 @@
 
     <div ng-show="PokaziNeuspesna" class="form-group">
 
-        <table class="zaBojuSlova">
+        <table align="center" class="josjedan zaBojuSlova">
             <tr>
-                <th colspan="2">Unesite komentar:</th>
+                <td align="center"  colspan="2"> <h2 class="class="hed2"">Enter comment:</h2></td>
             </tr>
             <tr class="zaBojuSlova">
-                <td>Opis: </td>
-                <td><textarea required class="form-control" placeholder="Napisite komentar..." ng-model="ko.Opis"></textarea></td>
+                <td>Description: </td>
+                <td><textarea required class="t form-control" placeholder="Description..." ng-model="ko.Opis"></textarea></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <button type="submit" class="btn button-success" ng-click="Comment(ko)">Comment</button>
+                    <button type="submit" class="btn button-success form-control" ng-click="Comment(ko)">Comment</button>
                 </td>
             </tr>
         </table>

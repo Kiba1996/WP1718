@@ -1,24 +1,34 @@
 ﻿<br />
 <br />
 <br />
+<br />
 
 <div ng-show="!loggedin">
-    <div class="zaRegistrovanje">
-        <h4 class="success">{{RegisterSuccess}}</h4>
-    </div>
+    
+    
+   
+
     <div class="loginWindow">
+        <div class="zaRegistrovanje">
+            <h4 class="success">{{RegisterSuccess}}</h4>
+        </div>
+        <br />
+       
         <div class="header">
             <h2>Login</h2>
         </div>
+      
+       
+
         <div class="body">
             <div class="form-group">
-                <input type="text" class="t" id="username" ng-model="user.username" placeholder="Username">
+                <input type="text" class="t form-control" id="username" ng-model="user.username" placeholder="Username">
             </div>
             <div class="form-group">
-                <input type="password" class="t" id="pwd" ng-model="user.pwd" placeholder="Password">
+                <input type="password" class="t form-control" id="pwd" ng-model="user.pwd" placeholder="Password">
             </div>
             <br>
-            <button type="submit" class="btn button-success" ng-click="LoginUser(user)">Login</button>
+            <button type="submit" class="btn button-success form-control" ng-click="LoginUser(user)">Login</button>
         </div>
     </div>
 </div>

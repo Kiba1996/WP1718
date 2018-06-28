@@ -5,11 +5,9 @@
     <h1>You cant access this action.</h1>
 </div>
 <div ng-show="loggedin && DozvolaIzmeniVozKorisnik && user.role==0">
-   
+    <h2 class="hed2">Choose location: </h2>
     <div id="map" class="map"></div>
-    <div>
-
-    </div>
+    
 
     <script>
         var map = new ol.Map({
@@ -35,36 +33,44 @@
             var coordinate = ol.proj.toLonLat(e.coordinate).map(function (val) {
                 return val.toFixed(6);
             });
-            var lon = document.getElementById('lon').value = coordinate[0];
-            var lat = document.getElementById('lat').value = coordinate[1];
+            var lon = document.getElementById('lon').innerHTML = coordinate[0];
+            var lat = document.getElementById('lat').innerHTML = coordinate[1];
             simpleReverseGeocoding(lon, lat);
         });
 
     </script>
+    <div class="josjedan">
+        <h2>Current data: </h2>
+        <p>Address: {{VoznjaZaIzmenu.Arrival.Address.AddressFormat}}</p>
+        <p>  {{VoznjaZaIzmenu.Arrival.X}}, {{VoznjaZaIzmenu.Arrival.Y}} </p>
+        <p ng-show="VoznjaZaIzmenu.CarType==0"> Car type: Passanger car</p>
+        <p ng-show="VoznjaZaIzmenu.CarType==1"> Car type: Van</p>
 
-    <p>Address: {{VoznjaZaIzmenu.Arrival.Address.AddressFormat}}</p>
-    <p>  {{VoznjaZaIzmenu.Arrival.X}}, {{VoznjaZaIzmenu.Arrival.X}} </p>
-    <p ng-show="VoznjaZaIzmenu.CarType==0"> Tip auta: Passanger car</p>
-    <p ng-show="VoznjaZaIzmenu.CarType==1"> Tip auta: Van</p>
+        <hr />
+        <!--<input id="lon" type="number" step="0.000001" class="t">-->
+        <h2>New data:</h2>
+        
+        <p>X: </p><span class="tspan form-control" id="lon">
+        </span>
+        <!--<input id="lat" type="number" step="0.000001" class="t">-->
 
+        <p>Y: </p><span class="tspan form-control" id="lat">
+        </span>
 
-    <input id="lon" type="number" step="0.000001" class="t">
+        <p>Address: </p><span class="tspan form-control" id="address">
+        </span>
 
-    <input id="lat" type="number" step="0.000001" class="t">
+        <br />
 
-    <span class="t" id="address">
-    </span>
+        <div class="form-group">
+            <select class="t form-control" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
+                <option value="" disabled>Choose a car type</option>
+                <option value="0"> Passanger car</option>
+                <option value="1">Van</option>
+            </select>
+        </div>
+        <br />
 
-    <br />
-
-    <div class="form-group">
-        <select class="t" id="tipVoznje" ng-model="drive.tipAuta" placeholder="CarType">
-            <option value="" disabled>Choose a car type</option>
-            <option value="0"> Passanger car</option>
-            <option value="1">Van</option>
-        </select>
+        <button ng-show="user.role==0" type="submit" class="btn button-success form-control" ng-click="ChangeDriveCustomer(drive)">Change drive</button>
     </div>
-    <br>
-
-    <button ng-show="user.role==0" type="submit" class="btn button-success" ng-click="ChangeDriveCustomer(drive)">Change drive</button>
 </div>

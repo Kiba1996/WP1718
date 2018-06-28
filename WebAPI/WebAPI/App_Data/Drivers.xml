@@ -1,57 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfDriver xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Driver>
-    <UserName>gengusa</UserName>
-    <Password>123</Password>
-    <Name>Tam</Name>
-    <Surname>gengusa</Surname>
-    <Gender>Male</Gender>
-    <JMBG>501997188925</JMBG>
-    <ContactPhoneNumber>4444444444</ContactPhoneNumber>
-    <Email>gica@yahoo.com</Email>
+    <UserName>coca</UserName>
+    <Password>coca</Password>
+    <Name>Coca</Name>
+    <Surname>Cola</Surname>
+    <Gender>Female</Gender>
+    <JMBG>3456789234567</JMBG>
+    <ContactPhoneNumber>34642</ContactPhoneNumber>
+    <Email>coca@gmail.com</Email>
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X>14.765630</X>
-      <Y>24.740176</Y>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
       <Address>
-        <AddressFormat>Capharaon, القطرون, Libya / ليبيا</AddressFormat>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
       </Address>
     </Location>
     <Car>
-      <Driver>gengusa</Driver>
-      <CarYear>2004</CarYear>
-      <RegistrationNumber>23jf4</RegistrationNumber>
+      <Driver>coca</Driver>
+      <CarYear>2009</CarYear>
+      <RegistrationNumber>sdea4</RegistrationNumber>
       <TaxiNumber>1</TaxiNumber>
-      <CarType>Van</CarType>
-    </Car>
-    <Zauzet>false</Zauzet>
-    <Blocked>false</Blocked>
-  </Driver>
-  <Driver>
-    <UserName>maca</UserName>
-    <Password>maca</Password>
-    <Name>Nevena</Name>
-    <Surname>Djurkovic</Surname>
-    <Gender>Male</Gender>
-    <JMBG>5678903412567</JMBG>
-    <ContactPhoneNumber>333333</ContactPhoneNumber>
-    <Email>maca123@gmail.com</Email>
-    <Role>Driver</Role>
-    <Drives />
-    <Location>
-      <X>11.337885</X>
-      <Y>43.771094</Y>
-      <Address>
-        <AddressFormat>Via Montegirone, I Carpi, Fiesole, FI, TOS, 50012, Italia</AddressFormat>
-      </Address>
-    </Location>
-    <Car>
-      <Driver>maca</Driver>
-      <CarYear>2000</CarYear>
-      <RegistrationNumber>64hd</RegistrationNumber>
-      <TaxiNumber>2</TaxiNumber>
-      <CarType>Van</CarType>
+      <CarType>PassengerCar</CarType>
     </Car>
     <Zauzet>false</Zauzet>
     <Blocked>false</Blocked>
@@ -62,26 +34,138 @@
     <Name>Jovan</Name>
     <Surname>Gajin</Surname>
     <Gender>Male</Gender>
-    <JMBG>2828174859312</JMBG>
-    <ContactPhoneNumber>232112434</ContactPhoneNumber>
-    <Email>joca@yahoo.com</Email>
+    <JMBG>9876456378932</JMBG>
+    <ContactPhoneNumber>98765426</ContactPhoneNumber>
+    <Email>joca@gmail.com</Email>
     <Role>Driver</Role>
     <Drives />
     <Location>
-      <X>10.781252</X>
-      <Y>44.757133</Y>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
       <Address>
-        <AddressFormat>Via Martiri di Cervarolo, Correggio, Pianura Reggiana, RE, EMR, 42018, Italia</AddressFormat>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
       </Address>
     </Location>
     <Car>
       <Driver>joca</Driver>
-      <CarYear>2003</CarYear>
-      <RegistrationNumber>23df4</RegistrationNumber>
+      <CarYear>1999</CarYear>
+      <RegistrationNumber>hg678d</RegistrationNumber>
+      <TaxiNumber>2</TaxiNumber>
+      <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>gica</UserName>
+    <Password>gica</Password>
+    <Name>Tamara</Name>
+    <Surname>Gengo</Surname>
+    <Gender>Female</Gender>
+    <JMBG>8763456234567</JMBG>
+    <ContactPhoneNumber>9876231</ContactPhoneNumber>
+    <Email>gica@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>gica</Driver>
+      <CarYear>2010</CarYear>
+      <RegistrationNumber>jhd8w</RegistrationNumber>
       <TaxiNumber>3</TaxiNumber>
       <CarType>PassengerCar</CarType>
     </Car>
-    <Zauzet>true</Zauzet>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>deki</UserName>
+    <Password>deki</Password>
+    <Name>Dejan</Name>
+    <Surname>Stajic</Surname>
+    <Gender>Male</Gender>
+    <JMBG>8765432678965</JMBG>
+    <ContactPhoneNumber>87645676</ContactPhoneNumber>
+    <Email>deki@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>deki</Driver>
+      <CarYear>2011</CarYear>
+      <RegistrationNumber>37ddj</RegistrationNumber>
+      <TaxiNumber>4</TaxiNumber>
+      <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>ana123</UserName>
+    <Password>ana</Password>
+    <Name>Ana</Name>
+    <Surname>Anisic</Surname>
+    <Gender>Female</Gender>
+    <JMBG>4567893456784</JMBG>
+    <ContactPhoneNumber>95837284</ContactPhoneNumber>
+    <Email>ana@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>ana123</Driver>
+      <CarYear>2007</CarYear>
+      <RegistrationNumber>hdy8s</RegistrationNumber>
+      <TaxiNumber>5</TaxiNumber>
+      <CarType>PassengerCar</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
+    <Blocked>false</Blocked>
+  </Driver>
+  <Driver>
+    <UserName>kap</UserName>
+    <Password>kap</Password>
+    <Name>Kapetan</Name>
+    <Surname>Ladje</Surname>
+    <Gender>Male</Gender>
+    <JMBG>7865467890287</JMBG>
+    <ContactPhoneNumber>768907</ContactPhoneNumber>
+    <Email>kap@gmail.com</Email>
+    <Role>Driver</Role>
+    <Drives />
+    <Location>
+      <X>19.849211</X>
+      <Y>45.242780</Y>
+      <Address>
+        <AddressFormat>10,Вељка Петровића,Лиман 1,Нови Сад,Град Нови Сад,Јужнобачки округ,Војводина,21102,Србија</AddressFormat>
+      </Address>
+    </Location>
+    <Car>
+      <Driver>kap</Driver>
+      <CarYear>1999</CarYear>
+      <RegistrationNumber>hdhyw8</RegistrationNumber>
+      <TaxiNumber>6</TaxiNumber>
+      <CarType>Van</CarType>
+    </Car>
+    <Zauzet>false</Zauzet>
     <Blocked>false</Blocked>
   </Driver>
 </ArrayOfDriver>
